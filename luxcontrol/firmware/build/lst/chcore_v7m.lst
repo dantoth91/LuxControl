@@ -1,0 +1,2657 @@
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 18, 4
+  12              		.thumb
+  13              		.file	"chcore_v7m.c"
+  14              		.section	.debug_abbrev,"",%progbits
+  15              	.Ldebug_abbrev0:
+  16              		.section	.debug_info,"",%progbits
+  17              	.Ldebug_info0:
+  18              		.section	.debug_line,"",%progbits
+  19              	.Ldebug_line0:
+  20 0000 51020000 		.text
+  20      02007401 
+  20      00000201 
+  20      FB0E0D00 
+  20      01010101 
+  21              	.Ltext0:
+  22              		.cfi_sections	.debug_frame
+  23              		.section	.text._port_switch_from_isr,"ax",%progbits
+  24              		.align	2
+  25              		.p2align 4,,15
+  26              		.global	_port_switch_from_isr
+  27              		.thumb
+  28              		.thumb_func
+  29              		.type	_port_switch_from_isr, %function
+  30              	_port_switch_from_isr:
+  31              	.LFB6:
+  32              		.file 1 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c"
+  33              		.loc 1 200 0
+  34              		.cfi_startproc
+  35              		@ Naked Function: prologue and epilogue provided by programmer.
+  36              		@ args = 0, pretend = 0, frame = 0
+  37              		@ frame_needed = 0, uses_anonymous_args = 0
+  38              		.loc 1 203 0
+  39 0000 FFF7FEFF 		bl	chSchDoReschedule
+  40              		.loc 1 205 0
+  41              	@ 205 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+  42              		_port_exit_from_isr:
+  43              	@ 0 "" 2
+  44              		.loc 1 207 0
+  45              	@ 207 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+  46 0004 00DF     		svc     #0
+  47              	@ 0 "" 2
+  48              		.loc 1 214 0
+  49              		.thumb
+  50              		.cfi_endproc
+  51              	.LFE6:
+  52              		.size	_port_switch_from_isr, .-_port_switch_from_isr
+  53 0006 00BFAFF3 		.section	.text.SVCallVector,"ax",%progbits
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 2
+
+
+  53      0080AFF3 
+  53      0080
+  54              		.align	2
+  55              		.p2align 4,,15
+  56              		.global	SVCallVector
+  57              		.thumb
+  58              		.thumb_func
+  59              		.type	SVCallVector, %function
+  60              	SVCallVector:
+  61              	.LFB1:
+  62              		.loc 1 58 0
+  63              		.cfi_startproc
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66 0000 00B5     		push	{lr}
+  67              	.LCFI0:
+  68              		.cfi_def_cfa_offset 4
+  69              		.loc 1 62 0
+  70              	@ 62 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+  71 0002 EFF30983 		mrs     r3, PSP
+  72              	@ 0 "" 2
+  73              	.LVL0:
+  74              		.loc 1 66 0
+  75              		.thumb
+  76 0006 2033     		adds	r3, r3, #32
+  77              	.LVL1:
+  78              		.loc 1 73 0
+  79              	@ 73 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+  80 0008 83F30988 		msr     PSP, r3
+  81              	@ 0 "" 2
+  82              		.loc 1 74 0
+  83              	@ 74 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+  84 000c FFF7FEFF 		bl      _port_unlock
+  85              	@ 0 "" 2
+  86              	.LVL2:
+  87              		.loc 1 75 0
+  88              		.thumb
+  89 0010 5DF804FB 		ldr	pc, [sp], #4
+  90              		.cfi_offset 14, -4
+  91              		.cfi_endproc
+  92              	.LFE1:
+  93              		.size	SVCallVector, .-SVCallVector
+  94 0014 AFF30080 		.section	.text._port_init,"ax",%progbits
+  94      AFF30080 
+  94      AFF30080 
+  95              		.align	2
+  96              		.p2align 4,,15
+  97              		.global	_port_init
+  98              		.thumb
+  99              		.thumb_func
+ 100              		.type	_port_init, %function
+ 101              	_port_init:
+ 102              	.LFB2:
+ 103              		.loc 1 111 0
+ 104              		.cfi_startproc
+ 105              		@ args = 0, pretend = 0, frame = 0
+ 106              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 3
+
+
+ 107              		.loc 1 114 0
+ 108 0000 0A4B     		ldr	r3, .L4
+ 109 0002 0022     		movs	r2, #0
+ 110              		.loc 1 111 0
+ 111 0004 10B5     		push	{r4, lr}
+ 112              	.LCFI1:
+ 113              		.cfi_def_cfa_offset 8
+ 114              		.loc 1 114 0
+ 115 0006 9A60     		str	r2, [r3, #8]
+ 116              		.loc 1 115 0
+ 117 0008 094A     		ldr	r2, .L4+4
+ 118              		.loc 1 118 0
+ 119 000a 0720     		movs	r0, #7
+ 120 000c 1021     		movs	r1, #16
+ 121              		.loc 1 115 0
+ 122 000e DA60     		str	r2, [r3, #12]
+ 123              		.loc 1 118 0
+ 124              		.cfi_offset 14, -4
+ 125              		.cfi_offset 4, -8
+ 126 0010 FFF7FEFF 		bl	nvicSetSystemHandlerPriority
+ 127              		.loc 1 120 0
+ 128 0014 0A20     		movs	r0, #10
+ 129 0016 4FF40071 		mov	r1, #512
+ 130 001a FFF7FEFF 		bl	nvicSetSystemHandlerPriority
+ 131              		.loc 1 122 0
+ 132 001e 0B20     		movs	r0, #11
+ 133 0020 8021     		movs	r1, #128
+ 134              		.loc 1 124 0
+ 135 0022 BDE81040 		pop	{r4, lr}
+ 136              		.loc 1 122 0
+ 137 0026 FFF7FEBF 		b	nvicSetSystemHandlerPriority
+ 138              	.L5:
+ 139 002a 00BF     		.align	2
+ 140              	.L4:
+ 141 002c 00ED00E0 		.word	-536810240
+ 142 0030 0003FA05 		.word	100270848
+ 143              		.cfi_endproc
+ 144              	.LFE2:
+ 145              		.size	_port_init, .-_port_init
+ 146 0034 AFF30080 		.section	.text._port_lock,"ax",%progbits
+ 146      AFF30080 
+ 146      AFF30080 
+ 147              		.align	2
+ 148              		.p2align 4,,15
+ 149              		.global	_port_lock
+ 150              		.thumb
+ 151              		.thumb_func
+ 152              		.type	_port_lock, %function
+ 153              	_port_lock:
+ 154              	.LFB3:
+ 155              		.loc 1 127 0
+ 156              		.cfi_startproc
+ 157              		@ args = 0, pretend = 0, frame = 0
+ 158              		@ frame_needed = 0, uses_anonymous_args = 0
+ 159              		@ link register save eliminated.
+ 160              		.loc 1 128 0
+ 161 0000 2023     		movs	r3, #32
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 4
+
+
+ 162              	.LVL3:
+ 163              		.loc 1 129 0
+ 164              	@ 129 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+ 165 0002 83F31188 		msr     BASEPRI, r3
+ 166              	@ 0 "" 2
+ 167              	.LVL4:
+ 168              		.loc 1 130 0
+ 169              		.thumb
+ 170 0006 7047     		bx	lr
+ 171              		.cfi_endproc
+ 172              	.LFE3:
+ 173              		.size	_port_lock, .-_port_lock
+ 174 0008 AFF30080 		.section	.text._port_unlock,"ax",%progbits
+ 174      AFF30080 
+ 175              		.align	2
+ 176              		.p2align 4,,15
+ 177              		.global	_port_unlock
+ 178              		.thumb
+ 179              		.thumb_func
+ 180              		.type	_port_unlock, %function
+ 181              	_port_unlock:
+ 182              	.LFB4:
+ 183              		.loc 1 132 0
+ 184              		.cfi_startproc
+ 185              		@ args = 0, pretend = 0, frame = 0
+ 186              		@ frame_needed = 0, uses_anonymous_args = 0
+ 187              		@ link register save eliminated.
+ 188              		.loc 1 133 0
+ 189 0000 0023     		movs	r3, #0
+ 190              	.LVL5:
+ 191              		.loc 1 134 0
+ 192              	@ 134 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+ 193 0002 83F31188 		msr     BASEPRI, r3
+ 194              	@ 0 "" 2
+ 195              	.LVL6:
+ 196              		.loc 1 135 0
+ 197              		.thumb
+ 198 0006 7047     		bx	lr
+ 199              		.cfi_endproc
+ 200              	.LFE4:
+ 201              		.size	_port_unlock, .-_port_unlock
+ 202 0008 AFF30080 		.section	.text._port_irq_epilogue,"ax",%progbits
+ 202      AFF30080 
+ 203              		.align	2
+ 204              		.p2align 4,,15
+ 205              		.global	_port_irq_epilogue
+ 206              		.thumb
+ 207              		.thumb_func
+ 208              		.type	_port_irq_epilogue, %function
+ 209              	_port_irq_epilogue:
+ 210              	.LFB5:
+ 211              		.loc 1 141 0
+ 212              		.cfi_startproc
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215 0000 00B5     		push	{lr}
+ 216              	.LCFI2:
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 5
+
+
+ 217              		.cfi_def_cfa_offset 4
+ 218              		.loc 1 143 0
+ 219              	@ 143 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+ 220 0002 FFF7FEFF 		bl      _port_lock
+ 221              	@ 0 "" 2
+ 222              		.loc 1 144 0
+ 223              		.thumb
+ 224 0006 1748     		ldr	r0, .L16
+ 225 0008 4368     		ldr	r3, [r0, #4]
+ 226 000a 13F4006F 		tst	r3, #2048
+ 227 000e 17D0     		beq	.L9
+ 228              		.cfi_offset 14, -4
+ 229              	.LBB2:
+ 230              		.loc 1 148 0
+ 231              	@ 148 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+ 232 0010 EFF30983 		mrs     r3, PSP
+ 233              	@ 0 "" 2
+ 234              	.LVL7:
+ 235              		.loc 1 152 0
+ 236              		.thumb
+ 237 0014 203B     		subs	r3, r3, #32
+ 238              	.LVL8:
+ 239              		.loc 1 153 0
+ 240              	@ 153 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+ 241 0016 83F30988 		msr     PSP, r3
+ 242              	@ 0 "" 2
+ 243              		.loc 1 158 0
+ 244              		.thumb
+ 245 001a 1349     		ldr	r1, .L16+4
+ 246              		.loc 1 154 0
+ 247 001c 4FF08070 		mov	r0, #16777216
+ 248              		.loc 1 158 0
+ 249 0020 8A69     		ldr	r2, [r1, #24]
+ 250              		.loc 1 154 0
+ 251 0022 D861     		str	r0, [r3, #28]
+ 252              		.loc 1 158 0
+ 253 0024 D07F     		ldrb	r0, [r2, #31]	@ zero_extendqisi2
+ 254 0026 78B1     		cbz	r0, .L10
+ 255              		.loc 1 158 0 is_stmt 0 discriminator 1
+ 256 0028 0868     		ldr	r0, [r1, #0]
+ 257 002a 9268     		ldr	r2, [r2, #8]
+ 258 002c 8168     		ldr	r1, [r0, #8]
+ 259 002e 9142     		cmp	r1, r2
+ 260 0030 94BF     		ite	ls
+ 261 0032 0022     		movls	r2, #0
+ 262 0034 0122     		movhi	r2, #1
+ 263 0036 82B1     		cbz	r2, .L12
+ 264              	.L15:
+ 265              		.loc 1 160 0 is_stmt 1
+ 266 0038 0C4A     		ldr	r2, .L16+8
+ 267 003a 9A61     		str	r2, [r3, #24]
+ 268 003c 5DF804FB 		ldr	pc, [sp], #4
+ 269              	.LVL9:
+ 270              	.L9:
+ 271              	.LBE2:
+ 272              		.loc 1 190 0
+ 273              	@ 190 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 6
+
+
+ 274 0040 FFF7FEFF 		bl      _port_unlock
+ 275              	@ 0 "" 2
+ 276              		.thumb
+ 277 0044 5DF804FB 		ldr	pc, [sp], #4
+ 278              	.LVL10:
+ 279              	.L10:
+ 280              	.LBB3:
+ 281              		.loc 1 158 0 discriminator 2
+ 282 0048 0868     		ldr	r0, [r1, #0]
+ 283 004a 9268     		ldr	r2, [r2, #8]
+ 284 004c 8168     		ldr	r1, [r0, #8]
+ 285 004e 9142     		cmp	r1, r2
+ 286 0050 34BF     		ite	cc
+ 287 0052 0022     		movcc	r2, #0
+ 288 0054 0122     		movcs	r2, #1
+ 289 0056 002A     		cmp	r2, #0
+ 290 0058 EED1     		bne	.L15
+ 291              	.L12:
+ 292              		.loc 1 169 0
+ 293 005a 0549     		ldr	r1, .L16+12
+ 294 005c 9961     		str	r1, [r3, #24]
+ 295 005e 5DF804FB 		ldr	pc, [sp], #4
+ 296              	.L17:
+ 297 0062 00BF     		.align	2
+ 298              	.L16:
+ 299 0064 00ED00E0 		.word	-536810240
+ 300 0068 00000000 		.word	rlist
+ 301 006c 00000000 		.word	_port_switch_from_isr
+ 302 0070 04000000 		.word	_port_exit_from_isr
+ 303              	.LBE3:
+ 304              		.cfi_endproc
+ 305              	.LFE5:
+ 306              		.size	_port_irq_epilogue, .-_port_irq_epilogue
+ 307 0074 AFF30080 		.section	.text.SysTickVector,"ax",%progbits
+ 307      AFF30080 
+ 307      AFF30080 
+ 308              		.align	2
+ 309              		.p2align 4,,15
+ 310              		.global	SysTickVector
+ 311              		.thumb
+ 312              		.thumb_func
+ 313              		.type	SysTickVector, %function
+ 314              	SysTickVector:
+ 315              	.LFB0:
+ 316              		.loc 1 40 0
+ 317              		.cfi_startproc
+ 318              		@ args = 0, pretend = 0, frame = 0
+ 319              		@ frame_needed = 0, uses_anonymous_args = 0
+ 320 0000 10B5     		push	{r4, lr}
+ 321              	.LCFI3:
+ 322              		.cfi_def_cfa_offset 8
+ 323              		.loc 1 44 0
+ 324              	@ 44 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+ 325 0002 FFF7FEFF 		bl      _port_lock
+ 326              	@ 0 "" 2
+ 327              		.loc 1 45 0
+ 328              		.thumb
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 7
+
+
+ 329              		.cfi_offset 14, -4
+ 330              		.cfi_offset 4, -8
+ 331 0006 FFF7FEFF 		bl	chSysTimerHandlerI
+ 332              		.loc 1 46 0
+ 333              	@ 46 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+ 334 000a FFF7FEFF 		bl      _port_unlock
+ 335              	@ 0 "" 2
+ 336              		.loc 1 49 0
+ 337              		.thumb
+ 338 000e BDE81040 		pop	{r4, lr}
+ 339              		.loc 1 48 0
+ 340 0012 FFF7FEBF 		b	_port_irq_epilogue
+ 341              		.cfi_endproc
+ 342              	.LFE0:
+ 343              		.size	SysTickVector, .-SysTickVector
+ 344 0016 00BFAFF3 		.section	.text._port_switch,"ax",%progbits
+ 344      0080AFF3 
+ 344      0080
+ 345              		.align	2
+ 346              		.p2align 4,,15
+ 347              		.global	_port_switch
+ 348              		.thumb
+ 349              		.thumb_func
+ 350              		.type	_port_switch, %function
+ 351              	_port_switch:
+ 352              	.LFB7:
+ 353              		.loc 1 229 0
+ 354              		.cfi_startproc
+ 355              		@ Naked Function: prologue and epilogue provided by programmer.
+ 356              		@ args = 0, pretend = 0, frame = 0
+ 357              		@ frame_needed = 0, uses_anonymous_args = 0
+ 358              	.LVL11:
+ 359              		.loc 1 231 0
+ 360              	@ 231 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+ 361 0000 2DE9F04F 		push    {r4, r5, r6, r7, r8, r9, r10, r11, lr}
+ 362              	@ 0 "" 2
+ 363              		.loc 1 237 0
+ 364              	@ 237 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+ 365 0004 C1F80CD0 		str     sp, [r1, #12]                          
+ 366 0008 D0F80CD0 		ldr     sp, [r0, #12]
+ 367              	@ 0 "" 2
+ 368              		.loc 1 243 0
+ 369              	@ 243 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+ 370 000c BDE8F08F 		pop     {r4, r5, r6, r7, r8, r9, r10, r11, pc}
+ 371              	@ 0 "" 2
+ 372              		.loc 1 245 0
+ 373              		.thumb
+ 374              		.cfi_endproc
+ 375              	.LFE7:
+ 376              		.size	_port_switch, .-_port_switch
+ 377              		.section	.text._port_thread_start,"ax",%progbits
+ 378              		.align	2
+ 379              		.p2align 4,,15
+ 380              		.global	_port_thread_start
+ 381              		.thumb
+ 382              		.thumb_func
+ 383              		.type	_port_thread_start, %function
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 8
+
+
+ 384              	_port_thread_start:
+ 385              	.LFB8:
+ 386              		.loc 1 252 0
+ 387              		.cfi_startproc
+ 388              		@ args = 0, pretend = 0, frame = 0
+ 389              		@ frame_needed = 0, uses_anonymous_args = 0
+ 390 0000 00B5     		push	{lr}
+ 391              	.LCFI4:
+ 392              		.cfi_def_cfa_offset 4
+ 393              		.loc 1 254 0
+ 394              	@ 254 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+ 395 0002 FFF7FEFF 		bl      _port_unlock
+ 396              	@ 0 "" 2
+ 397              		.loc 1 255 0
+ 398              	@ 255 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c" 1
+ 399 0006 2846     		mov     r0, r5                                 
+ 400 0008 A047     		blx     r4                                     
+ 401 000a FFF7FEFF 		bl      chThdExit
+ 402              	@ 0 "" 2
+ 403              		.loc 1 258 0
+ 404              		.thumb
+ 405 000e 5DF804FB 		ldr	pc, [sp], #4
+ 406              		.cfi_offset 14, -4
+ 407              		.cfi_endproc
+ 408              	.LFE8:
+ 409              		.size	_port_thread_start, .-_port_thread_start
+ 410 0012 00BFAFF3 		.text
+ 410      0080AFF3 
+ 410      0080AFF3 
+ 410      0080
+ 411              	.Letext0:
+ 412              		.section	.debug_loc,"",%progbits
+ 413              	.Ldebug_loc0:
+ 414              	.LLST0:
+ 415 0000 00000000 		.4byte	.LFB1
+ 416 0004 02000000 		.4byte	.LCFI0
+ 417 0008 0200     		.2byte	0x2
+ 418 000a 7D       		.byte	0x7d
+ 419 000b 00       		.sleb128 0
+ 420 000c 02000000 		.4byte	.LCFI0
+ 421 0010 14000000 		.4byte	.LFE1
+ 422 0014 0200     		.2byte	0x2
+ 423 0016 7D       		.byte	0x7d
+ 424 0017 04       		.sleb128 4
+ 425 0018 00000000 		.4byte	0x0
+ 426 001c 00000000 		.4byte	0x0
+ 427              	.LLST1:
+ 428 0020 06000000 		.4byte	.LVL0
+ 429 0024 08000000 		.4byte	.LVL1
+ 430 0028 0300     		.2byte	0x3
+ 431 002a 73       		.byte	0x73
+ 432 002b 20       		.sleb128 32
+ 433 002c 9F       		.byte	0x9f
+ 434 002d 08000000 		.4byte	.LVL1
+ 435 0031 10000000 		.4byte	.LVL2
+ 436 0035 0100     		.2byte	0x1
+ 437 0037 53       		.byte	0x53
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 9
+
+
+ 438 0038 00000000 		.4byte	0x0
+ 439 003c 00000000 		.4byte	0x0
+ 440              	.LLST2:
+ 441 0040 00000000 		.4byte	.LFB2
+ 442 0044 06000000 		.4byte	.LCFI1
+ 443 0048 0200     		.2byte	0x2
+ 444 004a 7D       		.byte	0x7d
+ 445 004b 00       		.sleb128 0
+ 446 004c 06000000 		.4byte	.LCFI1
+ 447 0050 34000000 		.4byte	.LFE2
+ 448 0054 0200     		.2byte	0x2
+ 449 0056 7D       		.byte	0x7d
+ 450 0057 08       		.sleb128 8
+ 451 0058 00000000 		.4byte	0x0
+ 452 005c 00000000 		.4byte	0x0
+ 453              	.LLST3:
+ 454 0060 06000000 		.4byte	.LVL4
+ 455 0064 08000000 		.4byte	.LFE3
+ 456 0068 0100     		.2byte	0x1
+ 457 006a 53       		.byte	0x53
+ 458 006b 00000000 		.4byte	0x0
+ 459 006f 00000000 		.4byte	0x0
+ 460              	.LLST4:
+ 461 0073 06000000 		.4byte	.LVL6
+ 462 0077 08000000 		.4byte	.LFE4
+ 463 007b 0100     		.2byte	0x1
+ 464 007d 53       		.byte	0x53
+ 465 007e 00000000 		.4byte	0x0
+ 466 0082 00000000 		.4byte	0x0
+ 467              	.LLST5:
+ 468 0086 00000000 		.4byte	.LFB5
+ 469 008a 02000000 		.4byte	.LCFI2
+ 470 008e 0200     		.2byte	0x2
+ 471 0090 7D       		.byte	0x7d
+ 472 0091 00       		.sleb128 0
+ 473 0092 02000000 		.4byte	.LCFI2
+ 474 0096 74000000 		.4byte	.LFE5
+ 475 009a 0200     		.2byte	0x2
+ 476 009c 7D       		.byte	0x7d
+ 477 009d 04       		.sleb128 4
+ 478 009e 00000000 		.4byte	0x0
+ 479 00a2 00000000 		.4byte	0x0
+ 480              	.LLST6:
+ 481 00a6 14000000 		.4byte	.LVL7
+ 482 00aa 16000000 		.4byte	.LVL8
+ 483 00ae 0100     		.2byte	0x1
+ 484 00b0 53       		.byte	0x53
+ 485 00b1 16000000 		.4byte	.LVL8
+ 486 00b5 40000000 		.4byte	.LVL9
+ 487 00b9 0100     		.2byte	0x1
+ 488 00bb 53       		.byte	0x53
+ 489 00bc 48000000 		.4byte	.LVL10
+ 490 00c0 74000000 		.4byte	.LFE5
+ 491 00c4 0100     		.2byte	0x1
+ 492 00c6 53       		.byte	0x53
+ 493 00c7 00000000 		.4byte	0x0
+ 494 00cb 00000000 		.4byte	0x0
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 10
+
+
+ 495              	.LLST7:
+ 496 00cf 00000000 		.4byte	.LFB0
+ 497 00d3 02000000 		.4byte	.LCFI3
+ 498 00d7 0200     		.2byte	0x2
+ 499 00d9 7D       		.byte	0x7d
+ 500 00da 00       		.sleb128 0
+ 501 00db 02000000 		.4byte	.LCFI3
+ 502 00df 16000000 		.4byte	.LFE0
+ 503 00e3 0200     		.2byte	0x2
+ 504 00e5 7D       		.byte	0x7d
+ 505 00e6 08       		.sleb128 8
+ 506 00e7 00000000 		.4byte	0x0
+ 507 00eb 00000000 		.4byte	0x0
+ 508              	.LLST8:
+ 509 00ef 00000000 		.4byte	.LFB8
+ 510 00f3 02000000 		.4byte	.LCFI4
+ 511 00f7 0200     		.2byte	0x2
+ 512 00f9 7D       		.byte	0x7d
+ 513 00fa 00       		.sleb128 0
+ 514 00fb 02000000 		.4byte	.LCFI4
+ 515 00ff 12000000 		.4byte	.LFE8
+ 516 0103 0200     		.2byte	0x2
+ 517 0105 7D       		.byte	0x7d
+ 518 0106 04       		.sleb128 4
+ 519 0107 00000000 		.4byte	0x0
+ 520 010b 00000000 		.4byte	0x0
+ 521              		.file 2 "c:\\program files (x86)\\codesourcery\\sourcery g++ lite\\bin\\../lib/gcc/arm-none-eabi/4
+ 522              		.file 3 "../../../ChibiOS/os/ports/GCC/ARMCMx/chtypes.h"
+ 523              		.file 4 "../../../ChibiOS/os/kernel/include/chlists.h"
+ 524              		.file 5 "../../../ChibiOS/os/kernel/include/chthreads.h"
+ 525              		.file 6 "../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.h"
+ 526              		.file 7 "../../../ChibiOS/os/ports/common/ARMCMx/nvic.h"
+ 527              		.file 8 "../../../ChibiOS/os/kernel/include/chschd.h"
+ 528              		.file 9 "../../../ChibiOS/os/kernel/include/chmtx.h"
+ 529              		.section	.debug_info
+ 530 0000 8C070000 		.4byte	0x78c
+ 531 0004 0200     		.2byte	0x2
+ 532 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 533 000a 04       		.byte	0x4
+ 534 000b 01       		.uleb128 0x1
+ 535 000c 95030000 		.4byte	.LASF91
+ 536 0010 01       		.byte	0x1
+ 537 0011 7A000000 		.4byte	.LASF92
+ 538 0015 0F020000 		.4byte	.LASF93
+ 539 0019 00000000 		.4byte	0x0
+ 540 001d 00000000 		.4byte	0x0
+ 541 0021 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 542 0025 00000000 		.4byte	.Ldebug_line0
+ 543 0029 02       		.uleb128 0x2
+ 544 002a 04       		.byte	0x4
+ 545 002b 05       		.byte	0x5
+ 546 002c 696E7400 		.ascii	"int\000"
+ 547 0030 03       		.uleb128 0x3
+ 548 0031 04       		.byte	0x4
+ 549 0032 07       		.byte	0x7
+ 550 0033 F9000000 		.4byte	.LASF0
+ 551 0037 03       		.uleb128 0x3
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 11
+
+
+ 552 0038 01       		.byte	0x1
+ 553 0039 06       		.byte	0x6
+ 554 003a 5E000000 		.4byte	.LASF1
+ 555 003e 04       		.uleb128 0x4
+ 556 003f 7B030000 		.4byte	.LASF5
+ 557 0043 02       		.byte	0x2
+ 558 0044 2A       		.byte	0x2a
+ 559 0045 49000000 		.4byte	0x49
+ 560 0049 03       		.uleb128 0x3
+ 561 004a 01       		.byte	0x1
+ 562 004b 08       		.byte	0x8
+ 563 004c 7A020000 		.4byte	.LASF2
+ 564 0050 03       		.uleb128 0x3
+ 565 0051 02       		.byte	0x2
+ 566 0052 05       		.byte	0x5
+ 567 0053 98020000 		.4byte	.LASF3
+ 568 0057 03       		.uleb128 0x3
+ 569 0058 02       		.byte	0x2
+ 570 0059 07       		.byte	0x7
+ 571 005a 56010000 		.4byte	.LASF4
+ 572 005e 04       		.uleb128 0x4
+ 573 005f 72020000 		.4byte	.LASF6
+ 574 0063 02       		.byte	0x2
+ 575 0064 4F       		.byte	0x4f
+ 576 0065 69000000 		.4byte	0x69
+ 577 0069 03       		.uleb128 0x3
+ 578 006a 04       		.byte	0x4
+ 579 006b 05       		.byte	0x5
+ 580 006c B6000000 		.4byte	.LASF7
+ 581 0070 04       		.uleb128 0x4
+ 582 0071 E8020000 		.4byte	.LASF8
+ 583 0075 02       		.byte	0x2
+ 584 0076 50       		.byte	0x50
+ 585 0077 7B000000 		.4byte	0x7b
+ 586 007b 03       		.uleb128 0x3
+ 587 007c 04       		.byte	0x4
+ 588 007d 07       		.byte	0x7
+ 589 007e 21010000 		.4byte	.LASF9
+ 590 0082 03       		.uleb128 0x3
+ 591 0083 08       		.byte	0x8
+ 592 0084 05       		.byte	0x5
+ 593 0085 50000000 		.4byte	.LASF10
+ 594 0089 03       		.uleb128 0x3
+ 595 008a 08       		.byte	0x8
+ 596 008b 07       		.byte	0x7
+ 597 008c 23000000 		.4byte	.LASF11
+ 598 0090 04       		.uleb128 0x4
+ 599 0091 98010000 		.4byte	.LASF12
+ 600 0095 03       		.byte	0x3
+ 601 0096 28       		.byte	0x28
+ 602 0097 3E000000 		.4byte	0x3e
+ 603 009b 04       		.uleb128 0x4
+ 604 009c BF000000 		.4byte	.LASF13
+ 605 00a0 03       		.byte	0x3
+ 606 00a1 29       		.byte	0x29
+ 607 00a2 3E000000 		.4byte	0x3e
+ 608 00a6 04       		.uleb128 0x4
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 12
+
+
+ 609 00a7 F0010000 		.4byte	.LASF14
+ 610 00ab 03       		.byte	0x3
+ 611 00ac 2A       		.byte	0x2a
+ 612 00ad 3E000000 		.4byte	0x3e
+ 613 00b1 04       		.uleb128 0x4
+ 614 00b2 AC000000 		.4byte	.LASF15
+ 615 00b6 03       		.byte	0x3
+ 616 00b7 2B       		.byte	0x2b
+ 617 00b8 3E000000 		.4byte	0x3e
+ 618 00bc 04       		.uleb128 0x4
+ 619 00bd 6A020000 		.4byte	.LASF16
+ 620 00c1 03       		.byte	0x3
+ 621 00c2 2C       		.byte	0x2c
+ 622 00c3 70000000 		.4byte	0x70
+ 623 00c7 04       		.uleb128 0x4
+ 624 00c8 6E010000 		.4byte	.LASF17
+ 625 00cc 03       		.byte	0x3
+ 626 00cd 2D       		.byte	0x2d
+ 627 00ce 5E000000 		.4byte	0x5e
+ 628 00d2 04       		.uleb128 0x4
+ 629 00d3 AC010000 		.4byte	.LASF18
+ 630 00d7 03       		.byte	0x3
+ 631 00d8 2F       		.byte	0x2f
+ 632 00d9 70000000 		.4byte	0x70
+ 633 00dd 04       		.uleb128 0x4
+ 634 00de 12030000 		.4byte	.LASF19
+ 635 00e2 03       		.byte	0x3
+ 636 00e3 31       		.byte	0x31
+ 637 00e4 70000000 		.4byte	0x70
+ 638 00e8 04       		.uleb128 0x4
+ 639 00e9 D6020000 		.4byte	.LASF20
+ 640 00ed 04       		.byte	0x4
+ 641 00ee 23       		.byte	0x23
+ 642 00ef F3000000 		.4byte	0xf3
+ 643 00f3 05       		.uleb128 0x5
+ 644 00f4 D6020000 		.4byte	.LASF20
+ 645 00f8 48       		.byte	0x48
+ 646 00f9 05       		.byte	0x5
+ 647 00fa 57       		.byte	0x57
+ 648 00fb 18020000 		.4byte	0x218
+ 649 00ff 06       		.uleb128 0x6
+ 650 0100 C7020000 		.4byte	.LASF21
+ 651 0104 05       		.byte	0x5
+ 652 0105 58       		.byte	0x58
+ 653 0106 3D020000 		.4byte	0x23d
+ 654 010a 02       		.byte	0x2
+ 655 010b 23       		.byte	0x23
+ 656 010c 00       		.uleb128 0x0
+ 657 010d 06       		.uleb128 0x6
+ 658 010e 08020000 		.4byte	.LASF22
+ 659 0112 05       		.byte	0x5
+ 660 0113 5A       		.byte	0x5a
+ 661 0114 3D020000 		.4byte	0x23d
+ 662 0118 02       		.byte	0x2
+ 663 0119 23       		.byte	0x23
+ 664 011a 04       		.uleb128 0x4
+ 665 011b 06       		.uleb128 0x6
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 13
+
+
+ 666 011c 49000000 		.4byte	.LASF23
+ 667 0120 05       		.byte	0x5
+ 668 0121 5C       		.byte	0x5c
+ 669 0122 BC000000 		.4byte	0xbc
+ 670 0126 02       		.byte	0x2
+ 671 0127 23       		.byte	0x23
+ 672 0128 08       		.uleb128 0x8
+ 673 0129 06       		.uleb128 0x6
+ 674 012a BB030000 		.4byte	.LASF24
+ 675 012e 05       		.byte	0x5
+ 676 012f 5D       		.byte	0x5d
+ 677 0130 83030000 		.4byte	0x383
+ 678 0134 02       		.byte	0x2
+ 679 0135 23       		.byte	0x23
+ 680 0136 0C       		.uleb128 0xc
+ 681 0137 06       		.uleb128 0x6
+ 682 0138 DB000000 		.4byte	.LASF25
+ 683 013c 05       		.byte	0x5
+ 684 013d 5F       		.byte	0x5f
+ 685 013e 3D020000 		.4byte	0x23d
+ 686 0142 02       		.byte	0x2
+ 687 0143 23       		.byte	0x23
+ 688 0144 10       		.uleb128 0x10
+ 689 0145 06       		.uleb128 0x6
+ 690 0146 C3010000 		.4byte	.LASF26
+ 691 014a 05       		.byte	0x5
+ 692 014b 60       		.byte	0x60
+ 693 014c 3D020000 		.4byte	0x23d
+ 694 0150 02       		.byte	0x2
+ 695 0151 23       		.byte	0x23
+ 696 0152 14       		.uleb128 0x14
+ 697 0153 06       		.uleb128 0x6
+ 698 0154 A1030000 		.4byte	.LASF27
+ 699 0158 05       		.byte	0x5
+ 700 0159 67       		.byte	0x67
+ 701 015a 29060000 		.4byte	0x629
+ 702 015e 02       		.byte	0x2
+ 703 015f 23       		.byte	0x23
+ 704 0160 18       		.uleb128 0x18
+ 705 0161 06       		.uleb128 0x6
+ 706 0162 A2020000 		.4byte	.LASF28
+ 707 0166 05       		.byte	0x5
+ 708 0167 72       		.byte	0x72
+ 709 0168 9B000000 		.4byte	0x9b
+ 710 016c 02       		.byte	0x2
+ 711 016d 23       		.byte	0x23
+ 712 016e 1C       		.uleb128 0x1c
+ 713 016f 06       		.uleb128 0x6
+ 714 0170 CE020000 		.4byte	.LASF29
+ 715 0174 05       		.byte	0x5
+ 716 0175 76       		.byte	0x76
+ 717 0176 90000000 		.4byte	0x90
+ 718 017a 02       		.byte	0x2
+ 719 017b 23       		.byte	0x23
+ 720 017c 1D       		.uleb128 0x1d
+ 721 017d 06       		.uleb128 0x6
+ 722 017e 5F030000 		.4byte	.LASF30
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 14
+
+
+ 723 0182 05       		.byte	0x5
+ 724 0183 7B       		.byte	0x7b
+ 725 0184 A6000000 		.4byte	0xa6
+ 726 0188 02       		.byte	0x2
+ 727 0189 23       		.byte	0x23
+ 728 018a 1E       		.uleb128 0x1e
+ 729 018b 06       		.uleb128 0x6
+ 730 018c AA020000 		.4byte	.LASF31
+ 731 0190 05       		.byte	0x5
+ 732 0191 81       		.byte	0x81
+ 733 0192 B1000000 		.4byte	0xb1
+ 734 0196 02       		.byte	0x2
+ 735 0197 23       		.byte	0x23
+ 736 0198 1F       		.uleb128 0x1f
+ 737 0199 06       		.uleb128 0x6
+ 738 019a 41030000 		.4byte	.LASF32
+ 739 019e 05       		.byte	0x5
+ 740 019f 88       		.byte	0x88
+ 741 01a0 3F050000 		.4byte	0x53f
+ 742 01a4 02       		.byte	0x2
+ 743 01a5 23       		.byte	0x23
+ 744 01a6 20       		.uleb128 0x20
+ 745 01a7 07       		.uleb128 0x7
+ 746 01a8 705F7500 		.ascii	"p_u\000"
+ 747 01ac 05       		.byte	0x5
+ 748 01ad AD       		.byte	0xad
+ 749 01ae F4050000 		.4byte	0x5f4
+ 750 01b2 02       		.byte	0x2
+ 751 01b3 23       		.byte	0x23
+ 752 01b4 24       		.uleb128 0x24
+ 753 01b5 06       		.uleb128 0x6
+ 754 01b6 C1030000 		.4byte	.LASF33
+ 755 01ba 05       		.byte	0x5
+ 756 01bb B2       		.byte	0xb2
+ 757 01bc 65020000 		.4byte	0x265
+ 758 01c0 02       		.byte	0x2
+ 759 01c1 23       		.byte	0x23
+ 760 01c2 28       		.uleb128 0x28
+ 761 01c3 06       		.uleb128 0x6
+ 762 01c4 54030000 		.4byte	.LASF34
+ 763 01c8 05       		.byte	0x5
+ 764 01c9 B8       		.byte	0xb8
+ 765 01ca 43020000 		.4byte	0x243
+ 766 01ce 02       		.byte	0x2
+ 767 01cf 23       		.byte	0x23
+ 768 01d0 2C       		.uleb128 0x2c
+ 769 01d1 06       		.uleb128 0x6
+ 770 01d2 00000000 		.4byte	.LASF35
+ 771 01d6 05       		.byte	0x5
+ 772 01d7 BC       		.byte	0xbc
+ 773 01d8 C7000000 		.4byte	0xc7
+ 774 01dc 02       		.byte	0x2
+ 775 01dd 23       		.byte	0x23
+ 776 01de 34       		.uleb128 0x34
+ 777 01df 06       		.uleb128 0x6
+ 778 01e0 DD020000 		.4byte	.LASF36
+ 779 01e4 05       		.byte	0x5
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 15
+
+
+ 780 01e5 C2       		.byte	0xc2
+ 781 01e6 D2000000 		.4byte	0xd2
+ 782 01ea 02       		.byte	0x2
+ 783 01eb 23       		.byte	0x23
+ 784 01ec 38       		.uleb128 0x38
+ 785 01ed 06       		.uleb128 0x6
+ 786 01ee 8E020000 		.4byte	.LASF37
+ 787 01f2 05       		.byte	0x5
+ 788 01f3 C9       		.byte	0xc9
+ 789 01f4 3B060000 		.4byte	0x63b
+ 790 01f8 02       		.byte	0x2
+ 791 01f9 23       		.byte	0x23
+ 792 01fa 3C       		.uleb128 0x3c
+ 793 01fb 06       		.uleb128 0x6
+ 794 01fc 1C030000 		.4byte	.LASF38
+ 795 0200 05       		.byte	0x5
+ 796 0201 CD       		.byte	0xcd
+ 797 0202 BC000000 		.4byte	0xbc
+ 798 0206 02       		.byte	0x2
+ 799 0207 23       		.byte	0x23
+ 800 0208 40       		.uleb128 0x40
+ 801 0209 06       		.uleb128 0x6
+ 802 020a 6A000000 		.4byte	.LASF39
+ 803 020e 05       		.byte	0x5
+ 804 020f D3       		.byte	0xd3
+ 805 0210 7B020000 		.4byte	0x27b
+ 806 0214 02       		.byte	0x2
+ 807 0215 23       		.byte	0x23
+ 808 0216 44       		.uleb128 0x44
+ 809 0217 00       		.byte	0x0
+ 810 0218 08       		.uleb128 0x8
+ 811 0219 08       		.byte	0x8
+ 812 021a 04       		.byte	0x4
+ 813 021b 5A       		.byte	0x5a
+ 814 021c 3D020000 		.4byte	0x23d
+ 815 0220 06       		.uleb128 0x6
+ 816 0221 C7020000 		.4byte	.LASF21
+ 817 0225 04       		.byte	0x4
+ 818 0226 5B       		.byte	0x5b
+ 819 0227 3D020000 		.4byte	0x23d
+ 820 022b 02       		.byte	0x2
+ 821 022c 23       		.byte	0x23
+ 822 022d 00       		.uleb128 0x0
+ 823 022e 06       		.uleb128 0x6
+ 824 022f 08020000 		.4byte	.LASF22
+ 825 0233 04       		.byte	0x4
+ 826 0234 5D       		.byte	0x5d
+ 827 0235 3D020000 		.4byte	0x23d
+ 828 0239 02       		.byte	0x2
+ 829 023a 23       		.byte	0x23
+ 830 023b 04       		.uleb128 0x4
+ 831 023c 00       		.byte	0x0
+ 832 023d 09       		.uleb128 0x9
+ 833 023e 04       		.byte	0x4
+ 834 023f E8000000 		.4byte	0xe8
+ 835 0243 04       		.uleb128 0x4
+ 836 0244 D1010000 		.4byte	.LASF40
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 16
+
+
+ 837 0248 04       		.byte	0x4
+ 838 0249 5F       		.byte	0x5f
+ 839 024a 18020000 		.4byte	0x218
+ 840 024e 08       		.uleb128 0x8
+ 841 024f 04       		.byte	0x4
+ 842 0250 04       		.byte	0x4
+ 843 0251 64       		.byte	0x64
+ 844 0252 65020000 		.4byte	0x265
+ 845 0256 06       		.uleb128 0x6
+ 846 0257 C7020000 		.4byte	.LASF21
+ 847 025b 04       		.byte	0x4
+ 848 025c 66       		.byte	0x66
+ 849 025d 3D020000 		.4byte	0x23d
+ 850 0261 02       		.byte	0x2
+ 851 0262 23       		.byte	0x23
+ 852 0263 00       		.uleb128 0x0
+ 853 0264 00       		.byte	0x0
+ 854 0265 04       		.uleb128 0x4
+ 855 0266 A0010000 		.4byte	.LASF41
+ 856 026a 04       		.byte	0x4
+ 857 026b 69       		.byte	0x69
+ 858 026c 4E020000 		.4byte	0x24e
+ 859 0270 04       		.uleb128 0x4
+ 860 0271 F0000000 		.4byte	.LASF42
+ 861 0275 06       		.byte	0x6
+ 862 0276 DE       		.byte	0xde
+ 863 0277 7B020000 		.4byte	0x27b
+ 864 027b 0A       		.uleb128 0xa
+ 865 027c 04       		.byte	0x4
+ 866 027d 05       		.uleb128 0x5
+ 867 027e 0D010000 		.4byte	.LASF43
+ 868 0282 20       		.byte	0x20
+ 869 0283 06       		.byte	0x6
+ 870 0284 E6       		.byte	0xe6
+ 871 0285 F5020000 		.4byte	0x2f5
+ 872 0289 07       		.uleb128 0x7
+ 873 028a 723000   		.ascii	"r0\000"
+ 874 028d 06       		.byte	0x6
+ 875 028e E7       		.byte	0xe7
+ 876 028f 70020000 		.4byte	0x270
+ 877 0293 02       		.byte	0x2
+ 878 0294 23       		.byte	0x23
+ 879 0295 00       		.uleb128 0x0
+ 880 0296 07       		.uleb128 0x7
+ 881 0297 723100   		.ascii	"r1\000"
+ 882 029a 06       		.byte	0x6
+ 883 029b E8       		.byte	0xe8
+ 884 029c 70020000 		.4byte	0x270
+ 885 02a0 02       		.byte	0x2
+ 886 02a1 23       		.byte	0x23
+ 887 02a2 04       		.uleb128 0x4
+ 888 02a3 07       		.uleb128 0x7
+ 889 02a4 723200   		.ascii	"r2\000"
+ 890 02a7 06       		.byte	0x6
+ 891 02a8 E9       		.byte	0xe9
+ 892 02a9 70020000 		.4byte	0x270
+ 893 02ad 02       		.byte	0x2
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 17
+
+
+ 894 02ae 23       		.byte	0x23
+ 895 02af 08       		.uleb128 0x8
+ 896 02b0 07       		.uleb128 0x7
+ 897 02b1 723300   		.ascii	"r3\000"
+ 898 02b4 06       		.byte	0x6
+ 899 02b5 EA       		.byte	0xea
+ 900 02b6 70020000 		.4byte	0x270
+ 901 02ba 02       		.byte	0x2
+ 902 02bb 23       		.byte	0x23
+ 903 02bc 0C       		.uleb128 0xc
+ 904 02bd 07       		.uleb128 0x7
+ 905 02be 72313200 		.ascii	"r12\000"
+ 906 02c2 06       		.byte	0x6
+ 907 02c3 EB       		.byte	0xeb
+ 908 02c4 70020000 		.4byte	0x270
+ 909 02c8 02       		.byte	0x2
+ 910 02c9 23       		.byte	0x23
+ 911 02ca 10       		.uleb128 0x10
+ 912 02cb 06       		.uleb128 0x6
+ 913 02cc 06010000 		.4byte	.LASF44
+ 914 02d0 06       		.byte	0x6
+ 915 02d1 EC       		.byte	0xec
+ 916 02d2 70020000 		.4byte	0x270
+ 917 02d6 02       		.byte	0x2
+ 918 02d7 23       		.byte	0x23
+ 919 02d8 14       		.uleb128 0x14
+ 920 02d9 07       		.uleb128 0x7
+ 921 02da 706300   		.ascii	"pc\000"
+ 922 02dd 06       		.byte	0x6
+ 923 02de ED       		.byte	0xed
+ 924 02df 70020000 		.4byte	0x270
+ 925 02e3 02       		.byte	0x2
+ 926 02e4 23       		.byte	0x23
+ 927 02e5 18       		.uleb128 0x18
+ 928 02e6 06       		.uleb128 0x6
+ 929 02e7 B4020000 		.4byte	.LASF45
+ 930 02eb 06       		.byte	0x6
+ 931 02ec EE       		.byte	0xee
+ 932 02ed 70020000 		.4byte	0x270
+ 933 02f1 02       		.byte	0x2
+ 934 02f2 23       		.byte	0x23
+ 935 02f3 1C       		.uleb128 0x1c
+ 936 02f4 00       		.byte	0x0
+ 937 02f5 0B       		.uleb128 0xb
+ 938 02f6 4D030000 		.4byte	.LASF46
+ 939 02fa 24       		.byte	0x24
+ 940 02fb 06       		.byte	0x6
+ 941 02fc 0501     		.2byte	0x105
+ 942 02fe 83030000 		.4byte	0x383
+ 943 0302 0C       		.uleb128 0xc
+ 944 0303 723400   		.ascii	"r4\000"
+ 945 0306 06       		.byte	0x6
+ 946 0307 1801     		.2byte	0x118
+ 947 0309 70020000 		.4byte	0x270
+ 948 030d 02       		.byte	0x2
+ 949 030e 23       		.byte	0x23
+ 950 030f 00       		.uleb128 0x0
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 18
+
+
+ 951 0310 0C       		.uleb128 0xc
+ 952 0311 723500   		.ascii	"r5\000"
+ 953 0314 06       		.byte	0x6
+ 954 0315 1901     		.2byte	0x119
+ 955 0317 70020000 		.4byte	0x270
+ 956 031b 02       		.byte	0x2
+ 957 031c 23       		.byte	0x23
+ 958 031d 04       		.uleb128 0x4
+ 959 031e 0C       		.uleb128 0xc
+ 960 031f 723600   		.ascii	"r6\000"
+ 961 0322 06       		.byte	0x6
+ 962 0323 1A01     		.2byte	0x11a
+ 963 0325 70020000 		.4byte	0x270
+ 964 0329 02       		.byte	0x2
+ 965 032a 23       		.byte	0x23
+ 966 032b 08       		.uleb128 0x8
+ 967 032c 0C       		.uleb128 0xc
+ 968 032d 723700   		.ascii	"r7\000"
+ 969 0330 06       		.byte	0x6
+ 970 0331 1B01     		.2byte	0x11b
+ 971 0333 70020000 		.4byte	0x270
+ 972 0337 02       		.byte	0x2
+ 973 0338 23       		.byte	0x23
+ 974 0339 0C       		.uleb128 0xc
+ 975 033a 0C       		.uleb128 0xc
+ 976 033b 723800   		.ascii	"r8\000"
+ 977 033e 06       		.byte	0x6
+ 978 033f 1C01     		.2byte	0x11c
+ 979 0341 70020000 		.4byte	0x270
+ 980 0345 02       		.byte	0x2
+ 981 0346 23       		.byte	0x23
+ 982 0347 10       		.uleb128 0x10
+ 983 0348 0C       		.uleb128 0xc
+ 984 0349 723900   		.ascii	"r9\000"
+ 985 034c 06       		.byte	0x6
+ 986 034d 1D01     		.2byte	0x11d
+ 987 034f 70020000 		.4byte	0x270
+ 988 0353 02       		.byte	0x2
+ 989 0354 23       		.byte	0x23
+ 990 0355 14       		.uleb128 0x14
+ 991 0356 0C       		.uleb128 0xc
+ 992 0357 72313000 		.ascii	"r10\000"
+ 993 035b 06       		.byte	0x6
+ 994 035c 1E01     		.2byte	0x11e
+ 995 035e 70020000 		.4byte	0x270
+ 996 0362 02       		.byte	0x2
+ 997 0363 23       		.byte	0x23
+ 998 0364 18       		.uleb128 0x18
+ 999 0365 0C       		.uleb128 0xc
+ 1000 0366 72313100 		.ascii	"r11\000"
+ 1001 036a 06       		.byte	0x6
+ 1002 036b 1F01     		.2byte	0x11f
+ 1003 036d 70020000 		.4byte	0x270
+ 1004 0371 02       		.byte	0x2
+ 1005 0372 23       		.byte	0x23
+ 1006 0373 1C       		.uleb128 0x1c
+ 1007 0374 0C       		.uleb128 0xc
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 19
+
+
+ 1008 0375 6C7200   		.ascii	"lr\000"
+ 1009 0378 06       		.byte	0x6
+ 1010 0379 2001     		.2byte	0x120
+ 1011 037b 70020000 		.4byte	0x270
+ 1012 037f 02       		.byte	0x2
+ 1013 0380 23       		.byte	0x23
+ 1014 0381 20       		.uleb128 0x20
+ 1015 0382 00       		.byte	0x0
+ 1016 0383 0B       		.uleb128 0xb
+ 1017 0384 4E010000 		.4byte	.LASF47
+ 1018 0388 04       		.byte	0x4
+ 1019 0389 06       		.byte	0x6
+ 1020 038a 2A01     		.2byte	0x12a
+ 1021 038c A0030000 		.4byte	0x3a0
+ 1022 0390 0C       		.uleb128 0xc
+ 1023 0391 72313300 		.ascii	"r13\000"
+ 1024 0395 06       		.byte	0x6
+ 1025 0396 2B01     		.2byte	0x12b
+ 1026 0398 A0030000 		.4byte	0x3a0
+ 1027 039c 02       		.byte	0x2
+ 1028 039d 23       		.byte	0x23
+ 1029 039e 00       		.uleb128 0x0
+ 1030 039f 00       		.byte	0x0
+ 1031 03a0 09       		.uleb128 0x9
+ 1032 03a1 04       		.byte	0x4
+ 1033 03a2 F5020000 		.4byte	0x2f5
+ 1034 03a6 0D       		.uleb128 0xd
+ 1035 03a7 7B000000 		.4byte	0x7b
+ 1036 03ab 08       		.uleb128 0x8
+ 1037 03ac 8C       		.byte	0x8c
+ 1038 03ad 07       		.byte	0x7
+ 1039 03ae 82       		.byte	0x82
+ 1040 03af DB040000 		.4byte	0x4db
+ 1041 03b3 06       		.uleb128 0x6
+ 1042 03b4 43000000 		.4byte	.LASF48
+ 1043 03b8 07       		.byte	0x7
+ 1044 03b9 83       		.byte	0x83
+ 1045 03ba A6030000 		.4byte	0x3a6
+ 1046 03be 02       		.byte	0x2
+ 1047 03bf 23       		.byte	0x23
+ 1048 03c0 00       		.uleb128 0x0
+ 1049 03c1 06       		.uleb128 0x6
+ 1050 03c2 69010000 		.4byte	.LASF49
+ 1051 03c6 07       		.byte	0x7
+ 1052 03c7 84       		.byte	0x84
+ 1053 03c8 A6030000 		.4byte	0x3a6
+ 1054 03cc 02       		.byte	0x2
+ 1055 03cd 23       		.byte	0x23
+ 1056 03ce 04       		.uleb128 0x4
+ 1057 03cf 06       		.uleb128 0x6
+ 1058 03d0 33010000 		.4byte	.LASF50
+ 1059 03d4 07       		.byte	0x7
+ 1060 03d5 85       		.byte	0x85
+ 1061 03d6 A6030000 		.4byte	0x3a6
+ 1062 03da 02       		.byte	0x2
+ 1063 03db 23       		.byte	0x23
+ 1064 03dc 08       		.uleb128 0x8
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 20
+
+
+ 1065 03dd 06       		.uleb128 0x6
+ 1066 03de 74010000 		.4byte	.LASF51
+ 1067 03e2 07       		.byte	0x7
+ 1068 03e3 86       		.byte	0x86
+ 1069 03e4 A6030000 		.4byte	0x3a6
+ 1070 03e8 02       		.byte	0x2
+ 1071 03e9 23       		.byte	0x23
+ 1072 03ea 0C       		.uleb128 0xc
+ 1073 03eb 07       		.uleb128 0x7
+ 1074 03ec 53435200 		.ascii	"SCR\000"
+ 1075 03f0 07       		.byte	0x7
+ 1076 03f1 87       		.byte	0x87
+ 1077 03f2 A6030000 		.4byte	0x3a6
+ 1078 03f6 02       		.byte	0x2
+ 1079 03f7 23       		.byte	0x23
+ 1080 03f8 10       		.uleb128 0x10
+ 1081 03f9 07       		.uleb128 0x7
+ 1082 03fa 43435200 		.ascii	"CCR\000"
+ 1083 03fe 07       		.byte	0x7
+ 1084 03ff 88       		.byte	0x88
+ 1085 0400 A6030000 		.4byte	0x3a6
+ 1086 0404 02       		.byte	0x2
+ 1087 0405 23       		.byte	0x23
+ 1088 0406 14       		.uleb128 0x14
+ 1089 0407 06       		.uleb128 0x6
+ 1090 0408 48030000 		.4byte	.LASF52
+ 1091 040c 07       		.byte	0x7
+ 1092 040d 89       		.byte	0x89
+ 1093 040e EB040000 		.4byte	0x4eb
+ 1094 0412 02       		.byte	0x2
+ 1095 0413 23       		.byte	0x23
+ 1096 0414 18       		.uleb128 0x18
+ 1097 0415 06       		.uleb128 0x6
+ 1098 0416 88020000 		.4byte	.LASF53
+ 1099 041a 07       		.byte	0x7
+ 1100 041b 8A       		.byte	0x8a
+ 1101 041c A6030000 		.4byte	0x3a6
+ 1102 0420 02       		.byte	0x2
+ 1103 0421 23       		.byte	0x23
+ 1104 0422 24       		.uleb128 0x24
+ 1105 0423 06       		.uleb128 0x6
+ 1106 0424 BE010000 		.4byte	.LASF54
+ 1107 0428 07       		.byte	0x7
+ 1108 0429 8B       		.byte	0x8b
+ 1109 042a A6030000 		.4byte	0x3a6
+ 1110 042e 02       		.byte	0x2
+ 1111 042f 23       		.byte	0x23
+ 1112 0430 28       		.uleb128 0x28
+ 1113 0431 06       		.uleb128 0x6
+ 1114 0432 AE030000 		.4byte	.LASF55
+ 1115 0436 07       		.byte	0x7
+ 1116 0437 8C       		.byte	0x8c
+ 1117 0438 A6030000 		.4byte	0x3a6
+ 1118 043c 02       		.byte	0x2
+ 1119 043d 23       		.byte	0x23
+ 1120 043e 2C       		.uleb128 0x2c
+ 1121 043f 06       		.uleb128 0x6
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 21
+
+
+ 1122 0440 7A010000 		.4byte	.LASF56
+ 1123 0444 07       		.byte	0x7
+ 1124 0445 8D       		.byte	0x8d
+ 1125 0446 A6030000 		.4byte	0x3a6
+ 1126 044a 02       		.byte	0x2
+ 1127 044b 23       		.byte	0x23
+ 1128 044c 30       		.uleb128 0x30
+ 1129 044d 06       		.uleb128 0x6
+ 1130 044e 7F010000 		.4byte	.LASF57
+ 1131 0452 07       		.byte	0x7
+ 1132 0453 8E       		.byte	0x8e
+ 1133 0454 A6030000 		.4byte	0x3a6
+ 1134 0458 02       		.byte	0x2
+ 1135 0459 23       		.byte	0x23
+ 1136 045a 34       		.uleb128 0x34
+ 1137 045b 06       		.uleb128 0x6
+ 1138 045c E3000000 		.4byte	.LASF58
+ 1139 0460 07       		.byte	0x7
+ 1140 0461 8F       		.byte	0x8f
+ 1141 0462 A6030000 		.4byte	0x3a6
+ 1142 0466 02       		.byte	0x2
+ 1143 0467 23       		.byte	0x23
+ 1144 0468 38       		.uleb128 0x38
+ 1145 0469 06       		.uleb128 0x6
+ 1146 046a F9020000 		.4byte	.LASF59
+ 1147 046e 07       		.byte	0x7
+ 1148 046f 90       		.byte	0x90
+ 1149 0470 A6030000 		.4byte	0x3a6
+ 1150 0474 02       		.byte	0x2
+ 1151 0475 23       		.byte	0x23
+ 1152 0476 3C       		.uleb128 0x3c
+ 1153 0477 07       		.uleb128 0x7
+ 1154 0478 50465200 		.ascii	"PFR\000"
+ 1155 047c 07       		.byte	0x7
+ 1156 047d 91       		.byte	0x91
+ 1157 047e 00050000 		.4byte	0x500
+ 1158 0482 02       		.byte	0x2
+ 1159 0483 23       		.byte	0x23
+ 1160 0484 40       		.uleb128 0x40
+ 1161 0485 07       		.uleb128 0x7
+ 1162 0486 44465200 		.ascii	"DFR\000"
+ 1163 048a 07       		.byte	0x7
+ 1164 048b 92       		.byte	0x92
+ 1165 048c A6030000 		.4byte	0x3a6
+ 1166 0490 02       		.byte	0x2
+ 1167 0491 23       		.byte	0x23
+ 1168 0492 48       		.uleb128 0x48
+ 1169 0493 07       		.uleb128 0x7
+ 1170 0494 41445200 		.ascii	"ADR\000"
+ 1171 0498 07       		.byte	0x7
+ 1172 0499 93       		.byte	0x93
+ 1173 049a A6030000 		.4byte	0x3a6
+ 1174 049e 02       		.byte	0x2
+ 1175 049f 23       		.byte	0x23
+ 1176 04a0 4C       		.uleb128 0x4c
+ 1177 04a1 06       		.uleb128 0x6
+ 1178 04a2 70030000 		.4byte	.LASF60
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 22
+
+
+ 1179 04a6 07       		.byte	0x7
+ 1180 04a7 94       		.byte	0x94
+ 1181 04a8 15050000 		.4byte	0x515
+ 1182 04ac 02       		.byte	0x2
+ 1183 04ad 23       		.byte	0x23
+ 1184 04ae 50       		.uleb128 0x50
+ 1185 04af 07       		.uleb128 0x7
+ 1186 04b0 53415200 		.ascii	"SAR\000"
+ 1187 04b4 07       		.byte	0x7
+ 1188 04b5 95       		.byte	0x95
+ 1189 04b6 2A050000 		.4byte	0x52a
+ 1190 04ba 02       		.byte	0x2
+ 1191 04bb 23       		.byte	0x23
+ 1192 04bc 60       		.uleb128 0x60
+ 1193 04bd 06       		.uleb128 0x6
+ 1194 04be FE020000 		.4byte	.LASF61
+ 1195 04c2 07       		.byte	0x7
+ 1196 04c3 96       		.byte	0x96
+ 1197 04c4 2F050000 		.4byte	0x52f
+ 1198 04c8 02       		.byte	0x2
+ 1199 04c9 23       		.byte	0x23
+ 1200 04ca 74       		.uleb128 0x74
+ 1201 04cb 06       		.uleb128 0x6
+ 1202 04cc A8030000 		.4byte	.LASF62
+ 1203 04d0 07       		.byte	0x7
+ 1204 04d1 97       		.byte	0x97
+ 1205 04d2 A6030000 		.4byte	0x3a6
+ 1206 04d6 03       		.byte	0x3
+ 1207 04d7 23       		.byte	0x23
+ 1208 04d8 8801     		.uleb128 0x88
+ 1209 04da 00       		.byte	0x0
+ 1210 04db 0E       		.uleb128 0xe
+ 1211 04dc 7B000000 		.4byte	0x7b
+ 1212 04e0 EB040000 		.4byte	0x4eb
+ 1213 04e4 0F       		.uleb128 0xf
+ 1214 04e5 30000000 		.4byte	0x30
+ 1215 04e9 02       		.byte	0x2
+ 1216 04ea 00       		.byte	0x0
+ 1217 04eb 0D       		.uleb128 0xd
+ 1218 04ec DB040000 		.4byte	0x4db
+ 1219 04f0 0E       		.uleb128 0xe
+ 1220 04f1 7B000000 		.4byte	0x7b
+ 1221 04f5 00050000 		.4byte	0x500
+ 1222 04f9 0F       		.uleb128 0xf
+ 1223 04fa 30000000 		.4byte	0x30
+ 1224 04fe 01       		.byte	0x1
+ 1225 04ff 00       		.byte	0x0
+ 1226 0500 0D       		.uleb128 0xd
+ 1227 0501 F0040000 		.4byte	0x4f0
+ 1228 0505 0E       		.uleb128 0xe
+ 1229 0506 7B000000 		.4byte	0x7b
+ 1230 050a 15050000 		.4byte	0x515
+ 1231 050e 0F       		.uleb128 0xf
+ 1232 050f 30000000 		.4byte	0x30
+ 1233 0513 03       		.byte	0x3
+ 1234 0514 00       		.byte	0x0
+ 1235 0515 0D       		.uleb128 0xd
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 23
+
+
+ 1236 0516 05050000 		.4byte	0x505
+ 1237 051a 0E       		.uleb128 0xe
+ 1238 051b 7B000000 		.4byte	0x7b
+ 1239 051f 2A050000 		.4byte	0x52a
+ 1240 0523 0F       		.uleb128 0xf
+ 1241 0524 30000000 		.4byte	0x30
+ 1242 0528 04       		.byte	0x4
+ 1243 0529 00       		.byte	0x0
+ 1244 052a 0D       		.uleb128 0xd
+ 1245 052b 1A050000 		.4byte	0x51a
+ 1246 052f 0D       		.uleb128 0xd
+ 1247 0530 1A050000 		.4byte	0x51a
+ 1248 0534 04       		.uleb128 0x4
+ 1249 0535 0D000000 		.4byte	.LASF63
+ 1250 0539 07       		.byte	0x7
+ 1251 053a 98       		.byte	0x98
+ 1252 053b AB030000 		.4byte	0x3ab
+ 1253 053f 0D       		.uleb128 0xd
+ 1254 0540 DD000000 		.4byte	0xdd
+ 1255 0544 08       		.uleb128 0x8
+ 1256 0545 1C       		.byte	0x1c
+ 1257 0546 08       		.byte	0x8
+ 1258 0547 57       		.byte	0x57
+ 1259 0548 A1050000 		.4byte	0x5a1
+ 1260 054c 06       		.uleb128 0x6
+ 1261 054d F1020000 		.4byte	.LASF64
+ 1262 0551 08       		.byte	0x8
+ 1263 0552 58       		.byte	0x58
+ 1264 0553 43020000 		.4byte	0x243
+ 1265 0557 02       		.byte	0x2
+ 1266 0558 23       		.byte	0x23
+ 1267 0559 00       		.uleb128 0x0
+ 1268 055a 06       		.uleb128 0x6
+ 1269 055b B9020000 		.4byte	.LASF65
+ 1270 055f 08       		.byte	0x8
+ 1271 0560 59       		.byte	0x59
+ 1272 0561 BC000000 		.4byte	0xbc
+ 1273 0565 02       		.byte	0x2
+ 1274 0566 23       		.byte	0x23
+ 1275 0567 08       		.uleb128 0x8
+ 1276 0568 06       		.uleb128 0x6
+ 1277 0569 CB010000 		.4byte	.LASF66
+ 1278 056d 08       		.byte	0x8
+ 1279 056e 5B       		.byte	0x5b
+ 1280 056f 83030000 		.4byte	0x383
+ 1281 0573 02       		.byte	0x2
+ 1282 0574 23       		.byte	0x23
+ 1283 0575 0C       		.uleb128 0xc
+ 1284 0576 06       		.uleb128 0x6
+ 1285 0577 E8000000 		.4byte	.LASF67
+ 1286 057b 08       		.byte	0x8
+ 1287 057c 5E       		.byte	0x5e
+ 1288 057d 3D020000 		.4byte	0x23d
+ 1289 0581 02       		.byte	0x2
+ 1290 0582 23       		.byte	0x23
+ 1291 0583 10       		.uleb128 0x10
+ 1292 0584 06       		.uleb128 0x6
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 24
+
+
+ 1293 0585 E8010000 		.4byte	.LASF68
+ 1294 0589 08       		.byte	0x8
+ 1295 058a 5F       		.byte	0x5f
+ 1296 058b 3D020000 		.4byte	0x23d
+ 1297 058f 02       		.byte	0x2
+ 1298 0590 23       		.byte	0x23
+ 1299 0591 14       		.uleb128 0x14
+ 1300 0592 06       		.uleb128 0x6
+ 1301 0593 DE010000 		.4byte	.LASF69
+ 1302 0597 08       		.byte	0x8
+ 1303 0598 62       		.byte	0x62
+ 1304 0599 3D020000 		.4byte	0x23d
+ 1305 059d 02       		.byte	0x2
+ 1306 059e 23       		.byte	0x23
+ 1307 059f 18       		.uleb128 0x18
+ 1308 05a0 00       		.byte	0x0
+ 1309 05a1 04       		.uleb128 0x4
+ 1310 05a2 66030000 		.4byte	.LASF70
+ 1311 05a6 08       		.byte	0x8
+ 1312 05a7 64       		.byte	0x64
+ 1313 05a8 44050000 		.4byte	0x544
+ 1314 05ac 05       		.uleb128 0x5
+ 1315 05ad B8010000 		.4byte	.LASF71
+ 1316 05b1 10       		.byte	0x10
+ 1317 05b2 09       		.byte	0x9
+ 1318 05b3 25       		.byte	0x25
+ 1319 05b4 E3050000 		.4byte	0x5e3
+ 1320 05b8 06       		.uleb128 0x6
+ 1321 05b9 72000000 		.4byte	.LASF72
+ 1322 05bd 09       		.byte	0x9
+ 1323 05be 26       		.byte	0x26
+ 1324 05bf 43020000 		.4byte	0x243
+ 1325 05c3 02       		.byte	0x2
+ 1326 05c4 23       		.byte	0x23
+ 1327 05c5 00       		.uleb128 0x0
+ 1328 05c6 06       		.uleb128 0x6
+ 1329 05c7 B3030000 		.4byte	.LASF73
+ 1330 05cb 09       		.byte	0x9
+ 1331 05cc 28       		.byte	0x28
+ 1332 05cd 3D020000 		.4byte	0x23d
+ 1333 05d1 02       		.byte	0x2
+ 1334 05d2 23       		.byte	0x23
+ 1335 05d3 08       		.uleb128 0x8
+ 1336 05d4 06       		.uleb128 0x6
+ 1337 05d5 0B030000 		.4byte	.LASF74
+ 1338 05d9 09       		.byte	0x9
+ 1339 05da 2A       		.byte	0x2a
+ 1340 05db E3050000 		.4byte	0x5e3
+ 1341 05df 02       		.byte	0x2
+ 1342 05e0 23       		.byte	0x23
+ 1343 05e1 0C       		.uleb128 0xc
+ 1344 05e2 00       		.byte	0x0
+ 1345 05e3 09       		.uleb128 0x9
+ 1346 05e4 04       		.byte	0x4
+ 1347 05e5 AC050000 		.4byte	0x5ac
+ 1348 05e9 04       		.uleb128 0x4
+ 1349 05ea B8010000 		.4byte	.LASF71
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 25
+
+
+ 1350 05ee 09       		.byte	0x9
+ 1351 05ef 2C       		.byte	0x2c
+ 1352 05f0 AC050000 		.4byte	0x5ac
+ 1353 05f4 10       		.uleb128 0x10
+ 1354 05f5 04       		.byte	0x4
+ 1355 05f6 05       		.byte	0x5
+ 1356 05f7 8F       		.byte	0x8f
+ 1357 05f8 29060000 		.4byte	0x629
+ 1358 05fc 11       		.uleb128 0x11
+ 1359 05fd 06000000 		.4byte	.LASF75
+ 1360 0601 05       		.byte	0x5
+ 1361 0602 96       		.byte	0x96
+ 1362 0603 C7000000 		.4byte	0xc7
+ 1363 0607 11       		.uleb128 0x11
+ 1364 0608 3A000000 		.4byte	.LASF76
+ 1365 060c 05       		.byte	0x5
+ 1366 060d 9D       		.byte	0x9d
+ 1367 060e C7000000 		.4byte	0xc7
+ 1368 0612 11       		.uleb128 0x11
+ 1369 0613 8E030000 		.4byte	.LASF77
+ 1370 0617 05       		.byte	0x5
+ 1371 0618 A4       		.byte	0xa4
+ 1372 0619 7B020000 		.4byte	0x27b
+ 1373 061d 11       		.uleb128 0x11
+ 1374 061e C0020000 		.4byte	.LASF78
+ 1375 0622 05       		.byte	0x5
+ 1376 0623 AB       		.byte	0xab
+ 1377 0624 D2000000 		.4byte	0xd2
+ 1378 0628 00       		.byte	0x0
+ 1379 0629 09       		.uleb128 0x9
+ 1380 062a 04       		.byte	0x4
+ 1381 062b 2F060000 		.4byte	0x62f
+ 1382 062f 12       		.uleb128 0x12
+ 1383 0630 34060000 		.4byte	0x634
+ 1384 0634 03       		.uleb128 0x3
+ 1385 0635 01       		.byte	0x1
+ 1386 0636 08       		.byte	0x8
+ 1387 0637 06030000 		.4byte	.LASF79
+ 1388 063b 09       		.uleb128 0x9
+ 1389 063c 04       		.byte	0x4
+ 1390 063d E9050000 		.4byte	0x5e9
+ 1391 0641 13       		.uleb128 0x13
+ 1392 0642 01       		.byte	0x1
+ 1393 0643 38010000 		.4byte	.LASF80
+ 1394 0647 01       		.byte	0x1
+ 1395 0648 C8       		.byte	0xc8
+ 1396 0649 01       		.byte	0x1
+ 1397 064a 00000000 		.4byte	.LFB6
+ 1398 064e 06000000 		.4byte	.LFE6
+ 1399 0652 02       		.byte	0x2
+ 1400 0653 7D       		.byte	0x7d
+ 1401 0654 00       		.sleb128 0
+ 1402 0655 14       		.uleb128 0x14
+ 1403 0656 01       		.byte	0x1
+ 1404 0657 27030000 		.4byte	.LASF82
+ 1405 065b 01       		.byte	0x1
+ 1406 065c 3A       		.byte	0x3a
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 26
+
+
+ 1407 065d 01       		.byte	0x1
+ 1408 065e 00000000 		.4byte	.LFB1
+ 1409 0662 14000000 		.4byte	.LFE1
+ 1410 0666 00000000 		.4byte	.LLST0
+ 1411 066a 7E060000 		.4byte	0x67e
+ 1412 066e 15       		.uleb128 0x15
+ 1413 066f 03020000 		.4byte	.LASF84
+ 1414 0673 01       		.byte	0x1
+ 1415 0674 3B       		.byte	0x3b
+ 1416 0675 7E060000 		.4byte	0x67e
+ 1417 0679 20000000 		.4byte	.LLST1
+ 1418 067d 00       		.byte	0x0
+ 1419 067e 09       		.uleb128 0x9
+ 1420 067f 04       		.byte	0x4
+ 1421 0680 7D020000 		.4byte	0x27d
+ 1422 0684 16       		.uleb128 0x16
+ 1423 0685 01       		.byte	0x1
+ 1424 0686 83030000 		.4byte	.LASF81
+ 1425 068a 01       		.byte	0x1
+ 1426 068b 6F       		.byte	0x6f
+ 1427 068c 01       		.byte	0x1
+ 1428 068d 00000000 		.4byte	.LFB2
+ 1429 0691 34000000 		.4byte	.LFE2
+ 1430 0695 40000000 		.4byte	.LLST2
+ 1431 0699 17       		.uleb128 0x17
+ 1432 069a 01       		.byte	0x1
+ 1433 069b F8010000 		.4byte	.LASF83
+ 1434 069f 01       		.byte	0x1
+ 1435 06a0 7F       		.byte	0x7f
+ 1436 06a1 01       		.byte	0x1
+ 1437 06a2 00000000 		.4byte	.LFB3
+ 1438 06a6 08000000 		.4byte	.LFE3
+ 1439 06aa 02       		.byte	0x2
+ 1440 06ab 7D       		.byte	0x7d
+ 1441 06ac 00       		.sleb128 0
+ 1442 06ad C1060000 		.4byte	0x6c1
+ 1443 06b1 18       		.uleb128 0x18
+ 1444 06b2 746D7000 		.ascii	"tmp\000"
+ 1445 06b6 01       		.byte	0x1
+ 1446 06b7 80       		.byte	0x80
+ 1447 06b8 70000000 		.4byte	0x70
+ 1448 06bc 60000000 		.4byte	.LLST3
+ 1449 06c0 00       		.byte	0x0
+ 1450 06c1 17       		.uleb128 0x17
+ 1451 06c2 01       		.byte	0x1
+ 1452 06c3 34030000 		.4byte	.LASF85
+ 1453 06c7 01       		.byte	0x1
+ 1454 06c8 84       		.byte	0x84
+ 1455 06c9 01       		.byte	0x1
+ 1456 06ca 00000000 		.4byte	.LFB4
+ 1457 06ce 08000000 		.4byte	.LFE4
+ 1458 06d2 02       		.byte	0x2
+ 1459 06d3 7D       		.byte	0x7d
+ 1460 06d4 00       		.sleb128 0
+ 1461 06d5 E9060000 		.4byte	0x6e9
+ 1462 06d9 18       		.uleb128 0x18
+ 1463 06da 746D7000 		.ascii	"tmp\000"
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 27
+
+
+ 1464 06de 01       		.byte	0x1
+ 1465 06df 85       		.byte	0x85
+ 1466 06e0 70000000 		.4byte	0x70
+ 1467 06e4 73000000 		.4byte	.LLST4
+ 1468 06e8 00       		.byte	0x0
+ 1469 06e9 14       		.uleb128 0x14
+ 1470 06ea 01       		.byte	0x1
+ 1471 06eb 85010000 		.4byte	.LASF86
+ 1472 06ef 01       		.byte	0x1
+ 1473 06f0 8D       		.byte	0x8d
+ 1474 06f1 01       		.byte	0x1
+ 1475 06f2 00000000 		.4byte	.LFB5
+ 1476 06f6 74000000 		.4byte	.LFE5
+ 1477 06fa 86000000 		.4byte	.LLST5
+ 1478 06fe 18070000 		.4byte	0x718
+ 1479 0702 19       		.uleb128 0x19
+ 1480 0703 00000000 		.4byte	.Ldebug_ranges0+0x0
+ 1481 0707 15       		.uleb128 0x15
+ 1482 0708 03020000 		.4byte	.LASF84
+ 1483 070c 01       		.byte	0x1
+ 1484 070d 91       		.byte	0x91
+ 1485 070e 7E060000 		.4byte	0x67e
+ 1486 0712 A6000000 		.4byte	.LLST6
+ 1487 0716 00       		.byte	0x0
+ 1488 0717 00       		.byte	0x0
+ 1489 0718 16       		.uleb128 0x16
+ 1490 0719 01       		.byte	0x1
+ 1491 071a 15000000 		.4byte	.LASF87
+ 1492 071e 01       		.byte	0x1
+ 1493 071f 28       		.byte	0x28
+ 1494 0720 01       		.byte	0x1
+ 1495 0721 00000000 		.4byte	.LFB0
+ 1496 0725 16000000 		.4byte	.LFE0
+ 1497 0729 CF000000 		.4byte	.LLST7
+ 1498 072d 17       		.uleb128 0x17
+ 1499 072e 01       		.byte	0x1
+ 1500 072f 14010000 		.4byte	.LASF88
+ 1501 0733 01       		.byte	0x1
+ 1502 0734 E5       		.byte	0xe5
+ 1503 0735 01       		.byte	0x1
+ 1504 0736 00000000 		.4byte	.LFB7
+ 1505 073a 10000000 		.4byte	.LFE7
+ 1506 073e 02       		.byte	0x2
+ 1507 073f 7D       		.byte	0x7d
+ 1508 0740 00       		.sleb128 0
+ 1509 0741 60070000 		.4byte	0x760
+ 1510 0745 1A       		.uleb128 0x1a
+ 1511 0746 6E747000 		.ascii	"ntp\000"
+ 1512 074a 01       		.byte	0x1
+ 1513 074b E5       		.byte	0xe5
+ 1514 074c 3D020000 		.4byte	0x23d
+ 1515 0750 01       		.byte	0x1
+ 1516 0751 50       		.byte	0x50
+ 1517 0752 1A       		.uleb128 0x1a
+ 1518 0753 6F747000 		.ascii	"otp\000"
+ 1519 0757 01       		.byte	0x1
+ 1520 0758 E5       		.byte	0xe5
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 28
+
+
+ 1521 0759 3D020000 		.4byte	0x23d
+ 1522 075d 01       		.byte	0x1
+ 1523 075e 51       		.byte	0x51
+ 1524 075f 00       		.byte	0x0
+ 1525 0760 16       		.uleb128 0x16
+ 1526 0761 01       		.byte	0x1
+ 1527 0762 C8000000 		.4byte	.LASF89
+ 1528 0766 01       		.byte	0x1
+ 1529 0767 FC       		.byte	0xfc
+ 1530 0768 01       		.byte	0x1
+ 1531 0769 00000000 		.4byte	.LFB8
+ 1532 076d 12000000 		.4byte	.LFE8
+ 1533 0771 EF000000 		.4byte	.LLST8
+ 1534 0775 1B       		.uleb128 0x1b
+ 1535 0776 75030000 		.4byte	.LASF90
+ 1536 077a 08       		.byte	0x8
+ 1537 077b 68       		.byte	0x68
+ 1538 077c A1050000 		.4byte	0x5a1
+ 1539 0780 01       		.byte	0x1
+ 1540 0781 01       		.byte	0x1
+ 1541 0782 1B       		.uleb128 0x1b
+ 1542 0783 75030000 		.4byte	.LASF90
+ 1543 0787 08       		.byte	0x8
+ 1544 0788 68       		.byte	0x68
+ 1545 0789 A1050000 		.4byte	0x5a1
+ 1546 078d 01       		.byte	0x1
+ 1547 078e 01       		.byte	0x1
+ 1548 078f 00       		.byte	0x0
+ 1549              		.section	.debug_abbrev
+ 1550 0000 01       		.uleb128 0x1
+ 1551 0001 11       		.uleb128 0x11
+ 1552 0002 01       		.byte	0x1
+ 1553 0003 25       		.uleb128 0x25
+ 1554 0004 0E       		.uleb128 0xe
+ 1555 0005 13       		.uleb128 0x13
+ 1556 0006 0B       		.uleb128 0xb
+ 1557 0007 03       		.uleb128 0x3
+ 1558 0008 0E       		.uleb128 0xe
+ 1559 0009 1B       		.uleb128 0x1b
+ 1560 000a 0E       		.uleb128 0xe
+ 1561 000b 11       		.uleb128 0x11
+ 1562 000c 01       		.uleb128 0x1
+ 1563 000d 52       		.uleb128 0x52
+ 1564 000e 01       		.uleb128 0x1
+ 1565 000f 55       		.uleb128 0x55
+ 1566 0010 06       		.uleb128 0x6
+ 1567 0011 10       		.uleb128 0x10
+ 1568 0012 06       		.uleb128 0x6
+ 1569 0013 00       		.byte	0x0
+ 1570 0014 00       		.byte	0x0
+ 1571 0015 02       		.uleb128 0x2
+ 1572 0016 24       		.uleb128 0x24
+ 1573 0017 00       		.byte	0x0
+ 1574 0018 0B       		.uleb128 0xb
+ 1575 0019 0B       		.uleb128 0xb
+ 1576 001a 3E       		.uleb128 0x3e
+ 1577 001b 0B       		.uleb128 0xb
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 29
+
+
+ 1578 001c 03       		.uleb128 0x3
+ 1579 001d 08       		.uleb128 0x8
+ 1580 001e 00       		.byte	0x0
+ 1581 001f 00       		.byte	0x0
+ 1582 0020 03       		.uleb128 0x3
+ 1583 0021 24       		.uleb128 0x24
+ 1584 0022 00       		.byte	0x0
+ 1585 0023 0B       		.uleb128 0xb
+ 1586 0024 0B       		.uleb128 0xb
+ 1587 0025 3E       		.uleb128 0x3e
+ 1588 0026 0B       		.uleb128 0xb
+ 1589 0027 03       		.uleb128 0x3
+ 1590 0028 0E       		.uleb128 0xe
+ 1591 0029 00       		.byte	0x0
+ 1592 002a 00       		.byte	0x0
+ 1593 002b 04       		.uleb128 0x4
+ 1594 002c 16       		.uleb128 0x16
+ 1595 002d 00       		.byte	0x0
+ 1596 002e 03       		.uleb128 0x3
+ 1597 002f 0E       		.uleb128 0xe
+ 1598 0030 3A       		.uleb128 0x3a
+ 1599 0031 0B       		.uleb128 0xb
+ 1600 0032 3B       		.uleb128 0x3b
+ 1601 0033 0B       		.uleb128 0xb
+ 1602 0034 49       		.uleb128 0x49
+ 1603 0035 13       		.uleb128 0x13
+ 1604 0036 00       		.byte	0x0
+ 1605 0037 00       		.byte	0x0
+ 1606 0038 05       		.uleb128 0x5
+ 1607 0039 13       		.uleb128 0x13
+ 1608 003a 01       		.byte	0x1
+ 1609 003b 03       		.uleb128 0x3
+ 1610 003c 0E       		.uleb128 0xe
+ 1611 003d 0B       		.uleb128 0xb
+ 1612 003e 0B       		.uleb128 0xb
+ 1613 003f 3A       		.uleb128 0x3a
+ 1614 0040 0B       		.uleb128 0xb
+ 1615 0041 3B       		.uleb128 0x3b
+ 1616 0042 0B       		.uleb128 0xb
+ 1617 0043 01       		.uleb128 0x1
+ 1618 0044 13       		.uleb128 0x13
+ 1619 0045 00       		.byte	0x0
+ 1620 0046 00       		.byte	0x0
+ 1621 0047 06       		.uleb128 0x6
+ 1622 0048 0D       		.uleb128 0xd
+ 1623 0049 00       		.byte	0x0
+ 1624 004a 03       		.uleb128 0x3
+ 1625 004b 0E       		.uleb128 0xe
+ 1626 004c 3A       		.uleb128 0x3a
+ 1627 004d 0B       		.uleb128 0xb
+ 1628 004e 3B       		.uleb128 0x3b
+ 1629 004f 0B       		.uleb128 0xb
+ 1630 0050 49       		.uleb128 0x49
+ 1631 0051 13       		.uleb128 0x13
+ 1632 0052 38       		.uleb128 0x38
+ 1633 0053 0A       		.uleb128 0xa
+ 1634 0054 00       		.byte	0x0
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 30
+
+
+ 1635 0055 00       		.byte	0x0
+ 1636 0056 07       		.uleb128 0x7
+ 1637 0057 0D       		.uleb128 0xd
+ 1638 0058 00       		.byte	0x0
+ 1639 0059 03       		.uleb128 0x3
+ 1640 005a 08       		.uleb128 0x8
+ 1641 005b 3A       		.uleb128 0x3a
+ 1642 005c 0B       		.uleb128 0xb
+ 1643 005d 3B       		.uleb128 0x3b
+ 1644 005e 0B       		.uleb128 0xb
+ 1645 005f 49       		.uleb128 0x49
+ 1646 0060 13       		.uleb128 0x13
+ 1647 0061 38       		.uleb128 0x38
+ 1648 0062 0A       		.uleb128 0xa
+ 1649 0063 00       		.byte	0x0
+ 1650 0064 00       		.byte	0x0
+ 1651 0065 08       		.uleb128 0x8
+ 1652 0066 13       		.uleb128 0x13
+ 1653 0067 01       		.byte	0x1
+ 1654 0068 0B       		.uleb128 0xb
+ 1655 0069 0B       		.uleb128 0xb
+ 1656 006a 3A       		.uleb128 0x3a
+ 1657 006b 0B       		.uleb128 0xb
+ 1658 006c 3B       		.uleb128 0x3b
+ 1659 006d 0B       		.uleb128 0xb
+ 1660 006e 01       		.uleb128 0x1
+ 1661 006f 13       		.uleb128 0x13
+ 1662 0070 00       		.byte	0x0
+ 1663 0071 00       		.byte	0x0
+ 1664 0072 09       		.uleb128 0x9
+ 1665 0073 0F       		.uleb128 0xf
+ 1666 0074 00       		.byte	0x0
+ 1667 0075 0B       		.uleb128 0xb
+ 1668 0076 0B       		.uleb128 0xb
+ 1669 0077 49       		.uleb128 0x49
+ 1670 0078 13       		.uleb128 0x13
+ 1671 0079 00       		.byte	0x0
+ 1672 007a 00       		.byte	0x0
+ 1673 007b 0A       		.uleb128 0xa
+ 1674 007c 0F       		.uleb128 0xf
+ 1675 007d 00       		.byte	0x0
+ 1676 007e 0B       		.uleb128 0xb
+ 1677 007f 0B       		.uleb128 0xb
+ 1678 0080 00       		.byte	0x0
+ 1679 0081 00       		.byte	0x0
+ 1680 0082 0B       		.uleb128 0xb
+ 1681 0083 13       		.uleb128 0x13
+ 1682 0084 01       		.byte	0x1
+ 1683 0085 03       		.uleb128 0x3
+ 1684 0086 0E       		.uleb128 0xe
+ 1685 0087 0B       		.uleb128 0xb
+ 1686 0088 0B       		.uleb128 0xb
+ 1687 0089 3A       		.uleb128 0x3a
+ 1688 008a 0B       		.uleb128 0xb
+ 1689 008b 3B       		.uleb128 0x3b
+ 1690 008c 05       		.uleb128 0x5
+ 1691 008d 01       		.uleb128 0x1
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 31
+
+
+ 1692 008e 13       		.uleb128 0x13
+ 1693 008f 00       		.byte	0x0
+ 1694 0090 00       		.byte	0x0
+ 1695 0091 0C       		.uleb128 0xc
+ 1696 0092 0D       		.uleb128 0xd
+ 1697 0093 00       		.byte	0x0
+ 1698 0094 03       		.uleb128 0x3
+ 1699 0095 08       		.uleb128 0x8
+ 1700 0096 3A       		.uleb128 0x3a
+ 1701 0097 0B       		.uleb128 0xb
+ 1702 0098 3B       		.uleb128 0x3b
+ 1703 0099 05       		.uleb128 0x5
+ 1704 009a 49       		.uleb128 0x49
+ 1705 009b 13       		.uleb128 0x13
+ 1706 009c 38       		.uleb128 0x38
+ 1707 009d 0A       		.uleb128 0xa
+ 1708 009e 00       		.byte	0x0
+ 1709 009f 00       		.byte	0x0
+ 1710 00a0 0D       		.uleb128 0xd
+ 1711 00a1 35       		.uleb128 0x35
+ 1712 00a2 00       		.byte	0x0
+ 1713 00a3 49       		.uleb128 0x49
+ 1714 00a4 13       		.uleb128 0x13
+ 1715 00a5 00       		.byte	0x0
+ 1716 00a6 00       		.byte	0x0
+ 1717 00a7 0E       		.uleb128 0xe
+ 1718 00a8 01       		.uleb128 0x1
+ 1719 00a9 01       		.byte	0x1
+ 1720 00aa 49       		.uleb128 0x49
+ 1721 00ab 13       		.uleb128 0x13
+ 1722 00ac 01       		.uleb128 0x1
+ 1723 00ad 13       		.uleb128 0x13
+ 1724 00ae 00       		.byte	0x0
+ 1725 00af 00       		.byte	0x0
+ 1726 00b0 0F       		.uleb128 0xf
+ 1727 00b1 21       		.uleb128 0x21
+ 1728 00b2 00       		.byte	0x0
+ 1729 00b3 49       		.uleb128 0x49
+ 1730 00b4 13       		.uleb128 0x13
+ 1731 00b5 2F       		.uleb128 0x2f
+ 1732 00b6 0B       		.uleb128 0xb
+ 1733 00b7 00       		.byte	0x0
+ 1734 00b8 00       		.byte	0x0
+ 1735 00b9 10       		.uleb128 0x10
+ 1736 00ba 17       		.uleb128 0x17
+ 1737 00bb 01       		.byte	0x1
+ 1738 00bc 0B       		.uleb128 0xb
+ 1739 00bd 0B       		.uleb128 0xb
+ 1740 00be 3A       		.uleb128 0x3a
+ 1741 00bf 0B       		.uleb128 0xb
+ 1742 00c0 3B       		.uleb128 0x3b
+ 1743 00c1 0B       		.uleb128 0xb
+ 1744 00c2 01       		.uleb128 0x1
+ 1745 00c3 13       		.uleb128 0x13
+ 1746 00c4 00       		.byte	0x0
+ 1747 00c5 00       		.byte	0x0
+ 1748 00c6 11       		.uleb128 0x11
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 32
+
+
+ 1749 00c7 0D       		.uleb128 0xd
+ 1750 00c8 00       		.byte	0x0
+ 1751 00c9 03       		.uleb128 0x3
+ 1752 00ca 0E       		.uleb128 0xe
+ 1753 00cb 3A       		.uleb128 0x3a
+ 1754 00cc 0B       		.uleb128 0xb
+ 1755 00cd 3B       		.uleb128 0x3b
+ 1756 00ce 0B       		.uleb128 0xb
+ 1757 00cf 49       		.uleb128 0x49
+ 1758 00d0 13       		.uleb128 0x13
+ 1759 00d1 00       		.byte	0x0
+ 1760 00d2 00       		.byte	0x0
+ 1761 00d3 12       		.uleb128 0x12
+ 1762 00d4 26       		.uleb128 0x26
+ 1763 00d5 00       		.byte	0x0
+ 1764 00d6 49       		.uleb128 0x49
+ 1765 00d7 13       		.uleb128 0x13
+ 1766 00d8 00       		.byte	0x0
+ 1767 00d9 00       		.byte	0x0
+ 1768 00da 13       		.uleb128 0x13
+ 1769 00db 2E       		.uleb128 0x2e
+ 1770 00dc 00       		.byte	0x0
+ 1771 00dd 3F       		.uleb128 0x3f
+ 1772 00de 0C       		.uleb128 0xc
+ 1773 00df 03       		.uleb128 0x3
+ 1774 00e0 0E       		.uleb128 0xe
+ 1775 00e1 3A       		.uleb128 0x3a
+ 1776 00e2 0B       		.uleb128 0xb
+ 1777 00e3 3B       		.uleb128 0x3b
+ 1778 00e4 0B       		.uleb128 0xb
+ 1779 00e5 27       		.uleb128 0x27
+ 1780 00e6 0C       		.uleb128 0xc
+ 1781 00e7 11       		.uleb128 0x11
+ 1782 00e8 01       		.uleb128 0x1
+ 1783 00e9 12       		.uleb128 0x12
+ 1784 00ea 01       		.uleb128 0x1
+ 1785 00eb 40       		.uleb128 0x40
+ 1786 00ec 0A       		.uleb128 0xa
+ 1787 00ed 00       		.byte	0x0
+ 1788 00ee 00       		.byte	0x0
+ 1789 00ef 14       		.uleb128 0x14
+ 1790 00f0 2E       		.uleb128 0x2e
+ 1791 00f1 01       		.byte	0x1
+ 1792 00f2 3F       		.uleb128 0x3f
+ 1793 00f3 0C       		.uleb128 0xc
+ 1794 00f4 03       		.uleb128 0x3
+ 1795 00f5 0E       		.uleb128 0xe
+ 1796 00f6 3A       		.uleb128 0x3a
+ 1797 00f7 0B       		.uleb128 0xb
+ 1798 00f8 3B       		.uleb128 0x3b
+ 1799 00f9 0B       		.uleb128 0xb
+ 1800 00fa 27       		.uleb128 0x27
+ 1801 00fb 0C       		.uleb128 0xc
+ 1802 00fc 11       		.uleb128 0x11
+ 1803 00fd 01       		.uleb128 0x1
+ 1804 00fe 12       		.uleb128 0x12
+ 1805 00ff 01       		.uleb128 0x1
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 33
+
+
+ 1806 0100 40       		.uleb128 0x40
+ 1807 0101 06       		.uleb128 0x6
+ 1808 0102 01       		.uleb128 0x1
+ 1809 0103 13       		.uleb128 0x13
+ 1810 0104 00       		.byte	0x0
+ 1811 0105 00       		.byte	0x0
+ 1812 0106 15       		.uleb128 0x15
+ 1813 0107 34       		.uleb128 0x34
+ 1814 0108 00       		.byte	0x0
+ 1815 0109 03       		.uleb128 0x3
+ 1816 010a 0E       		.uleb128 0xe
+ 1817 010b 3A       		.uleb128 0x3a
+ 1818 010c 0B       		.uleb128 0xb
+ 1819 010d 3B       		.uleb128 0x3b
+ 1820 010e 0B       		.uleb128 0xb
+ 1821 010f 49       		.uleb128 0x49
+ 1822 0110 13       		.uleb128 0x13
+ 1823 0111 02       		.uleb128 0x2
+ 1824 0112 06       		.uleb128 0x6
+ 1825 0113 00       		.byte	0x0
+ 1826 0114 00       		.byte	0x0
+ 1827 0115 16       		.uleb128 0x16
+ 1828 0116 2E       		.uleb128 0x2e
+ 1829 0117 00       		.byte	0x0
+ 1830 0118 3F       		.uleb128 0x3f
+ 1831 0119 0C       		.uleb128 0xc
+ 1832 011a 03       		.uleb128 0x3
+ 1833 011b 0E       		.uleb128 0xe
+ 1834 011c 3A       		.uleb128 0x3a
+ 1835 011d 0B       		.uleb128 0xb
+ 1836 011e 3B       		.uleb128 0x3b
+ 1837 011f 0B       		.uleb128 0xb
+ 1838 0120 27       		.uleb128 0x27
+ 1839 0121 0C       		.uleb128 0xc
+ 1840 0122 11       		.uleb128 0x11
+ 1841 0123 01       		.uleb128 0x1
+ 1842 0124 12       		.uleb128 0x12
+ 1843 0125 01       		.uleb128 0x1
+ 1844 0126 40       		.uleb128 0x40
+ 1845 0127 06       		.uleb128 0x6
+ 1846 0128 00       		.byte	0x0
+ 1847 0129 00       		.byte	0x0
+ 1848 012a 17       		.uleb128 0x17
+ 1849 012b 2E       		.uleb128 0x2e
+ 1850 012c 01       		.byte	0x1
+ 1851 012d 3F       		.uleb128 0x3f
+ 1852 012e 0C       		.uleb128 0xc
+ 1853 012f 03       		.uleb128 0x3
+ 1854 0130 0E       		.uleb128 0xe
+ 1855 0131 3A       		.uleb128 0x3a
+ 1856 0132 0B       		.uleb128 0xb
+ 1857 0133 3B       		.uleb128 0x3b
+ 1858 0134 0B       		.uleb128 0xb
+ 1859 0135 27       		.uleb128 0x27
+ 1860 0136 0C       		.uleb128 0xc
+ 1861 0137 11       		.uleb128 0x11
+ 1862 0138 01       		.uleb128 0x1
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 34
+
+
+ 1863 0139 12       		.uleb128 0x12
+ 1864 013a 01       		.uleb128 0x1
+ 1865 013b 40       		.uleb128 0x40
+ 1866 013c 0A       		.uleb128 0xa
+ 1867 013d 01       		.uleb128 0x1
+ 1868 013e 13       		.uleb128 0x13
+ 1869 013f 00       		.byte	0x0
+ 1870 0140 00       		.byte	0x0
+ 1871 0141 18       		.uleb128 0x18
+ 1872 0142 34       		.uleb128 0x34
+ 1873 0143 00       		.byte	0x0
+ 1874 0144 03       		.uleb128 0x3
+ 1875 0145 08       		.uleb128 0x8
+ 1876 0146 3A       		.uleb128 0x3a
+ 1877 0147 0B       		.uleb128 0xb
+ 1878 0148 3B       		.uleb128 0x3b
+ 1879 0149 0B       		.uleb128 0xb
+ 1880 014a 49       		.uleb128 0x49
+ 1881 014b 13       		.uleb128 0x13
+ 1882 014c 02       		.uleb128 0x2
+ 1883 014d 06       		.uleb128 0x6
+ 1884 014e 00       		.byte	0x0
+ 1885 014f 00       		.byte	0x0
+ 1886 0150 19       		.uleb128 0x19
+ 1887 0151 0B       		.uleb128 0xb
+ 1888 0152 01       		.byte	0x1
+ 1889 0153 55       		.uleb128 0x55
+ 1890 0154 06       		.uleb128 0x6
+ 1891 0155 00       		.byte	0x0
+ 1892 0156 00       		.byte	0x0
+ 1893 0157 1A       		.uleb128 0x1a
+ 1894 0158 05       		.uleb128 0x5
+ 1895 0159 00       		.byte	0x0
+ 1896 015a 03       		.uleb128 0x3
+ 1897 015b 08       		.uleb128 0x8
+ 1898 015c 3A       		.uleb128 0x3a
+ 1899 015d 0B       		.uleb128 0xb
+ 1900 015e 3B       		.uleb128 0x3b
+ 1901 015f 0B       		.uleb128 0xb
+ 1902 0160 49       		.uleb128 0x49
+ 1903 0161 13       		.uleb128 0x13
+ 1904 0162 02       		.uleb128 0x2
+ 1905 0163 0A       		.uleb128 0xa
+ 1906 0164 00       		.byte	0x0
+ 1907 0165 00       		.byte	0x0
+ 1908 0166 1B       		.uleb128 0x1b
+ 1909 0167 34       		.uleb128 0x34
+ 1910 0168 00       		.byte	0x0
+ 1911 0169 03       		.uleb128 0x3
+ 1912 016a 0E       		.uleb128 0xe
+ 1913 016b 3A       		.uleb128 0x3a
+ 1914 016c 0B       		.uleb128 0xb
+ 1915 016d 3B       		.uleb128 0x3b
+ 1916 016e 0B       		.uleb128 0xb
+ 1917 016f 49       		.uleb128 0x49
+ 1918 0170 13       		.uleb128 0x13
+ 1919 0171 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 35
+
+
+ 1920 0172 0C       		.uleb128 0xc
+ 1921 0173 3C       		.uleb128 0x3c
+ 1922 0174 0C       		.uleb128 0xc
+ 1923 0175 00       		.byte	0x0
+ 1924 0176 00       		.byte	0x0
+ 1925 0177 00       		.byte	0x0
+ 1926              		.section	.debug_pubnames,"",%progbits
+ 1927 0000 B9000000 		.4byte	0xb9
+ 1928 0004 0200     		.2byte	0x2
+ 1929 0006 00000000 		.4byte	.Ldebug_info0
+ 1930 000a 90070000 		.4byte	0x790
+ 1931 000e 41060000 		.4byte	0x641
+ 1932 0012 5F706F72 		.ascii	"_port_switch_from_isr\000"
+ 1932      745F7377 
+ 1932      69746368 
+ 1932      5F66726F 
+ 1932      6D5F6973 
+ 1933 0028 55060000 		.4byte	0x655
+ 1934 002c 53564361 		.ascii	"SVCallVector\000"
+ 1934      6C6C5665 
+ 1934      63746F72 
+ 1934      00
+ 1935 0039 84060000 		.4byte	0x684
+ 1936 003d 5F706F72 		.ascii	"_port_init\000"
+ 1936      745F696E 
+ 1936      697400
+ 1937 0048 99060000 		.4byte	0x699
+ 1938 004c 5F706F72 		.ascii	"_port_lock\000"
+ 1938      745F6C6F 
+ 1938      636B00
+ 1939 0057 C1060000 		.4byte	0x6c1
+ 1940 005b 5F706F72 		.ascii	"_port_unlock\000"
+ 1940      745F756E 
+ 1940      6C6F636B 
+ 1940      00
+ 1941 0068 E9060000 		.4byte	0x6e9
+ 1942 006c 5F706F72 		.ascii	"_port_irq_epilogue\000"
+ 1942      745F6972 
+ 1942      715F6570 
+ 1942      696C6F67 
+ 1942      756500
+ 1943 007f 18070000 		.4byte	0x718
+ 1944 0083 53797354 		.ascii	"SysTickVector\000"
+ 1944      69636B56 
+ 1944      6563746F 
+ 1944      7200
+ 1945 0091 2D070000 		.4byte	0x72d
+ 1946 0095 5F706F72 		.ascii	"_port_switch\000"
+ 1946      745F7377 
+ 1946      69746368 
+ 1946      00
+ 1947 00a2 60070000 		.4byte	0x760
+ 1948 00a6 5F706F72 		.ascii	"_port_thread_start\000"
+ 1948      745F7468 
+ 1948      72656164 
+ 1948      5F737461 
+ 1948      727400
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 36
+
+
+ 1949 00b9 00000000 		.4byte	0x0
+ 1950              		.section	.debug_pubtypes,"",%progbits
+ 1951 0000 2E010000 		.4byte	0x12e
+ 1952 0004 0200     		.2byte	0x2
+ 1953 0006 00000000 		.4byte	.Ldebug_info0
+ 1954 000a 90070000 		.4byte	0x790
+ 1955 000e 3E000000 		.4byte	0x3e
+ 1956 0012 75696E74 		.ascii	"uint8_t\000"
+ 1956      385F7400 
+ 1957 001a 5E000000 		.4byte	0x5e
+ 1958 001e 696E7433 		.ascii	"int32_t\000"
+ 1958      325F7400 
+ 1959 0026 70000000 		.4byte	0x70
+ 1960 002a 75696E74 		.ascii	"uint32_t\000"
+ 1960      33325F74 
+ 1960      00
+ 1961 0033 90000000 		.4byte	0x90
+ 1962 0037 746D6F64 		.ascii	"tmode_t\000"
+ 1962      655F7400 
+ 1963 003f 9B000000 		.4byte	0x9b
+ 1964 0043 74737461 		.ascii	"tstate_t\000"
+ 1964      74655F74 
+ 1964      00
+ 1965 004c A6000000 		.4byte	0xa6
+ 1966 0050 74726566 		.ascii	"trefs_t\000"
+ 1966      735F7400 
+ 1967 0058 B1000000 		.4byte	0xb1
+ 1968 005c 74736C69 		.ascii	"tslices_t\000"
+ 1968      6365735F 
+ 1968      7400
+ 1969 0066 BC000000 		.4byte	0xbc
+ 1970 006a 74707269 		.ascii	"tprio_t\000"
+ 1970      6F5F7400 
+ 1971 0072 C7000000 		.4byte	0xc7
+ 1972 0076 6D73675F 		.ascii	"msg_t\000"
+ 1972      7400
+ 1973 007c D2000000 		.4byte	0xd2
+ 1974 0080 6576656E 		.ascii	"eventmask_t\000"
+ 1974      746D6173 
+ 1974      6B5F7400 
+ 1975 008c DD000000 		.4byte	0xdd
+ 1976 0090 73797374 		.ascii	"systime_t\000"
+ 1976      696D655F 
+ 1976      7400
+ 1977 009a E8000000 		.4byte	0xe8
+ 1978 009e 54687265 		.ascii	"Thread\000"
+ 1978      616400
+ 1979 00a5 43020000 		.4byte	0x243
+ 1980 00a9 54687265 		.ascii	"ThreadsQueue\000"
+ 1980      61647351 
+ 1980      75657565 
+ 1980      00
+ 1981 00b6 65020000 		.4byte	0x265
+ 1982 00ba 54687265 		.ascii	"ThreadsList\000"
+ 1982      6164734C 
+ 1982      69737400 
+ 1983 00c6 70020000 		.4byte	0x270
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 37
+
+
+ 1984 00ca 72656761 		.ascii	"regarm_t\000"
+ 1984      726D5F74 
+ 1984      00
+ 1985 00d3 7D020000 		.4byte	0x27d
+ 1986 00d7 65787463 		.ascii	"extctx\000"
+ 1986      747800
+ 1987 00de F5020000 		.4byte	0x2f5
+ 1988 00e2 696E7463 		.ascii	"intctx\000"
+ 1988      747800
+ 1989 00e9 83030000 		.4byte	0x383
+ 1990 00ed 636F6E74 		.ascii	"context\000"
+ 1990      65787400 
+ 1991 00f5 34050000 		.4byte	0x534
+ 1992 00f9 434D785F 		.ascii	"CMx_SCB\000"
+ 1992      53434200 
+ 1993 0101 A1050000 		.4byte	0x5a1
+ 1994 0105 52656164 		.ascii	"ReadyList\000"
+ 1994      794C6973 
+ 1994      7400
+ 1995 010f AC050000 		.4byte	0x5ac
+ 1996 0113 4D757465 		.ascii	"Mutex\000"
+ 1996      7800
+ 1997 0119 E9050000 		.4byte	0x5e9
+ 1998 011d 4D757465 		.ascii	"Mutex\000"
+ 1998      7800
+ 1999 0123 F3000000 		.4byte	0xf3
+ 2000 0127 54687265 		.ascii	"Thread\000"
+ 2000      616400
+ 2001 012e 00000000 		.4byte	0x0
+ 2002              		.section	.debug_aranges,"",%progbits
+ 2003 0000 5C000000 		.4byte	0x5c
+ 2004 0004 0200     		.2byte	0x2
+ 2005 0006 00000000 		.4byte	.Ldebug_info0
+ 2006 000a 04       		.byte	0x4
+ 2007 000b 00       		.byte	0x0
+ 2008 000c 0000     		.2byte	0x0
+ 2009 000e 0000     		.2byte	0x0
+ 2010 0010 00000000 		.4byte	.LFB6
+ 2011 0014 06000000 		.4byte	.LFE6-.LFB6
+ 2012 0018 00000000 		.4byte	.LFB1
+ 2013 001c 14000000 		.4byte	.LFE1-.LFB1
+ 2014 0020 00000000 		.4byte	.LFB2
+ 2015 0024 34000000 		.4byte	.LFE2-.LFB2
+ 2016 0028 00000000 		.4byte	.LFB3
+ 2017 002c 08000000 		.4byte	.LFE3-.LFB3
+ 2018 0030 00000000 		.4byte	.LFB4
+ 2019 0034 08000000 		.4byte	.LFE4-.LFB4
+ 2020 0038 00000000 		.4byte	.LFB5
+ 2021 003c 74000000 		.4byte	.LFE5-.LFB5
+ 2022 0040 00000000 		.4byte	.LFB0
+ 2023 0044 16000000 		.4byte	.LFE0-.LFB0
+ 2024 0048 00000000 		.4byte	.LFB7
+ 2025 004c 10000000 		.4byte	.LFE7-.LFB7
+ 2026 0050 00000000 		.4byte	.LFB8
+ 2027 0054 12000000 		.4byte	.LFE8-.LFB8
+ 2028 0058 00000000 		.4byte	0x0
+ 2029 005c 00000000 		.4byte	0x0
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 38
+
+
+ 2030              		.section	.debug_ranges,"",%progbits
+ 2031              	.Ldebug_ranges0:
+ 2032 0000 10000000 		.4byte	.LBB2
+ 2033 0004 40000000 		.4byte	.LBE2
+ 2034 0008 48000000 		.4byte	.LBB3
+ 2035 000c 74000000 		.4byte	.LBE3
+ 2036 0010 00000000 		.4byte	0x0
+ 2037 0014 00000000 		.4byte	0x0
+ 2038 0018 00000000 		.4byte	.LFB6
+ 2039 001c 06000000 		.4byte	.LFE6
+ 2040 0020 00000000 		.4byte	.LFB1
+ 2041 0024 14000000 		.4byte	.LFE1
+ 2042 0028 00000000 		.4byte	.LFB2
+ 2043 002c 34000000 		.4byte	.LFE2
+ 2044 0030 00000000 		.4byte	.LFB3
+ 2045 0034 08000000 		.4byte	.LFE3
+ 2046 0038 00000000 		.4byte	.LFB4
+ 2047 003c 08000000 		.4byte	.LFE4
+ 2048 0040 00000000 		.4byte	.LFB5
+ 2049 0044 74000000 		.4byte	.LFE5
+ 2050 0048 00000000 		.4byte	.LFB0
+ 2051 004c 16000000 		.4byte	.LFE0
+ 2052 0050 00000000 		.4byte	.LFB7
+ 2053 0054 10000000 		.4byte	.LFE7
+ 2054 0058 00000000 		.4byte	.LFB8
+ 2055 005c 12000000 		.4byte	.LFE8
+ 2056 0060 00000000 		.4byte	0x0
+ 2057 0064 00000000 		.4byte	0x0
+ 2058              		.section	.debug_str,"MS",%progbits,1
+ 2059              	.LASF35:
+ 2060 0000 705F6D73 		.ascii	"p_msg\000"
+ 2060      6700
+ 2061              	.LASF75:
+ 2062 0006 7264796D 		.ascii	"rdymsg\000"
+ 2062      736700
+ 2063              	.LASF63:
+ 2064 000d 434D785F 		.ascii	"CMx_SCB\000"
+ 2064      53434200 
+ 2065              	.LASF87:
+ 2066 0015 53797354 		.ascii	"SysTickVector\000"
+ 2066      69636B56 
+ 2066      6563746F 
+ 2066      7200
+ 2067              	.LASF11:
+ 2068 0023 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2068      206C6F6E 
+ 2068      6720756E 
+ 2068      7369676E 
+ 2068      65642069 
+ 2069              	.LASF76:
+ 2070 003a 65786974 		.ascii	"exitcode\000"
+ 2070      636F6465 
+ 2070      00
+ 2071              	.LASF48:
+ 2072 0043 43505549 		.ascii	"CPUID\000"
+ 2072      4400
+ 2073              	.LASF23:
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 39
+
+
+ 2074 0049 705F7072 		.ascii	"p_prio\000"
+ 2074      696F00
+ 2075              	.LASF10:
+ 2076 0050 6C6F6E67 		.ascii	"long long int\000"
+ 2076      206C6F6E 
+ 2076      6720696E 
+ 2076      7400
+ 2077              	.LASF1:
+ 2078 005e 7369676E 		.ascii	"signed char\000"
+ 2078      65642063 
+ 2078      68617200 
+ 2079              	.LASF39:
+ 2080 006a 705F6D70 		.ascii	"p_mpool\000"
+ 2080      6F6F6C00 
+ 2081              	.LASF72:
+ 2082 0072 6D5F7175 		.ascii	"m_queue\000"
+ 2082      65756500 
+ 2083              	.LASF92:
+ 2084 007a 2E2E2F2E 		.ascii	"../../../ChibiOS/os/ports/GCC/ARMCMx/chcore_v7m.c\000"
+ 2084      2E2F2E2E 
+ 2084      2F436869 
+ 2084      62694F53 
+ 2084      2F6F732F 
+ 2085              	.LASF15:
+ 2086 00ac 74736C69 		.ascii	"tslices_t\000"
+ 2086      6365735F 
+ 2086      7400
+ 2087              	.LASF7:
+ 2088 00b6 6C6F6E67 		.ascii	"long int\000"
+ 2088      20696E74 
+ 2088      00
+ 2089              	.LASF13:
+ 2090 00bf 74737461 		.ascii	"tstate_t\000"
+ 2090      74655F74 
+ 2090      00
+ 2091              	.LASF89:
+ 2092 00c8 5F706F72 		.ascii	"_port_thread_start\000"
+ 2092      745F7468 
+ 2092      72656164 
+ 2092      5F737461 
+ 2092      727400
+ 2093              	.LASF25:
+ 2094 00db 705F6E65 		.ascii	"p_newer\000"
+ 2094      77657200 
+ 2095              	.LASF58:
+ 2096 00e3 42464152 		.ascii	"BFAR\000"
+ 2096      00
+ 2097              	.LASF67:
+ 2098 00e8 725F6E65 		.ascii	"r_newer\000"
+ 2098      77657200 
+ 2099              	.LASF42:
+ 2100 00f0 72656761 		.ascii	"regarm_t\000"
+ 2100      726D5F74 
+ 2100      00
+ 2101              	.LASF0:
+ 2102 00f9 756E7369 		.ascii	"unsigned int\000"
+ 2102      676E6564 
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 40
+
+
+ 2102      20696E74 
+ 2102      00
+ 2103              	.LASF44:
+ 2104 0106 6C725F74 		.ascii	"lr_thd\000"
+ 2104      686400
+ 2105              	.LASF43:
+ 2106 010d 65787463 		.ascii	"extctx\000"
+ 2106      747800
+ 2107              	.LASF88:
+ 2108 0114 5F706F72 		.ascii	"_port_switch\000"
+ 2108      745F7377 
+ 2108      69746368 
+ 2108      00
+ 2109              	.LASF9:
+ 2110 0121 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2110      20756E73 
+ 2110      69676E65 
+ 2110      6420696E 
+ 2110      7400
+ 2111              	.LASF50:
+ 2112 0133 56544F52 		.ascii	"VTOR\000"
+ 2112      00
+ 2113              	.LASF80:
+ 2114 0138 5F706F72 		.ascii	"_port_switch_from_isr\000"
+ 2114      745F7377 
+ 2114      69746368 
+ 2114      5F66726F 
+ 2114      6D5F6973 
+ 2115              	.LASF47:
+ 2116 014e 636F6E74 		.ascii	"context\000"
+ 2116      65787400 
+ 2117              	.LASF4:
+ 2118 0156 73686F72 		.ascii	"short unsigned int\000"
+ 2118      7420756E 
+ 2118      7369676E 
+ 2118      65642069 
+ 2118      6E7400
+ 2119              	.LASF49:
+ 2120 0169 49435352 		.ascii	"ICSR\000"
+ 2120      00
+ 2121              	.LASF17:
+ 2122 016e 6D73675F 		.ascii	"msg_t\000"
+ 2122      7400
+ 2123              	.LASF51:
+ 2124 0174 41495243 		.ascii	"AIRCR\000"
+ 2124      5200
+ 2125              	.LASF56:
+ 2126 017a 44465352 		.ascii	"DFSR\000"
+ 2126      00
+ 2127              	.LASF57:
+ 2128 017f 4D4D4641 		.ascii	"MMFAR\000"
+ 2128      5200
+ 2129              	.LASF86:
+ 2130 0185 5F706F72 		.ascii	"_port_irq_epilogue\000"
+ 2130      745F6972 
+ 2130      715F6570 
+ 2130      696C6F67 
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 41
+
+
+ 2130      756500
+ 2131              	.LASF12:
+ 2132 0198 746D6F64 		.ascii	"tmode_t\000"
+ 2132      655F7400 
+ 2133              	.LASF41:
+ 2134 01a0 54687265 		.ascii	"ThreadsList\000"
+ 2134      6164734C 
+ 2134      69737400 
+ 2135              	.LASF18:
+ 2136 01ac 6576656E 		.ascii	"eventmask_t\000"
+ 2136      746D6173 
+ 2136      6B5F7400 
+ 2137              	.LASF71:
+ 2138 01b8 4D757465 		.ascii	"Mutex\000"
+ 2138      7800
+ 2139              	.LASF54:
+ 2140 01be 43465352 		.ascii	"CFSR\000"
+ 2140      00
+ 2141              	.LASF26:
+ 2142 01c3 705F6F6C 		.ascii	"p_older\000"
+ 2142      64657200 
+ 2143              	.LASF66:
+ 2144 01cb 725F6374 		.ascii	"r_ctx\000"
+ 2144      7800
+ 2145              	.LASF40:
+ 2146 01d1 54687265 		.ascii	"ThreadsQueue\000"
+ 2146      61647351 
+ 2146      75657565 
+ 2146      00
+ 2147              	.LASF69:
+ 2148 01de 725F6375 		.ascii	"r_current\000"
+ 2148      7272656E 
+ 2148      7400
+ 2149              	.LASF68:
+ 2150 01e8 725F6F6C 		.ascii	"r_older\000"
+ 2150      64657200 
+ 2151              	.LASF14:
+ 2152 01f0 74726566 		.ascii	"trefs_t\000"
+ 2152      735F7400 
+ 2153              	.LASF83:
+ 2154 01f8 5F706F72 		.ascii	"_port_lock\000"
+ 2154      745F6C6F 
+ 2154      636B00
+ 2155              	.LASF84:
+ 2156 0203 63747870 		.ascii	"ctxp\000"
+ 2156      00
+ 2157              	.LASF22:
+ 2158 0208 705F7072 		.ascii	"p_prev\000"
+ 2158      657600
+ 2159              	.LASF93:
+ 2160 020f 433A5C55 		.ascii	"C:\\Users\\D\341niel\\Dropbox\\Solar Racing\\Szoftv"
+ 2160      73657273 
+ 2160      5C44E16E 
+ 2160      69656C5C 
+ 2160      44726F70 
+ 2161 023a 65725C4C 		.ascii	"er\\LuxControl\\LuxControl_v1\\luxcontrol\\firmware"
+ 2161      7578436F 
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 42
+
+
+ 2161      6E74726F 
+ 2161      6C5C4C75 
+ 2161      78436F6E 
+ 2162 0269 00       		.ascii	"\000"
+ 2163              	.LASF16:
+ 2164 026a 74707269 		.ascii	"tprio_t\000"
+ 2164      6F5F7400 
+ 2165              	.LASF6:
+ 2166 0272 696E7433 		.ascii	"int32_t\000"
+ 2166      325F7400 
+ 2167              	.LASF2:
+ 2168 027a 756E7369 		.ascii	"unsigned char\000"
+ 2168      676E6564 
+ 2168      20636861 
+ 2168      7200
+ 2169              	.LASF53:
+ 2170 0288 53484353 		.ascii	"SHCSR\000"
+ 2170      5200
+ 2171              	.LASF37:
+ 2172 028e 705F6D74 		.ascii	"p_mtxlist\000"
+ 2172      786C6973 
+ 2172      7400
+ 2173              	.LASF3:
+ 2174 0298 73686F72 		.ascii	"short int\000"
+ 2174      7420696E 
+ 2174      7400
+ 2175              	.LASF28:
+ 2176 02a2 705F7374 		.ascii	"p_state\000"
+ 2176      61746500 
+ 2177              	.LASF31:
+ 2178 02aa 705F7072 		.ascii	"p_preempt\000"
+ 2178      65656D70 
+ 2178      7400
+ 2179              	.LASF45:
+ 2180 02b4 78707372 		.ascii	"xpsr\000"
+ 2180      00
+ 2181              	.LASF65:
+ 2182 02b9 725F7072 		.ascii	"r_prio\000"
+ 2182      696F00
+ 2183              	.LASF78:
+ 2184 02c0 65776D61 		.ascii	"ewmask\000"
+ 2184      736B00
+ 2185              	.LASF21:
+ 2186 02c7 705F6E65 		.ascii	"p_next\000"
+ 2186      787400
+ 2187              	.LASF29:
+ 2188 02ce 705F666C 		.ascii	"p_flags\000"
+ 2188      61677300 
+ 2189              	.LASF20:
+ 2190 02d6 54687265 		.ascii	"Thread\000"
+ 2190      616400
+ 2191              	.LASF36:
+ 2192 02dd 705F6570 		.ascii	"p_epending\000"
+ 2192      656E6469 
+ 2192      6E6700
+ 2193              	.LASF8:
+ 2194 02e8 75696E74 		.ascii	"uint32_t\000"
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 43
+
+
+ 2194      33325F74 
+ 2194      00
+ 2195              	.LASF64:
+ 2196 02f1 725F7175 		.ascii	"r_queue\000"
+ 2196      65756500 
+ 2197              	.LASF59:
+ 2198 02f9 41465352 		.ascii	"AFSR\000"
+ 2198      00
+ 2199              	.LASF61:
+ 2200 02fe 756E7573 		.ascii	"unused1\000"
+ 2200      65643100 
+ 2201              	.LASF79:
+ 2202 0306 63686172 		.ascii	"char\000"
+ 2202      00
+ 2203              	.LASF74:
+ 2204 030b 6D5F6E65 		.ascii	"m_next\000"
+ 2204      787400
+ 2205              	.LASF19:
+ 2206 0312 73797374 		.ascii	"systime_t\000"
+ 2206      696D655F 
+ 2206      7400
+ 2207              	.LASF38:
+ 2208 031c 705F7265 		.ascii	"p_realprio\000"
+ 2208      616C7072 
+ 2208      696F00
+ 2209              	.LASF82:
+ 2210 0327 53564361 		.ascii	"SVCallVector\000"
+ 2210      6C6C5665 
+ 2210      63746F72 
+ 2210      00
+ 2211              	.LASF85:
+ 2212 0334 5F706F72 		.ascii	"_port_unlock\000"
+ 2212      745F756E 
+ 2212      6C6F636B 
+ 2212      00
+ 2213              	.LASF32:
+ 2214 0341 705F7469 		.ascii	"p_time\000"
+ 2214      6D6500
+ 2215              	.LASF52:
+ 2216 0348 53485052 		.ascii	"SHPR\000"
+ 2216      00
+ 2217              	.LASF46:
+ 2218 034d 696E7463 		.ascii	"intctx\000"
+ 2218      747800
+ 2219              	.LASF34:
+ 2220 0354 705F6D73 		.ascii	"p_msgqueue\000"
+ 2220      67717565 
+ 2220      756500
+ 2221              	.LASF30:
+ 2222 035f 705F7265 		.ascii	"p_refs\000"
+ 2222      667300
+ 2223              	.LASF70:
+ 2224 0366 52656164 		.ascii	"ReadyList\000"
+ 2224      794C6973 
+ 2224      7400
+ 2225              	.LASF60:
+ 2226 0370 4D4D4652 		.ascii	"MMFR\000"
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 44
+
+
+ 2226      00
+ 2227              	.LASF90:
+ 2228 0375 726C6973 		.ascii	"rlist\000"
+ 2228      7400
+ 2229              	.LASF5:
+ 2230 037b 75696E74 		.ascii	"uint8_t\000"
+ 2230      385F7400 
+ 2231              	.LASF81:
+ 2232 0383 5F706F72 		.ascii	"_port_init\000"
+ 2232      745F696E 
+ 2232      697400
+ 2233              	.LASF77:
+ 2234 038e 77746F62 		.ascii	"wtobjp\000"
+ 2234      6A7000
+ 2235              	.LASF91:
+ 2236 0395 474E5520 		.ascii	"GNU C 4.5.2\000"
+ 2236      4320342E 
+ 2236      352E3200 
+ 2237              	.LASF27:
+ 2238 03a1 705F6E61 		.ascii	"p_name\000"
+ 2238      6D6500
+ 2239              	.LASF62:
+ 2240 03a8 43504143 		.ascii	"CPACR\000"
+ 2240      5200
+ 2241              	.LASF55:
+ 2242 03ae 48465352 		.ascii	"HFSR\000"
+ 2242      00
+ 2243              	.LASF73:
+ 2244 03b3 6D5F6F77 		.ascii	"m_owner\000"
+ 2244      6E657200 
+ 2245              	.LASF24:
+ 2246 03bb 705F6374 		.ascii	"p_ctx\000"
+ 2246      7800
+ 2247              	.LASF33:
+ 2248 03c1 705F7761 		.ascii	"p_waiting\000"
+ 2248      6974696E 
+ 2248      6700
+ 2249              		.ident	"GCC: (Sourcery G++ Lite 2011.03-42) 4.5.2"
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s 			page 45
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 chcore_v7m.c
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:24     .text._port_switch_from_isr:00000000 $t
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:30     .text._port_switch_from_isr:00000000 _port_switch_from_isr
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:42     .text._port_switch_from_isr:00000004 _port_exit_from_isr
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:54     .text.SVCallVector:00000000 $t
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:60     .text.SVCallVector:00000000 SVCallVector
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:181    .text._port_unlock:00000000 _port_unlock
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:95     .text._port_init:00000000 $t
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:101    .text._port_init:00000000 _port_init
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:141    .text._port_init:0000002c $d
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:147    .text._port_lock:00000000 $t
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:153    .text._port_lock:00000000 _port_lock
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:175    .text._port_unlock:00000000 $t
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:203    .text._port_irq_epilogue:00000000 $t
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:209    .text._port_irq_epilogue:00000000 _port_irq_epilogue
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:299    .text._port_irq_epilogue:00000064 $d
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:308    .text.SysTickVector:00000000 $t
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:314    .text.SysTickVector:00000000 SysTickVector
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:345    .text._port_switch:00000000 $t
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:351    .text._port_switch:00000000 _port_switch
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:378    .text._port_thread_start:00000000 $t
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:384    .text._port_thread_start:00000000 _port_thread_start
+                     .debug_frame:00000010 $d
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:146    .text._port_init:00000034 $t
+C:\Users\DNIEL~1\AppData\Local\Temp\cceiCCYI.s:307    .text._port_irq_epilogue:00000074 $t
+
+UNDEFINED SYMBOLS
+chSchDoReschedule
+nvicSetSystemHandlerPriority
+rlist
+chSysTimerHandlerI
+chThdExit
