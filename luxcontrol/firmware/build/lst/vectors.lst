@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 1
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 1
 
 
    1              		.syntax unified
@@ -20,8 +20,8 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 1
   17              	.Ldebug_info0:
   18              		.section	.debug_line,"",%progbits
   19              	.Ldebug_line0:
-  20 0000 65000000 		.text
-  20      02004F00 
+  20 0000 EC000000 		.text
+  20      0200D600 
   20      00000201 
   20      FB0E0D00 
   20      01010101 
@@ -37,7 +37,7 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 1
   30              	_unhandled_exception:
   31              	.LFB0:
   32              		.file 1 "../../../ChibiOS/os/ports/GCC/ARMCMx/STM32F1xx/vectors.c"
-  33              		.loc 1 194 0
+  33              		.loc 1 241 0
   34              		.cfi_startproc
   35              		@ Naked Function: prologue and epilogue provided by programmer.
   36              		@ args = 0, pretend = 0, frame = 0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 1
   51              		.thumb_set BusFaultVector,_unhandled_exception
   52              		.weak	UsageFaultVector
   53              		.thumb_set UsageFaultVector,_unhandled_exception
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 2
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 2
 
 
   54              		.weak	Vector1C
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 1
  108              		.weak	Vector88
  109              		.thumb_set Vector88,_unhandled_exception
  110              		.weak	Vector8C
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 3
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 3
 
 
  111              		.thumb_set Vector8C,_unhandled_exception
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 1
  162              	_vectors:
  163 0000 00000000 		.word	__main_stack_end__
  164 0004 00000000 		.word	ResetHandler
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 4
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 4
 
 
  165 0008 00000000 		.word	NMIVector
@@ -238,427 +238,799 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 1
  219 00e0 00000000 		.word	VectorE0
  220 00e4 00000000 		.word	VectorE4
  221 00e8 00000000 		.word	VectorE8
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 5
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 5
 
 
  222              		.text
  223              	.Letext0:
- 224              		.section	.debug_info
- 225 0000 B1000000 		.4byte	0xb1
- 226 0004 0200     		.2byte	0x2
- 227 0006 00000000 		.4byte	.Ldebug_abbrev0
- 228 000a 04       		.byte	0x4
- 229 000b 01       		.uleb128 0x1
- 230 000c 0E000000 		.4byte	.LASF10
- 231 0010 01       		.byte	0x1
- 232 0011 C7000000 		.4byte	.LASF11
- 233 0015 50000000 		.4byte	.LASF12
- 234 0019 00000000 		.4byte	0x0
- 235 001d 00000000 		.4byte	0x0
- 236 0021 00000000 		.4byte	.Ldebug_ranges0+0x0
- 237 0025 00000000 		.4byte	.Ldebug_line0
- 238 0029 02       		.uleb128 0x2
- 239 002a 04       		.byte	0x4
- 240 002b 05       		.byte	0x5
- 241 002c 696E7400 		.ascii	"int\000"
- 242 0030 03       		.uleb128 0x3
- 243 0031 04       		.byte	0x4
- 244 0032 07       		.byte	0x7
- 245 0033 1A000000 		.4byte	.LASF0
- 246 0037 03       		.uleb128 0x3
- 247 0038 01       		.byte	0x1
- 248 0039 06       		.byte	0x6
- 249 003a 1C010000 		.4byte	.LASF1
- 250 003e 03       		.uleb128 0x3
- 251 003f 01       		.byte	0x1
- 252 0040 08       		.byte	0x8
- 253 0041 AB000000 		.4byte	.LASF2
- 254 0045 03       		.uleb128 0x3
- 255 0046 02       		.byte	0x2
- 256 0047 05       		.byte	0x5
- 257 0048 3D010000 		.4byte	.LASF3
- 258 004c 03       		.uleb128 0x3
- 259 004d 02       		.byte	0x2
- 260 004e 07       		.byte	0x7
- 261 004f 09010000 		.4byte	.LASF4
- 262 0053 03       		.uleb128 0x3
- 263 0054 04       		.byte	0x4
- 264 0055 05       		.byte	0x5
- 265 0056 BE000000 		.4byte	.LASF5
- 266 005a 03       		.uleb128 0x3
- 267 005b 04       		.byte	0x4
- 268 005c 07       		.byte	0x7
- 269 005d 27000000 		.4byte	.LASF6
- 270 0061 03       		.uleb128 0x3
- 271 0062 08       		.byte	0x8
- 272 0063 05       		.byte	0x5
- 273 0064 00000000 		.4byte	.LASF7
- 274 0068 03       		.uleb128 0x3
- 275 0069 08       		.byte	0x8
- 276 006a 07       		.byte	0x7
- 277 006b 39000000 		.4byte	.LASF8
- 278 006f 03       		.uleb128 0x3
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 6
+ 224              		.file 2 "c:\\program files (x86)\\codesourcery\\sourcery g++ lite\\bin\\../lib/gcc/arm-none-eabi/4
+ 225              		.section	.debug_info
+ 226 0000 F0010000 		.4byte	0x1f0
+ 227 0004 0200     		.2byte	0x2
+ 228 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 229 000a 04       		.byte	0x4
+ 230 000b 01       		.uleb128 0x1
+ 231 000c 16000000 		.4byte	.LASF33
+ 232 0010 01       		.byte	0x1
+ 233 0011 48010000 		.4byte	.LASF34
+ 234 0015 B5010000 		.4byte	.LASF35
+ 235 0019 00000000 		.4byte	0x0
+ 236 001d 00000000 		.4byte	0x0
+ 237 0021 00000000 		.4byte	.Ldebug_ranges0+0x0
+ 238 0025 00000000 		.4byte	.Ldebug_line0
+ 239 0029 02       		.uleb128 0x2
+ 240 002a 04       		.byte	0x4
+ 241 002b 05       		.byte	0x5
+ 242 002c 696E7400 		.ascii	"int\000"
+ 243 0030 03       		.uleb128 0x3
+ 244 0031 04       		.byte	0x4
+ 245 0032 07       		.byte	0x7
+ 246 0033 B2000000 		.4byte	.LASF0
+ 247 0037 03       		.uleb128 0x3
+ 248 0038 01       		.byte	0x1
+ 249 0039 06       		.byte	0x6
+ 250 003a FD010000 		.4byte	.LASF1
+ 251 003e 03       		.uleb128 0x3
+ 252 003f 01       		.byte	0x1
+ 253 0040 08       		.byte	0x8
+ 254 0041 4D000000 		.4byte	.LASF2
+ 255 0045 03       		.uleb128 0x3
+ 256 0046 02       		.byte	0x2
+ 257 0047 05       		.byte	0x5
+ 258 0048 9E010000 		.4byte	.LASF3
+ 259 004c 03       		.uleb128 0x3
+ 260 004d 02       		.byte	0x2
+ 261 004e 07       		.byte	0x7
+ 262 004f 6D000000 		.4byte	.LASF4
+ 263 0053 03       		.uleb128 0x3
+ 264 0054 04       		.byte	0x4
+ 265 0055 05       		.byte	0x5
+ 266 0056 F4010000 		.4byte	.LASF5
+ 267 005a 04       		.uleb128 0x4
+ 268 005b 80000000 		.4byte	.LASF11
+ 269 005f 02       		.byte	0x2
+ 270 0060 50       		.byte	0x50
+ 271 0061 65000000 		.4byte	0x65
+ 272 0065 03       		.uleb128 0x3
+ 273 0066 04       		.byte	0x4
+ 274 0067 07       		.byte	0x7
+ 275 0068 5B000000 		.4byte	.LASF6
+ 276 006c 03       		.uleb128 0x3
+ 277 006d 08       		.byte	0x8
+ 278 006e 05       		.byte	0x5
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 6
 
 
- 279 0070 01       		.byte	0x1
- 280 0071 08       		.byte	0x8
- 281 0072 B9000000 		.4byte	.LASF9
- 282 0076 04       		.uleb128 0x4
- 283 0077 01       		.byte	0x1
- 284 0078 28010000 		.4byte	.LASF13
- 285 007c 01       		.byte	0x1
- 286 007d C2       		.byte	0xc2
- 287 007e 01       		.byte	0x1
- 288 007f 00000000 		.4byte	.LFB0
- 289 0083 02000000 		.4byte	.LFE0
- 290 0087 02       		.byte	0x2
- 291 0088 7D       		.byte	0x7d
- 292 0089 00       		.sleb128 0
- 293 008a 05       		.uleb128 0x5
- 294 008b 9C000000 		.4byte	0x9c
- 295 008f 9A000000 		.4byte	0x9a
- 296 0093 06       		.uleb128 0x6
- 297 0094 30000000 		.4byte	0x30
- 298 0098 3A       		.byte	0x3a
- 299 0099 00       		.byte	0x0
- 300 009a 07       		.uleb128 0x7
- 301 009b 01       		.byte	0x1
- 302 009c 08       		.uleb128 0x8
- 303 009d 04       		.byte	0x4
- 304 009e 9A000000 		.4byte	0x9a
- 305 00a2 09       		.uleb128 0x9
- 306 00a3 00010000 		.4byte	.LASF14
- 307 00a7 01       		.byte	0x1
- 308 00a8 98       		.byte	0x98
- 309 00a9 8A000000 		.4byte	0x8a
- 310 00ad 01       		.byte	0x1
- 311 00ae 05       		.byte	0x5
- 312 00af 03       		.byte	0x3
- 313 00b0 00000000 		.4byte	_vectors
- 314 00b4 00       		.byte	0x0
- 315              		.section	.debug_abbrev
- 316 0000 01       		.uleb128 0x1
- 317 0001 11       		.uleb128 0x11
- 318 0002 01       		.byte	0x1
- 319 0003 25       		.uleb128 0x25
- 320 0004 0E       		.uleb128 0xe
- 321 0005 13       		.uleb128 0x13
- 322 0006 0B       		.uleb128 0xb
- 323 0007 03       		.uleb128 0x3
- 324 0008 0E       		.uleb128 0xe
- 325 0009 1B       		.uleb128 0x1b
- 326 000a 0E       		.uleb128 0xe
- 327 000b 11       		.uleb128 0x11
- 328 000c 01       		.uleb128 0x1
- 329 000d 52       		.uleb128 0x52
- 330 000e 01       		.uleb128 0x1
- 331 000f 55       		.uleb128 0x55
- 332 0010 06       		.uleb128 0x6
- 333 0011 10       		.uleb128 0x10
- 334 0012 06       		.uleb128 0x6
- 335 0013 00       		.byte	0x0
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 7
+ 279 006f 35010000 		.4byte	.LASF7
+ 280 0073 03       		.uleb128 0x3
+ 281 0074 08       		.byte	0x8
+ 282 0075 07       		.byte	0x7
+ 283 0076 CA000000 		.4byte	.LASF8
+ 284 007a 03       		.uleb128 0x3
+ 285 007b 01       		.byte	0x1
+ 286 007c 02       		.byte	0x2
+ 287 007d 26020000 		.4byte	.LASF9
+ 288 0081 03       		.uleb128 0x3
+ 289 0082 01       		.byte	0x1
+ 290 0083 08       		.byte	0x8
+ 291 0084 43010000 		.4byte	.LASF10
+ 292 0088 04       		.uleb128 0x4
+ 293 0089 09000000 		.4byte	.LASF12
+ 294 008d 01       		.byte	0x1
+ 295 008e 48       		.byte	0x48
+ 296 008f 93000000 		.4byte	0x93
+ 297 0093 05       		.uleb128 0x5
+ 298 0094 04       		.byte	0x4
+ 299 0095 99000000 		.4byte	0x99
+ 300 0099 06       		.uleb128 0x6
+ 301 009a 01       		.byte	0x1
+ 302 009b 07       		.uleb128 0x7
+ 303 009c EC       		.byte	0xec
+ 304 009d 01       		.byte	0x1
+ 305 009e 4D       		.byte	0x4d
+ 306 009f 92010000 		.4byte	0x192
+ 307 00a3 08       		.uleb128 0x8
+ 308 00a4 34000000 		.4byte	.LASF13
+ 309 00a8 01       		.byte	0x1
+ 310 00a9 4E       		.byte	0x4e
+ 311 00aa 92010000 		.4byte	0x192
+ 312 00ae 02       		.byte	0x2
+ 313 00af 23       		.byte	0x23
+ 314 00b0 00       		.uleb128 0x0
+ 315 00b1 08       		.uleb128 0x8
+ 316 00b2 A8010000 		.4byte	.LASF14
+ 317 00b6 01       		.byte	0x1
+ 318 00b7 4F       		.byte	0x4f
+ 319 00b8 88000000 		.4byte	0x88
+ 320 00bc 02       		.byte	0x2
+ 321 00bd 23       		.byte	0x23
+ 322 00be 04       		.uleb128 0x4
+ 323 00bf 08       		.uleb128 0x8
+ 324 00c0 BF000000 		.4byte	.LASF15
+ 325 00c4 01       		.byte	0x1
+ 326 00c5 50       		.byte	0x50
+ 327 00c6 88000000 		.4byte	0x88
+ 328 00ca 02       		.byte	0x2
+ 329 00cb 23       		.byte	0x23
+ 330 00cc 08       		.uleb128 0x8
+ 331 00cd 08       		.uleb128 0x8
+ 332 00ce 24010000 		.4byte	.LASF16
+ 333 00d2 01       		.byte	0x1
+ 334 00d3 51       		.byte	0x51
+ 335 00d4 88000000 		.4byte	0x88
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 7
 
 
- 336 0014 00       		.byte	0x0
- 337 0015 02       		.uleb128 0x2
- 338 0016 24       		.uleb128 0x24
- 339 0017 00       		.byte	0x0
- 340 0018 0B       		.uleb128 0xb
- 341 0019 0B       		.uleb128 0xb
- 342 001a 3E       		.uleb128 0x3e
- 343 001b 0B       		.uleb128 0xb
- 344 001c 03       		.uleb128 0x3
- 345 001d 08       		.uleb128 0x8
- 346 001e 00       		.byte	0x0
- 347 001f 00       		.byte	0x0
- 348 0020 03       		.uleb128 0x3
- 349 0021 24       		.uleb128 0x24
- 350 0022 00       		.byte	0x0
- 351 0023 0B       		.uleb128 0xb
- 352 0024 0B       		.uleb128 0xb
- 353 0025 3E       		.uleb128 0x3e
- 354 0026 0B       		.uleb128 0xb
- 355 0027 03       		.uleb128 0x3
- 356 0028 0E       		.uleb128 0xe
- 357 0029 00       		.byte	0x0
- 358 002a 00       		.byte	0x0
- 359 002b 04       		.uleb128 0x4
- 360 002c 2E       		.uleb128 0x2e
- 361 002d 00       		.byte	0x0
- 362 002e 3F       		.uleb128 0x3f
- 363 002f 0C       		.uleb128 0xc
- 364 0030 03       		.uleb128 0x3
- 365 0031 0E       		.uleb128 0xe
- 366 0032 3A       		.uleb128 0x3a
- 367 0033 0B       		.uleb128 0xb
- 368 0034 3B       		.uleb128 0x3b
- 369 0035 0B       		.uleb128 0xb
- 370 0036 27       		.uleb128 0x27
- 371 0037 0C       		.uleb128 0xc
- 372 0038 11       		.uleb128 0x11
- 373 0039 01       		.uleb128 0x1
- 374 003a 12       		.uleb128 0x12
- 375 003b 01       		.uleb128 0x1
- 376 003c 40       		.uleb128 0x40
- 377 003d 0A       		.uleb128 0xa
- 378 003e 00       		.byte	0x0
- 379 003f 00       		.byte	0x0
- 380 0040 05       		.uleb128 0x5
- 381 0041 01       		.uleb128 0x1
- 382 0042 01       		.byte	0x1
- 383 0043 49       		.uleb128 0x49
- 384 0044 13       		.uleb128 0x13
- 385 0045 01       		.uleb128 0x1
- 386 0046 13       		.uleb128 0x13
- 387 0047 00       		.byte	0x0
- 388 0048 00       		.byte	0x0
- 389 0049 06       		.uleb128 0x6
- 390 004a 21       		.uleb128 0x21
- 391 004b 00       		.byte	0x0
- 392 004c 49       		.uleb128 0x49
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 8
+ 336 00d8 02       		.byte	0x2
+ 337 00d9 23       		.byte	0x23
+ 338 00da 0C       		.uleb128 0xc
+ 339 00db 08       		.uleb128 0x8
+ 340 00dc 89000000 		.4byte	.LASF17
+ 341 00e0 01       		.byte	0x1
+ 342 00e1 52       		.byte	0x52
+ 343 00e2 88000000 		.4byte	0x88
+ 344 00e6 02       		.byte	0x2
+ 345 00e7 23       		.byte	0x23
+ 346 00e8 10       		.uleb128 0x10
+ 347 00e9 08       		.uleb128 0x8
+ 348 00ea E1000000 		.4byte	.LASF18
+ 349 00ee 01       		.byte	0x1
+ 350 00ef 53       		.byte	0x53
+ 351 00f0 88000000 		.4byte	0x88
+ 352 00f4 02       		.byte	0x2
+ 353 00f5 23       		.byte	0x23
+ 354 00f6 14       		.uleb128 0x14
+ 355 00f7 08       		.uleb128 0x8
+ 356 00f8 FA000000 		.4byte	.LASF19
+ 357 00fc 01       		.byte	0x1
+ 358 00fd 54       		.byte	0x54
+ 359 00fe 88000000 		.4byte	0x88
+ 360 0102 02       		.byte	0x2
+ 361 0103 23       		.byte	0x23
+ 362 0104 18       		.uleb128 0x18
+ 363 0105 08       		.uleb128 0x8
+ 364 0106 9A000000 		.4byte	.LASF20
+ 365 010a 01       		.byte	0x1
+ 366 010b 55       		.byte	0x55
+ 367 010c 88000000 		.4byte	0x88
+ 368 0110 02       		.byte	0x2
+ 369 0111 23       		.byte	0x23
+ 370 0112 1C       		.uleb128 0x1c
+ 371 0113 08       		.uleb128 0x8
+ 372 0114 1D020000 		.4byte	.LASF21
+ 373 0118 01       		.byte	0x1
+ 374 0119 56       		.byte	0x56
+ 375 011a 88000000 		.4byte	0x88
+ 376 011e 02       		.byte	0x2
+ 377 011f 23       		.byte	0x23
+ 378 0120 20       		.uleb128 0x20
+ 379 0121 08       		.uleb128 0x8
+ 380 0122 00000000 		.4byte	.LASF22
+ 381 0126 01       		.byte	0x1
+ 382 0127 57       		.byte	0x57
+ 383 0128 88000000 		.4byte	0x88
+ 384 012c 02       		.byte	0x2
+ 385 012d 23       		.byte	0x23
+ 386 012e 24       		.uleb128 0x24
+ 387 012f 08       		.uleb128 0x8
+ 388 0130 F1000000 		.4byte	.LASF23
+ 389 0134 01       		.byte	0x1
+ 390 0135 58       		.byte	0x58
+ 391 0136 88000000 		.4byte	0x88
+ 392 013a 02       		.byte	0x2
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 8
 
 
- 393 004d 13       		.uleb128 0x13
- 394 004e 2F       		.uleb128 0x2f
- 395 004f 0B       		.uleb128 0xb
- 396 0050 00       		.byte	0x0
- 397 0051 00       		.byte	0x0
- 398 0052 07       		.uleb128 0x7
- 399 0053 15       		.uleb128 0x15
- 400 0054 00       		.byte	0x0
- 401 0055 27       		.uleb128 0x27
- 402 0056 0C       		.uleb128 0xc
- 403 0057 00       		.byte	0x0
- 404 0058 00       		.byte	0x0
- 405 0059 08       		.uleb128 0x8
- 406 005a 0F       		.uleb128 0xf
- 407 005b 00       		.byte	0x0
- 408 005c 0B       		.uleb128 0xb
- 409 005d 0B       		.uleb128 0xb
- 410 005e 49       		.uleb128 0x49
- 411 005f 13       		.uleb128 0x13
- 412 0060 00       		.byte	0x0
- 413 0061 00       		.byte	0x0
- 414 0062 09       		.uleb128 0x9
- 415 0063 34       		.uleb128 0x34
- 416 0064 00       		.byte	0x0
- 417 0065 03       		.uleb128 0x3
- 418 0066 0E       		.uleb128 0xe
- 419 0067 3A       		.uleb128 0x3a
- 420 0068 0B       		.uleb128 0xb
- 421 0069 3B       		.uleb128 0x3b
- 422 006a 0B       		.uleb128 0xb
- 423 006b 49       		.uleb128 0x49
- 424 006c 13       		.uleb128 0x13
- 425 006d 3F       		.uleb128 0x3f
- 426 006e 0C       		.uleb128 0xc
- 427 006f 02       		.uleb128 0x2
- 428 0070 0A       		.uleb128 0xa
- 429 0071 00       		.byte	0x0
- 430 0072 00       		.byte	0x0
- 431 0073 00       		.byte	0x0
- 432              		.section	.debug_pubnames,"",%progbits
- 433 0000 34000000 		.4byte	0x34
- 434 0004 0200     		.2byte	0x2
- 435 0006 00000000 		.4byte	.Ldebug_info0
- 436 000a B5000000 		.4byte	0xb5
- 437 000e 76000000 		.4byte	0x76
- 438 0012 5F756E68 		.ascii	"_unhandled_exception\000"
- 438      616E646C 
- 438      65645F65 
- 438      78636570 
- 438      74696F6E 
- 439 0027 A2000000 		.4byte	0xa2
- 440 002b 5F766563 		.ascii	"_vectors\000"
- 440      746F7273 
- 440      00
- 441 0034 00000000 		.4byte	0x0
- 442              		.section	.debug_pubtypes,"",%progbits
- 443 0000 0E000000 		.4byte	0xe
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 9
+ 393 013b 23       		.byte	0x23
+ 394 013c 28       		.uleb128 0x28
+ 395 013d 08       		.uleb128 0x8
+ 396 013e 3F000000 		.4byte	.LASF24
+ 397 0142 01       		.byte	0x1
+ 398 0143 59       		.byte	0x59
+ 399 0144 88000000 		.4byte	0x88
+ 400 0148 02       		.byte	0x2
+ 401 0149 23       		.byte	0x23
+ 402 014a 2C       		.uleb128 0x2c
+ 403 014b 08       		.uleb128 0x8
+ 404 014c 09020000 		.4byte	.LASF25
+ 405 0150 01       		.byte	0x1
+ 406 0151 5A       		.byte	0x5a
+ 407 0152 88000000 		.4byte	0x88
+ 408 0156 02       		.byte	0x2
+ 409 0157 23       		.byte	0x23
+ 410 0158 30       		.uleb128 0x30
+ 411 0159 08       		.uleb128 0x8
+ 412 015a 22000000 		.4byte	.LASF26
+ 413 015e 01       		.byte	0x1
+ 414 015f 5B       		.byte	0x5b
+ 415 0160 88000000 		.4byte	0x88
+ 416 0164 02       		.byte	0x2
+ 417 0165 23       		.byte	0x23
+ 418 0166 34       		.uleb128 0x34
+ 419 0167 08       		.uleb128 0x8
+ 420 0168 16010000 		.4byte	.LASF27
+ 421 016c 01       		.byte	0x1
+ 422 016d 5C       		.byte	0x5c
+ 423 016e 88000000 		.4byte	0x88
+ 424 0172 02       		.byte	0x2
+ 425 0173 23       		.byte	0x23
+ 426 0174 38       		.uleb128 0x38
+ 427 0175 08       		.uleb128 0x8
+ 428 0176 A3000000 		.4byte	.LASF28
+ 429 017a 01       		.byte	0x1
+ 430 017b 5D       		.byte	0x5d
+ 431 017c 88000000 		.4byte	0x88
+ 432 0180 02       		.byte	0x2
+ 433 0181 23       		.byte	0x23
+ 434 0182 3C       		.uleb128 0x3c
+ 435 0183 08       		.uleb128 0x8
+ 436 0184 96010000 		.4byte	.LASF29
+ 437 0188 01       		.byte	0x1
+ 438 0189 5E       		.byte	0x5e
+ 439 018a 98010000 		.4byte	0x198
+ 440 018e 02       		.byte	0x2
+ 441 018f 23       		.byte	0x23
+ 442 0190 40       		.uleb128 0x40
+ 443 0191 00       		.byte	0x0
+ 444 0192 05       		.uleb128 0x5
+ 445 0193 04       		.byte	0x4
+ 446 0194 5A000000 		.4byte	0x5a
+ 447 0198 09       		.uleb128 0x9
+ 448 0199 88000000 		.4byte	0x88
+ 449 019d A8010000 		.4byte	0x1a8
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 9
 
 
- 444 0004 0200     		.2byte	0x2
- 445 0006 00000000 		.4byte	.Ldebug_info0
- 446 000a B5000000 		.4byte	0xb5
- 447 000e 00000000 		.4byte	0x0
- 448              		.section	.debug_aranges,"",%progbits
- 449 0000 1C000000 		.4byte	0x1c
- 450 0004 0200     		.2byte	0x2
- 451 0006 00000000 		.4byte	.Ldebug_info0
- 452 000a 04       		.byte	0x4
- 453 000b 00       		.byte	0x0
- 454 000c 0000     		.2byte	0x0
- 455 000e 0000     		.2byte	0x0
- 456 0010 00000000 		.4byte	.LFB0
- 457 0014 02000000 		.4byte	.LFE0-.LFB0
- 458 0018 00000000 		.4byte	0x0
- 459 001c 00000000 		.4byte	0x0
- 460              		.section	.debug_ranges,"",%progbits
- 461              	.Ldebug_ranges0:
- 462 0000 00000000 		.4byte	.LFB0
- 463 0004 02000000 		.4byte	.LFE0
- 464 0008 00000000 		.4byte	0x0
- 465 000c 00000000 		.4byte	0x0
- 466              		.section	.debug_str,"MS",%progbits,1
- 467              	.LASF7:
- 468 0000 6C6F6E67 		.ascii	"long long int\000"
- 468      206C6F6E 
- 468      6720696E 
- 468      7400
- 469              	.LASF10:
- 470 000e 474E5520 		.ascii	"GNU C 4.5.2\000"
- 470      4320342E 
- 470      352E3200 
- 471              	.LASF0:
- 472 001a 756E7369 		.ascii	"unsigned int\000"
- 472      676E6564 
- 472      20696E74 
- 472      00
- 473              	.LASF6:
- 474 0027 6C6F6E67 		.ascii	"long unsigned int\000"
- 474      20756E73 
- 474      69676E65 
- 474      6420696E 
- 474      7400
- 475              	.LASF8:
- 476 0039 6C6F6E67 		.ascii	"long long unsigned int\000"
- 476      206C6F6E 
- 476      6720756E 
- 476      7369676E 
- 476      65642069 
- 477              	.LASF12:
- 478 0050 433A5C55 		.ascii	"C:\\Users\\D\341niel\\Dropbox\\Solar Racing\\Szoftv"
- 478      73657273 
- 478      5C44E16E 
- 478      69656C5C 
- 478      44726F70 
- 479 007b 65725C4C 		.ascii	"er\\LuxControl\\LuxControl_v2\\luxcontrol\\firmware"
- 479      7578436F 
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 10
+ 450 01a1 0A       		.uleb128 0xa
+ 451 01a2 30000000 		.4byte	0x30
+ 452 01a6 2A       		.byte	0x2a
+ 453 01a7 00       		.byte	0x0
+ 454 01a8 04       		.uleb128 0x4
+ 455 01a9 0C010000 		.4byte	.LASF30
+ 456 01ad 01       		.byte	0x1
+ 457 01ae 5F       		.byte	0x5f
+ 458 01af 9B000000 		.4byte	0x9b
+ 459 01b3 0B       		.uleb128 0xb
+ 460 01b4 01       		.byte	0x1
+ 461 01b5 81010000 		.4byte	.LASF36
+ 462 01b9 01       		.byte	0x1
+ 463 01ba F1       		.byte	0xf1
+ 464 01bb 01       		.byte	0x1
+ 465 01bc 00000000 		.4byte	.LFB0
+ 466 01c0 02000000 		.4byte	.LFE0
+ 467 01c4 02       		.byte	0x2
+ 468 01c5 7D       		.byte	0x7d
+ 469 01c6 00       		.sleb128 0
+ 470 01c7 0C       		.uleb128 0xc
+ 471 01c8 2C020000 		.4byte	.LASF31
+ 472 01cc 01       		.byte	0x1
+ 473 01cd 62       		.byte	0x62
+ 474 01ce 5A000000 		.4byte	0x5a
+ 475 01d2 01       		.byte	0x1
+ 476 01d3 01       		.byte	0x1
+ 477 01d4 0C       		.uleb128 0xc
+ 478 01d5 2C020000 		.4byte	.LASF31
+ 479 01d9 01       		.byte	0x1
+ 480 01da 62       		.byte	0x62
+ 481 01db 5A000000 		.4byte	0x5a
+ 482 01df 01       		.byte	0x1
+ 483 01e0 01       		.byte	0x1
+ 484 01e1 0D       		.uleb128 0xd
+ 485 01e2 2B000000 		.4byte	.LASF32
+ 486 01e6 01       		.byte	0x1
+ 487 01e7 C5       		.byte	0xc5
+ 488 01e8 A8010000 		.4byte	0x1a8
+ 489 01ec 01       		.byte	0x1
+ 490 01ed 05       		.byte	0x5
+ 491 01ee 03       		.byte	0x3
+ 492 01ef 00000000 		.4byte	_vectors
+ 493 01f3 00       		.byte	0x0
+ 494              		.section	.debug_abbrev
+ 495 0000 01       		.uleb128 0x1
+ 496 0001 11       		.uleb128 0x11
+ 497 0002 01       		.byte	0x1
+ 498 0003 25       		.uleb128 0x25
+ 499 0004 0E       		.uleb128 0xe
+ 500 0005 13       		.uleb128 0x13
+ 501 0006 0B       		.uleb128 0xb
+ 502 0007 03       		.uleb128 0x3
+ 503 0008 0E       		.uleb128 0xe
+ 504 0009 1B       		.uleb128 0x1b
+ 505 000a 0E       		.uleb128 0xe
+ 506 000b 11       		.uleb128 0x11
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 10
 
 
- 479      6E74726F 
- 479      6C5C4C75 
- 479      78436F6E 
- 480 00aa 00       		.ascii	"\000"
- 481              	.LASF2:
- 482 00ab 756E7369 		.ascii	"unsigned char\000"
- 482      676E6564 
- 482      20636861 
- 482      7200
- 483              	.LASF9:
- 484 00b9 63686172 		.ascii	"char\000"
- 484      00
- 485              	.LASF5:
- 486 00be 6C6F6E67 		.ascii	"long int\000"
- 486      20696E74 
- 486      00
- 487              	.LASF11:
- 488 00c7 2E2E2F2E 		.ascii	"../../../ChibiOS/os/ports/GCC/ARMCMx/STM32F1xx/vect"
- 488      2E2F2E2E 
- 488      2F436869 
- 488      62694F53 
- 488      2F6F732F 
- 489 00fa 6F72732E 		.ascii	"ors.c\000"
- 489      6300
- 490              	.LASF14:
- 491 0100 5F766563 		.ascii	"_vectors\000"
- 491      746F7273 
- 491      00
- 492              	.LASF4:
- 493 0109 73686F72 		.ascii	"short unsigned int\000"
- 493      7420756E 
- 493      7369676E 
- 493      65642069 
- 493      6E7400
- 494              	.LASF1:
- 495 011c 7369676E 		.ascii	"signed char\000"
- 495      65642063 
- 495      68617200 
- 496              	.LASF13:
- 497 0128 5F756E68 		.ascii	"_unhandled_exception\000"
- 497      616E646C 
- 497      65645F65 
- 497      78636570 
- 497      74696F6E 
- 498              	.LASF3:
- 499 013d 73686F72 		.ascii	"short int\000"
- 499      7420696E 
- 499      7400
- 500              		.ident	"GCC: (Sourcery G++ Lite 2011.03-42) 4.5.2"
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 11
+ 507 000c 01       		.uleb128 0x1
+ 508 000d 52       		.uleb128 0x52
+ 509 000e 01       		.uleb128 0x1
+ 510 000f 55       		.uleb128 0x55
+ 511 0010 06       		.uleb128 0x6
+ 512 0011 10       		.uleb128 0x10
+ 513 0012 06       		.uleb128 0x6
+ 514 0013 00       		.byte	0x0
+ 515 0014 00       		.byte	0x0
+ 516 0015 02       		.uleb128 0x2
+ 517 0016 24       		.uleb128 0x24
+ 518 0017 00       		.byte	0x0
+ 519 0018 0B       		.uleb128 0xb
+ 520 0019 0B       		.uleb128 0xb
+ 521 001a 3E       		.uleb128 0x3e
+ 522 001b 0B       		.uleb128 0xb
+ 523 001c 03       		.uleb128 0x3
+ 524 001d 08       		.uleb128 0x8
+ 525 001e 00       		.byte	0x0
+ 526 001f 00       		.byte	0x0
+ 527 0020 03       		.uleb128 0x3
+ 528 0021 24       		.uleb128 0x24
+ 529 0022 00       		.byte	0x0
+ 530 0023 0B       		.uleb128 0xb
+ 531 0024 0B       		.uleb128 0xb
+ 532 0025 3E       		.uleb128 0x3e
+ 533 0026 0B       		.uleb128 0xb
+ 534 0027 03       		.uleb128 0x3
+ 535 0028 0E       		.uleb128 0xe
+ 536 0029 00       		.byte	0x0
+ 537 002a 00       		.byte	0x0
+ 538 002b 04       		.uleb128 0x4
+ 539 002c 16       		.uleb128 0x16
+ 540 002d 00       		.byte	0x0
+ 541 002e 03       		.uleb128 0x3
+ 542 002f 0E       		.uleb128 0xe
+ 543 0030 3A       		.uleb128 0x3a
+ 544 0031 0B       		.uleb128 0xb
+ 545 0032 3B       		.uleb128 0x3b
+ 546 0033 0B       		.uleb128 0xb
+ 547 0034 49       		.uleb128 0x49
+ 548 0035 13       		.uleb128 0x13
+ 549 0036 00       		.byte	0x0
+ 550 0037 00       		.byte	0x0
+ 551 0038 05       		.uleb128 0x5
+ 552 0039 0F       		.uleb128 0xf
+ 553 003a 00       		.byte	0x0
+ 554 003b 0B       		.uleb128 0xb
+ 555 003c 0B       		.uleb128 0xb
+ 556 003d 49       		.uleb128 0x49
+ 557 003e 13       		.uleb128 0x13
+ 558 003f 00       		.byte	0x0
+ 559 0040 00       		.byte	0x0
+ 560 0041 06       		.uleb128 0x6
+ 561 0042 15       		.uleb128 0x15
+ 562 0043 00       		.byte	0x0
+ 563 0044 27       		.uleb128 0x27
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 11
+
+
+ 564 0045 0C       		.uleb128 0xc
+ 565 0046 00       		.byte	0x0
+ 566 0047 00       		.byte	0x0
+ 567 0048 07       		.uleb128 0x7
+ 568 0049 13       		.uleb128 0x13
+ 569 004a 01       		.byte	0x1
+ 570 004b 0B       		.uleb128 0xb
+ 571 004c 0B       		.uleb128 0xb
+ 572 004d 3A       		.uleb128 0x3a
+ 573 004e 0B       		.uleb128 0xb
+ 574 004f 3B       		.uleb128 0x3b
+ 575 0050 0B       		.uleb128 0xb
+ 576 0051 01       		.uleb128 0x1
+ 577 0052 13       		.uleb128 0x13
+ 578 0053 00       		.byte	0x0
+ 579 0054 00       		.byte	0x0
+ 580 0055 08       		.uleb128 0x8
+ 581 0056 0D       		.uleb128 0xd
+ 582 0057 00       		.byte	0x0
+ 583 0058 03       		.uleb128 0x3
+ 584 0059 0E       		.uleb128 0xe
+ 585 005a 3A       		.uleb128 0x3a
+ 586 005b 0B       		.uleb128 0xb
+ 587 005c 3B       		.uleb128 0x3b
+ 588 005d 0B       		.uleb128 0xb
+ 589 005e 49       		.uleb128 0x49
+ 590 005f 13       		.uleb128 0x13
+ 591 0060 38       		.uleb128 0x38
+ 592 0061 0A       		.uleb128 0xa
+ 593 0062 00       		.byte	0x0
+ 594 0063 00       		.byte	0x0
+ 595 0064 09       		.uleb128 0x9
+ 596 0065 01       		.uleb128 0x1
+ 597 0066 01       		.byte	0x1
+ 598 0067 49       		.uleb128 0x49
+ 599 0068 13       		.uleb128 0x13
+ 600 0069 01       		.uleb128 0x1
+ 601 006a 13       		.uleb128 0x13
+ 602 006b 00       		.byte	0x0
+ 603 006c 00       		.byte	0x0
+ 604 006d 0A       		.uleb128 0xa
+ 605 006e 21       		.uleb128 0x21
+ 606 006f 00       		.byte	0x0
+ 607 0070 49       		.uleb128 0x49
+ 608 0071 13       		.uleb128 0x13
+ 609 0072 2F       		.uleb128 0x2f
+ 610 0073 0B       		.uleb128 0xb
+ 611 0074 00       		.byte	0x0
+ 612 0075 00       		.byte	0x0
+ 613 0076 0B       		.uleb128 0xb
+ 614 0077 2E       		.uleb128 0x2e
+ 615 0078 00       		.byte	0x0
+ 616 0079 3F       		.uleb128 0x3f
+ 617 007a 0C       		.uleb128 0xc
+ 618 007b 03       		.uleb128 0x3
+ 619 007c 0E       		.uleb128 0xe
+ 620 007d 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 12
+
+
+ 621 007e 0B       		.uleb128 0xb
+ 622 007f 3B       		.uleb128 0x3b
+ 623 0080 0B       		.uleb128 0xb
+ 624 0081 27       		.uleb128 0x27
+ 625 0082 0C       		.uleb128 0xc
+ 626 0083 11       		.uleb128 0x11
+ 627 0084 01       		.uleb128 0x1
+ 628 0085 12       		.uleb128 0x12
+ 629 0086 01       		.uleb128 0x1
+ 630 0087 40       		.uleb128 0x40
+ 631 0088 0A       		.uleb128 0xa
+ 632 0089 00       		.byte	0x0
+ 633 008a 00       		.byte	0x0
+ 634 008b 0C       		.uleb128 0xc
+ 635 008c 34       		.uleb128 0x34
+ 636 008d 00       		.byte	0x0
+ 637 008e 03       		.uleb128 0x3
+ 638 008f 0E       		.uleb128 0xe
+ 639 0090 3A       		.uleb128 0x3a
+ 640 0091 0B       		.uleb128 0xb
+ 641 0092 3B       		.uleb128 0x3b
+ 642 0093 0B       		.uleb128 0xb
+ 643 0094 49       		.uleb128 0x49
+ 644 0095 13       		.uleb128 0x13
+ 645 0096 3F       		.uleb128 0x3f
+ 646 0097 0C       		.uleb128 0xc
+ 647 0098 3C       		.uleb128 0x3c
+ 648 0099 0C       		.uleb128 0xc
+ 649 009a 00       		.byte	0x0
+ 650 009b 00       		.byte	0x0
+ 651 009c 0D       		.uleb128 0xd
+ 652 009d 34       		.uleb128 0x34
+ 653 009e 00       		.byte	0x0
+ 654 009f 03       		.uleb128 0x3
+ 655 00a0 0E       		.uleb128 0xe
+ 656 00a1 3A       		.uleb128 0x3a
+ 657 00a2 0B       		.uleb128 0xb
+ 658 00a3 3B       		.uleb128 0x3b
+ 659 00a4 0B       		.uleb128 0xb
+ 660 00a5 49       		.uleb128 0x49
+ 661 00a6 13       		.uleb128 0x13
+ 662 00a7 3F       		.uleb128 0x3f
+ 663 00a8 0C       		.uleb128 0xc
+ 664 00a9 02       		.uleb128 0x2
+ 665 00aa 0A       		.uleb128 0xa
+ 666 00ab 00       		.byte	0x0
+ 667 00ac 00       		.byte	0x0
+ 668 00ad 00       		.byte	0x0
+ 669              		.section	.debug_pubnames,"",%progbits
+ 670 0000 34000000 		.4byte	0x34
+ 671 0004 0200     		.2byte	0x2
+ 672 0006 00000000 		.4byte	.Ldebug_info0
+ 673 000a F4010000 		.4byte	0x1f4
+ 674 000e B3010000 		.4byte	0x1b3
+ 675 0012 5F756E68 		.ascii	"_unhandled_exception\000"
+ 675      616E646C 
+ 675      65645F65 
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 13
+
+
+ 675      78636570 
+ 675      74696F6E 
+ 676 0027 E1010000 		.4byte	0x1e1
+ 677 002b 5F766563 		.ascii	"_vectors\000"
+ 677      746F7273 
+ 677      00
+ 678 0034 00000000 		.4byte	0x0
+ 679              		.section	.debug_pubtypes,"",%progbits
+ 680 0000 3A000000 		.4byte	0x3a
+ 681 0004 0200     		.2byte	0x2
+ 682 0006 00000000 		.4byte	.Ldebug_info0
+ 683 000a F4010000 		.4byte	0x1f4
+ 684 000e 5A000000 		.4byte	0x5a
+ 685 0012 75696E74 		.ascii	"uint32_t\000"
+ 685      33325F74 
+ 685      00
+ 686 001b 88000000 		.4byte	0x88
+ 687 001f 6972715F 		.ascii	"irq_vector_t\000"
+ 687      76656374 
+ 687      6F725F74 
+ 687      00
+ 688 002c A8010000 		.4byte	0x1a8
+ 689 0030 76656374 		.ascii	"vectors_t\000"
+ 689      6F72735F 
+ 689      7400
+ 690 003a 00000000 		.4byte	0x0
+ 691              		.section	.debug_aranges,"",%progbits
+ 692 0000 1C000000 		.4byte	0x1c
+ 693 0004 0200     		.2byte	0x2
+ 694 0006 00000000 		.4byte	.Ldebug_info0
+ 695 000a 04       		.byte	0x4
+ 696 000b 00       		.byte	0x0
+ 697 000c 0000     		.2byte	0x0
+ 698 000e 0000     		.2byte	0x0
+ 699 0010 00000000 		.4byte	.LFB0
+ 700 0014 02000000 		.4byte	.LFE0-.LFB0
+ 701 0018 00000000 		.4byte	0x0
+ 702 001c 00000000 		.4byte	0x0
+ 703              		.section	.debug_ranges,"",%progbits
+ 704              	.Ldebug_ranges0:
+ 705 0000 00000000 		.4byte	.LFB0
+ 706 0004 02000000 		.4byte	.LFE0
+ 707 0008 00000000 		.4byte	0x0
+ 708 000c 00000000 		.4byte	0x0
+ 709              		.section	.debug_str,"MS",%progbits,1
+ 710              	.LASF22:
+ 711 0000 76656374 		.ascii	"vector24\000"
+ 711      6F723234 
+ 711      00
+ 712              	.LASF12:
+ 713 0009 6972715F 		.ascii	"irq_vector_t\000"
+ 713      76656374 
+ 713      6F725F74 
+ 713      00
+ 714              	.LASF33:
+ 715 0016 474E5520 		.ascii	"GNU C 4.5.2\000"
+ 715      4320342E 
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 14
+
+
+ 715      352E3200 
+ 716              	.LASF26:
+ 717 0022 76656374 		.ascii	"vector34\000"
+ 717      6F723334 
+ 717      00
+ 718              	.LASF32:
+ 719 002b 5F766563 		.ascii	"_vectors\000"
+ 719      746F7273 
+ 719      00
+ 720              	.LASF13:
+ 721 0034 696E6974 		.ascii	"init_stack\000"
+ 721      5F737461 
+ 721      636B00
+ 722              	.LASF24:
+ 723 003f 73766361 		.ascii	"svcall_vector\000"
+ 723      6C6C5F76 
+ 723      6563746F 
+ 723      7200
+ 724              	.LASF2:
+ 725 004d 756E7369 		.ascii	"unsigned char\000"
+ 725      676E6564 
+ 725      20636861 
+ 725      7200
+ 726              	.LASF6:
+ 727 005b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 727      20756E73 
+ 727      69676E65 
+ 727      6420696E 
+ 727      7400
+ 728              	.LASF4:
+ 729 006d 73686F72 		.ascii	"short unsigned int\000"
+ 729      7420756E 
+ 729      7369676E 
+ 729      65642069 
+ 729      6E7400
+ 730              	.LASF11:
+ 731 0080 75696E74 		.ascii	"uint32_t\000"
+ 731      33325F74 
+ 731      00
+ 732              	.LASF17:
+ 733 0089 6D656D6D 		.ascii	"memmanage_vector\000"
+ 733      616E6167 
+ 733      655F7665 
+ 733      63746F72 
+ 733      00
+ 734              	.LASF20:
+ 735 009a 76656374 		.ascii	"vector1c\000"
+ 735      6F723163 
+ 735      00
+ 736              	.LASF28:
+ 737 00a3 73797374 		.ascii	"systick_vector\000"
+ 737      69636B5F 
+ 737      76656374 
+ 737      6F7200
+ 738              	.LASF0:
+ 739 00b2 756E7369 		.ascii	"unsigned int\000"
+ 739      676E6564 
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 15
+
+
+ 739      20696E74 
+ 739      00
+ 740              	.LASF15:
+ 741 00bf 6E6D695F 		.ascii	"nmi_vector\000"
+ 741      76656374 
+ 741      6F7200
+ 742              	.LASF8:
+ 743 00ca 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 743      206C6F6E 
+ 743      6720756E 
+ 743      7369676E 
+ 743      65642069 
+ 744              	.LASF18:
+ 745 00e1 62757366 		.ascii	"busfault_vector\000"
+ 745      61756C74 
+ 745      5F766563 
+ 745      746F7200 
+ 746              	.LASF23:
+ 747 00f1 76656374 		.ascii	"vector28\000"
+ 747      6F723238 
+ 747      00
+ 748              	.LASF19:
+ 749 00fa 75736167 		.ascii	"usagefault_vector\000"
+ 749      65666175 
+ 749      6C745F76 
+ 749      6563746F 
+ 749      7200
+ 750              	.LASF30:
+ 751 010c 76656374 		.ascii	"vectors_t\000"
+ 751      6F72735F 
+ 751      7400
+ 752              	.LASF27:
+ 753 0116 70656E64 		.ascii	"pendsv_vector\000"
+ 753      73765F76 
+ 753      6563746F 
+ 753      7200
+ 754              	.LASF16:
+ 755 0124 68617264 		.ascii	"hardfault_vector\000"
+ 755      6661756C 
+ 755      745F7665 
+ 755      63746F72 
+ 755      00
+ 756              	.LASF7:
+ 757 0135 6C6F6E67 		.ascii	"long long int\000"
+ 757      206C6F6E 
+ 757      6720696E 
+ 757      7400
+ 758              	.LASF10:
+ 759 0143 63686172 		.ascii	"char\000"
+ 759      00
+ 760              	.LASF34:
+ 761 0148 2E2E2F2E 		.ascii	"../../../ChibiOS/os/ports/GCC/ARMCMx/STM32F1xx/vect"
+ 761      2E2F2E2E 
+ 761      2F436869 
+ 761      62694F53 
+ 761      2F6F732F 
+ 762 017b 6F72732E 		.ascii	"ors.c\000"
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 16
+
+
+ 762      6300
+ 763              	.LASF36:
+ 764 0181 5F756E68 		.ascii	"_unhandled_exception\000"
+ 764      616E646C 
+ 764      65645F65 
+ 764      78636570 
+ 764      74696F6E 
+ 765              	.LASF29:
+ 766 0196 76656374 		.ascii	"vectors\000"
+ 766      6F727300 
+ 767              	.LASF3:
+ 768 019e 73686F72 		.ascii	"short int\000"
+ 768      7420696E 
+ 768      7400
+ 769              	.LASF14:
+ 770 01a8 72657365 		.ascii	"reset_vector\000"
+ 770      745F7665 
+ 770      63746F72 
+ 770      00
+ 771              	.LASF35:
+ 772 01b5 433A5C44 		.ascii	"C:\\Dani\\MegaLux\\Repo\\LuxControl\\LuxControl\\lu"
+ 772      616E695C 
+ 772      4D656761 
+ 772      4C75785C 
+ 772      5265706F 
+ 773 01e2 78636F6E 		.ascii	"xcontrol\\firmware\000"
+ 773      74726F6C 
+ 773      5C666972 
+ 773      6D776172 
+ 773      6500
+ 774              	.LASF5:
+ 775 01f4 6C6F6E67 		.ascii	"long int\000"
+ 775      20696E74 
+ 775      00
+ 776              	.LASF1:
+ 777 01fd 7369676E 		.ascii	"signed char\000"
+ 777      65642063 
+ 777      68617200 
+ 778              	.LASF25:
+ 779 0209 64656275 		.ascii	"debugmonitor_vector\000"
+ 779      676D6F6E 
+ 779      69746F72 
+ 779      5F766563 
+ 779      746F7200 
+ 780              	.LASF21:
+ 781 021d 76656374 		.ascii	"vector20\000"
+ 781      6F723230 
+ 781      00
+ 782              	.LASF9:
+ 783 0226 5F426F6F 		.ascii	"_Bool\000"
+ 783      6C00
+ 784              	.LASF31:
+ 785 022c 5F5F6D61 		.ascii	"__main_stack_end__\000"
+ 785      696E5F73 
+ 785      7461636B 
+ 785      5F656E64 
+ 785      5F5F00
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 17
+
+
+ 786              		.ident	"GCC: (Sourcery G++ Lite 2011.03-42) 4.5.2"
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 vectors.c
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:24     .text._unhandled_exception:00000000 $t
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 _unhandled_exception
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:162    vectors:00000000 _vectors
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 NMIVector
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 HardFaultVector
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 MemManageVector
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 BusFaultVector
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 UsageFaultVector
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector1C
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector20
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector24
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector28
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 SVCallVector
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 DebugMonitorVector
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector34
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 PendSVVector
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 SysTickVector
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector40
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector44
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector48
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector4C
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector50
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector54
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector58
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector5C
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector60
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector64
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector68
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector6C
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector70
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector74
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector78
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector7C
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector80
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector84
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector88
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector8C
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector90
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector94
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector98
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 Vector9C
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorA0
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorA4
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorA8
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorAC
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorB0
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorB4
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorB8
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorBC
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorC0
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorC4
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorC8
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorCC
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorD0
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorD4
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s 			page 12
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:24     .text._unhandled_exception:00000000 $t
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 _unhandled_exception
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:162    vectors:00000000 _vectors
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 NMIVector
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 HardFaultVector
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 MemManageVector
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 BusFaultVector
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 UsageFaultVector
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector1C
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector20
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector24
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector28
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 SVCallVector
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 DebugMonitorVector
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector34
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 PendSVVector
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 SysTickVector
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector40
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector44
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector48
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector4C
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector50
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector54
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector58
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector5C
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector60
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector64
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector68
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector6C
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector70
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector74
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector78
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector7C
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector80
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector84
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector88
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector8C
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector90
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector94
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector98
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 Vector9C
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorA0
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorA4
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorA8
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorAC
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorB0
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorB4
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorB8
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorBC
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorC0
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorC4
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorC8
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorCC
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorD0
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorD4
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s 			page 19
 
 
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorD8
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorDC
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorE0
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorE4
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:30     .text._unhandled_exception:00000000 VectorE8
-C:\Users\DNIEL~1\AppData\Local\Temp\ccVay3Tf.s:159    vectors:00000000 $d
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorD8
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorDC
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorE0
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorE4
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:30     .text._unhandled_exception:00000000 VectorE8
+C:\Users\DNIEL~1\AppData\Local\Temp\ccvLAFNs.s:159    vectors:00000000 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

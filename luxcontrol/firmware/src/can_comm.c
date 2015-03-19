@@ -60,9 +60,7 @@ uint32_t canRxEID;
 static const CANConfig cancfg = {
   CAN_MCR_ABOM,
   CAN_BTR_SJW(0) | CAN_BTR_TS2(1) |
-  CAN_BTR_TS1(8) | CAN_BTR_BRP(5),
-  0,
-  NULL
+  CAN_BTR_TS1(8) | CAN_BTR_BRP(5)
 };
 
 /*
@@ -79,7 +77,7 @@ static msg_t can_rx(void *p) {
   while(!chThdShouldTerminate()) {
     if (chEvtWaitAnyTimeout(ALL_EVENTS, MS2ST(100)) == 0)
       continue;
-    while (canReceive(&CAND1, &rxmsg, TIME_IMMEDIATE) == RDY_OK) {
+    while (canReceive(&CAND1, CAN_ANY_MAILBOX, &rxmsg, TIME_IMMEDIATE) == RDY_OK) {
 
       switch(rxmsg.EID){
         case CAN_TEST:
@@ -97,7 +95,7 @@ static msg_t can_rx(void *p) {
           txmsg.data16[3] = measGetValue(MEAS_V_OUT);
           
 
-          can_tx_msg = canTransmit(&CAND1, &txmsg, MS2ST(100));
+          can_tx_msg = canTransmit(&CAND1, CAN_ANY_MAILBOX, &txmsg, MS2ST(100));
           rxmsg.EID = 0;
 
           /* Message 2 */
@@ -110,7 +108,7 @@ static msg_t can_rx(void *p) {
           txmsg.data32[1] = 0;
           
 
-          can_tx_msg = canTransmit(&CAND1, &txmsg, MS2ST(100));
+          can_tx_msg = canTransmit(&CAND1, CAN_ANY_MAILBOX, &txmsg, MS2ST(100));
           rxmsg.EID = 0;
 
           palTogglePad(GPIOA, GPIOA_LED4);
@@ -142,7 +140,7 @@ static msg_t can_tx(void * p) {
   txmsg.data32[1] = 0x00FF00FF;
 
   while (!chThdShouldTerminate()) {
-    canTransmit(&CAND1, &txmsg, MS2ST(100));
+    canTransmit(&CAND1, CAN_ANY_MAILBOX, &txmsg, MS2ST(100));
     chThdSleepMilliseconds(100);
   }
   return 0;
