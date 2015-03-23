@@ -17,6 +17,7 @@ build/obj/shell.o: ../../../ChibiOS/os/various/shell.c \
  ../../../ChibiOS/os/ports/GCC/ARMCMx/chtypes.h \
  c:\program\ files\ (x86)\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/include/stdint.h \
  c:\program\ files\ (x86)\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/include/stdint.h \
+ c:\program\ files\ (x86)\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/include/stdbool.h \
  ../../../ChibiOS/os/kernel/include/chlists.h \
  ../../../ChibiOS/os/ports/GCC/ARMCMx/chcore.h \
  ../../../ChibiOS/os/ports/GCC/ARMCMx/STM32F1xx/cmparams.h \
@@ -74,13 +75,14 @@ build/obj/shell.o: ../../../ChibiOS/os/various/shell.c \
  ../../../ChibiOS/os/hal/include/serial.h \
  ../../../ChibiOS/os/hal/include/sdc.h \
  ../../../ChibiOS/os/hal/include/spi.h \
- ../../../ChibiOS/os/hal/platforms/STM32/spi_lld.h \
+ ../../../ChibiOS/os/hal/platforms/STM32/SPIv1/spi_lld.h \
  ../../../ChibiOS/os/hal/include/uart.h \
  ../../../ChibiOS/os/hal/include/usb.h \
  ../../../ChibiOS/os/hal/include/mmc_spi.h \
  ../../../ChibiOS/os/hal/include/serial_usb.h \
  ../../../ChibiOS/os/various/shell.h \
- ../../../ChibiOS/os/various/chprintf.h
+ ../../../ChibiOS/os/various/chprintf.h \
+ c:\program\ files\ (x86)\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/include/stdarg.h
 
 c:\program\ files\ (x86)\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/include/string.h:
 
@@ -119,6 +121,8 @@ os/chconf.h:
 c:\program\ files\ (x86)\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/include/stdint.h:
 
 c:\program\ files\ (x86)\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/include/stdint.h:
+
+c:\program\ files\ (x86)\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/include/stdbool.h:
 
 ../../../ChibiOS/os/kernel/include/chlists.h:
 
@@ -240,7 +244,7 @@ os/mcuconf.h:
 
 ../../../ChibiOS/os/hal/include/spi.h:
 
-../../../ChibiOS/os/hal/platforms/STM32/spi_lld.h:
+../../../ChibiOS/os/hal/platforms/STM32/SPIv1/spi_lld.h:
 
 ../../../ChibiOS/os/hal/include/uart.h:
 
@@ -253,3 +257,5 @@ os/mcuconf.h:
 ../../../ChibiOS/os/various/shell.h:
 
 ../../../ChibiOS/os/various/chprintf.h:
+
+c:\program\ files\ (x86)\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/include/stdarg.h:

@@ -17,6 +17,7 @@ build/obj/mmc_spi.o: ../../../ChibiOS/os/hal/src/mmc_spi.c \
  ../../../ChibiOS/os/ports/GCC/ARMCMx/chtypes.h \
  c:\program\ files\ (x86)\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/include/stdint.h \
  c:\program\ files\ (x86)\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/include/stdint.h \
+ c:\program\ files\ (x86)\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/include/stdbool.h \
  ../../../ChibiOS/os/kernel/include/chlists.h \
  ../../../ChibiOS/os/ports/GCC/ARMCMx/chcore.h \
  ../../../ChibiOS/os/ports/GCC/ARMCMx/STM32F1xx/cmparams.h \
@@ -74,7 +75,7 @@ build/obj/mmc_spi.o: ../../../ChibiOS/os/hal/src/mmc_spi.c \
  ../../../ChibiOS/os/hal/include/serial.h \
  ../../../ChibiOS/os/hal/include/sdc.h \
  ../../../ChibiOS/os/hal/include/spi.h \
- ../../../ChibiOS/os/hal/platforms/STM32/spi_lld.h \
+ ../../../ChibiOS/os/hal/platforms/STM32/SPIv1/spi_lld.h \
  ../../../ChibiOS/os/hal/include/uart.h \
  ../../../ChibiOS/os/hal/include/usb.h \
  ../../../ChibiOS/os/hal/include/mmc_spi.h \
@@ -117,6 +118,8 @@ os/chconf.h:
 c:\program\ files\ (x86)\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/include/stdint.h:
 
 c:\program\ files\ (x86)\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/include/stdint.h:
+
+c:\program\ files\ (x86)\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/include/stdbool.h:
 
 ../../../ChibiOS/os/kernel/include/chlists.h:
 
@@ -238,7 +241,7 @@ os/mcuconf.h:
 
 ../../../ChibiOS/os/hal/include/spi.h:
 
-../../../ChibiOS/os/hal/platforms/STM32/spi_lld.h:
+../../../ChibiOS/os/hal/platforms/STM32/SPIv1/spi_lld.h:
 
 ../../../ChibiOS/os/hal/include/uart.h:
 

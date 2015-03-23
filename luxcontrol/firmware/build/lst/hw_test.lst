@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 1
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 1
 
 
    1              		.syntax unified
@@ -35,7 +35,7 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 1
   28              		.thumb_func
   29              		.type	hw_testInit, %function
   30              	hw_testInit:
-  31              	.LFB56:
+  31              	.LFB57:
   32              		.file 1 "src/hw_test.c"
   33              		.loc 1 18 0
   34              		.cfi_startproc
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 1
   51              		.loc 1 23 0
   52 000e 4FF40042 		mov	r2, #32768
   53              		.loc 1 21 0
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 2
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 2
 
 
   54 0012 5961     		str	r1, [r3, #20]
@@ -73,7 +73,7 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 1
   63              	.L2:
   64 001c 00080140 		.word	1073809408
   65              		.cfi_endproc
-  66              	.LFE56:
+  66              	.LFE57:
   67              		.size	hw_testInit, .-hw_testInit
   68              		.section	.text.hw_testCalc,"ax",%progbits
   69              		.align	2
@@ -83,7 +83,7 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 1
   73              		.thumb_func
   74              		.type	hw_testCalc, %function
   75              	hw_testCalc:
-  76              	.LFB57:
+  76              	.LFB58:
   77              		.loc 1 26 0
   78              		.cfi_startproc
   79              		@ args = 0, pretend = 0, frame = 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 1
  108              		.loc 1 32 0
  109 001e 0022     		movs	r2, #0
  110 0020 1A70     		strb	r2, [r3, #0]
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 3
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 3
 
 
  111              	.L6:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 1
  165 0070 002A     		cmp	r2, #0
  166 0072 F1D0     		beq	.L13
  167              	.L18:
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 4
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 4
 
 
  168              		.loc 1 70 0
@@ -195,7 +195,7 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 1
  179 0088 00000000 		.word	.LANCHOR2
  180 008c 000C0140 		.word	1073810432
  181              		.cfi_endproc
- 182              	.LFE57:
+ 182              	.LFE58:
  183              		.size	hw_testCalc, .-hw_testCalc
  184              		.section	.bss.i,"aw",%nobits
  185              		.set	.LANCHOR0,. + 0
@@ -227,18 +227,18 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 1
  210              		.section	.debug_loc,"",%progbits
  211              	.Ldebug_loc0:
  212              	.LLST0:
- 213 0000 00000000 		.4byte	.LFB57
+ 213 0000 00000000 		.4byte	.LFB58
  214 0004 02000000 		.4byte	.LCFI0
  215 0008 0200     		.2byte	0x2
  216 000a 7D       		.byte	0x7d
  217 000b 00       		.sleb128 0
  218 000c 02000000 		.4byte	.LCFI0
- 219 0010 90000000 		.4byte	.LFE57
+ 219 0010 90000000 		.4byte	.LFE58
  220 0014 0200     		.2byte	0x2
  221 0016 7D       		.byte	0x7d
  222 0017 04       		.sleb128 4
  223 0018 00000000 		.4byte	0x0
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 5
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 5
 
 
  224 001c 00000000 		.4byte	0x0
@@ -247,15 +247,15 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 1
  227              		.file 4 "../../../ChibiOS/os/hal/platforms/STM32/GPIOv1/pal_lld.h"
  228              		.file 5 "../../../ChibiOS/os/ports/common/ARMCMx/CMSIS/include/core_cm3.h"
  229              		.section	.debug_info
- 230 0000 E2010000 		.4byte	0x1e2
+ 230 0000 E9010000 		.4byte	0x1e9
  231 0004 0200     		.2byte	0x2
  232 0006 00000000 		.4byte	.Ldebug_abbrev0
  233 000a 04       		.byte	0x4
  234 000b 01       		.uleb128 0x1
- 235 000c 05000000 		.4byte	.LASF21
+ 235 000c 05000000 		.4byte	.LASF22
  236 0010 01       		.byte	0x1
- 237 0011 22000000 		.4byte	.LASF22
- 238 0015 1D010000 		.4byte	.LASF23
+ 237 0011 22000000 		.4byte	.LASF23
+ 238 0015 E7000000 		.4byte	.LASF24
  239 0019 00000000 		.4byte	0x0
  240 001d 00000000 		.4byte	0x0
  241 0021 00000000 		.4byte	.Ldebug_ranges0+0x0
@@ -267,13 +267,13 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 1
  247 0030 03       		.uleb128 0x3
  248 0031 04       		.byte	0x4
  249 0032 07       		.byte	0x7
- 250 0033 7D000000 		.4byte	.LASF0
+ 250 0033 86000000 		.4byte	.LASF0
  251 0037 03       		.uleb128 0x3
  252 0038 01       		.byte	0x1
  253 0039 06       		.byte	0x6
- 254 003a FA000000 		.4byte	.LASF1
+ 254 003a 39010000 		.4byte	.LASF1
  255 003e 04       		.uleb128 0x4
- 256 003f A1000000 		.4byte	.LASF5
+ 256 003f AA000000 		.4byte	.LASF5
  257 0043 02       		.byte	0x2
  258 0044 2A       		.byte	0x2a
  259 0045 49000000 		.4byte	0x49
@@ -284,25 +284,25 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 1
  264 0050 03       		.uleb128 0x3
  265 0051 02       		.byte	0x2
  266 0052 05       		.byte	0x5
- 267 0053 D4000000 		.4byte	.LASF3
+ 267 0053 DD000000 		.4byte	.LASF3
  268 0057 03       		.uleb128 0x3
  269 0058 02       		.byte	0x2
  270 0059 07       		.byte	0x7
  271 005a 5D000000 		.4byte	.LASF4
  272 005e 04       		.uleb128 0x4
- 273 005f A9000000 		.4byte	.LASF6
+ 273 005f B2000000 		.4byte	.LASF6
  274 0063 02       		.byte	0x2
  275 0064 4F       		.byte	0x4f
  276 0065 69000000 		.4byte	0x69
  277 0069 03       		.uleb128 0x3
  278 006a 04       		.byte	0x4
  279 006b 05       		.byte	0x5
- 280 006c E7000000 		.4byte	.LASF7
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 6
+ 280 006c 26010000 		.4byte	.LASF7
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 6
 
 
  281 0070 04       		.uleb128 0x4
- 282 0071 DE000000 		.4byte	.LASF8
+ 282 0071 70000000 		.4byte	.LASF8
  283 0075 02       		.byte	0x2
  284 0076 50       		.byte	0x50
  285 0077 7B000000 		.4byte	0x7b
@@ -313,676 +313,682 @@ ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 1
  290 0082 03       		.uleb128 0x3
  291 0083 08       		.byte	0x8
  292 0084 05       		.byte	0x5
- 293 0085 B1000000 		.4byte	.LASF10
+ 293 0085 BA000000 		.4byte	.LASF10
  294 0089 03       		.uleb128 0x3
  295 008a 08       		.byte	0x8
  296 008b 07       		.byte	0x7
- 297 008c 06010000 		.4byte	.LASF11
- 298 0090 05       		.uleb128 0x5
- 299 0091 70000000 		.4byte	0x70
- 300 0095 03       		.uleb128 0x3
- 301 0096 01       		.byte	0x1
- 302 0097 08       		.byte	0x8
- 303 0098 9C000000 		.4byte	.LASF12
- 304 009c 05       		.uleb128 0x5
- 305 009d 5E000000 		.4byte	0x5e
- 306 00a1 06       		.uleb128 0x6
- 307 00a2 1C       		.byte	0x1c
- 308 00a3 03       		.byte	0x3
- 309 00a4 F803     		.2byte	0x3f8
- 310 00a6 14010000 		.4byte	0x114
- 311 00aa 07       		.uleb128 0x7
- 312 00ab 43524C00 		.ascii	"CRL\000"
- 313 00af 03       		.byte	0x3
- 314 00b0 FA03     		.2byte	0x3fa
- 315 00b2 90000000 		.4byte	0x90
- 316 00b6 02       		.byte	0x2
- 317 00b7 23       		.byte	0x23
- 318 00b8 00       		.uleb128 0x0
- 319 00b9 07       		.uleb128 0x7
- 320 00ba 43524800 		.ascii	"CRH\000"
- 321 00be 03       		.byte	0x3
- 322 00bf FB03     		.2byte	0x3fb
- 323 00c1 90000000 		.4byte	0x90
- 324 00c5 02       		.byte	0x2
- 325 00c6 23       		.byte	0x23
- 326 00c7 04       		.uleb128 0x4
- 327 00c8 07       		.uleb128 0x7
- 328 00c9 49445200 		.ascii	"IDR\000"
- 329 00cd 03       		.byte	0x3
- 330 00ce FC03     		.2byte	0x3fc
- 331 00d0 90000000 		.4byte	0x90
- 332 00d4 02       		.byte	0x2
- 333 00d5 23       		.byte	0x23
- 334 00d6 08       		.uleb128 0x8
- 335 00d7 07       		.uleb128 0x7
- 336 00d8 4F445200 		.ascii	"ODR\000"
- 337 00dc 03       		.byte	0x3
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 7
+ 297 008c 4B010000 		.4byte	.LASF11
+ 298 0090 03       		.uleb128 0x3
+ 299 0091 01       		.byte	0x1
+ 300 0092 02       		.byte	0x2
+ 301 0093 45010000 		.4byte	.LASF12
+ 302 0097 05       		.uleb128 0x5
+ 303 0098 70000000 		.4byte	0x70
+ 304 009c 03       		.uleb128 0x3
+ 305 009d 01       		.byte	0x1
+ 306 009e 08       		.byte	0x8
+ 307 009f A5000000 		.4byte	.LASF13
+ 308 00a3 05       		.uleb128 0x5
+ 309 00a4 5E000000 		.4byte	0x5e
+ 310 00a8 06       		.uleb128 0x6
+ 311 00a9 1C       		.byte	0x1c
+ 312 00aa 03       		.byte	0x3
+ 313 00ab F803     		.2byte	0x3f8
+ 314 00ad 1B010000 		.4byte	0x11b
+ 315 00b1 07       		.uleb128 0x7
+ 316 00b2 43524C00 		.ascii	"CRL\000"
+ 317 00b6 03       		.byte	0x3
+ 318 00b7 FA03     		.2byte	0x3fa
+ 319 00b9 97000000 		.4byte	0x97
+ 320 00bd 02       		.byte	0x2
+ 321 00be 23       		.byte	0x23
+ 322 00bf 00       		.uleb128 0x0
+ 323 00c0 07       		.uleb128 0x7
+ 324 00c1 43524800 		.ascii	"CRH\000"
+ 325 00c5 03       		.byte	0x3
+ 326 00c6 FB03     		.2byte	0x3fb
+ 327 00c8 97000000 		.4byte	0x97
+ 328 00cc 02       		.byte	0x2
+ 329 00cd 23       		.byte	0x23
+ 330 00ce 04       		.uleb128 0x4
+ 331 00cf 07       		.uleb128 0x7
+ 332 00d0 49445200 		.ascii	"IDR\000"
+ 333 00d4 03       		.byte	0x3
+ 334 00d5 FC03     		.2byte	0x3fc
+ 335 00d7 97000000 		.4byte	0x97
+ 336 00db 02       		.byte	0x2
+ 337 00dc 23       		.byte	0x23
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 7
 
 
- 338 00dd FD03     		.2byte	0x3fd
- 339 00df 90000000 		.4byte	0x90
- 340 00e3 02       		.byte	0x2
- 341 00e4 23       		.byte	0x23
- 342 00e5 0C       		.uleb128 0xc
- 343 00e6 08       		.uleb128 0x8
- 344 00e7 1D000000 		.4byte	.LASF13
- 345 00eb 03       		.byte	0x3
- 346 00ec FE03     		.2byte	0x3fe
- 347 00ee 90000000 		.4byte	0x90
- 348 00f2 02       		.byte	0x2
- 349 00f3 23       		.byte	0x23
- 350 00f4 10       		.uleb128 0x10
- 351 00f5 07       		.uleb128 0x7
- 352 00f6 42525200 		.ascii	"BRR\000"
- 353 00fa 03       		.byte	0x3
- 354 00fb FF03     		.2byte	0x3ff
- 355 00fd 90000000 		.4byte	0x90
- 356 0101 02       		.byte	0x2
- 357 0102 23       		.byte	0x23
- 358 0103 14       		.uleb128 0x14
- 359 0104 08       		.uleb128 0x8
- 360 0105 00000000 		.4byte	.LASF14
- 361 0109 03       		.byte	0x3
- 362 010a 0004     		.2byte	0x400
- 363 010c 90000000 		.4byte	0x90
- 364 0110 02       		.byte	0x2
- 365 0111 23       		.byte	0x23
- 366 0112 18       		.uleb128 0x18
- 367 0113 00       		.byte	0x0
- 368 0114 09       		.uleb128 0x9
- 369 0115 8F000000 		.4byte	.LASF15
- 370 0119 03       		.byte	0x3
- 371 011a 0104     		.2byte	0x401
- 372 011c A1000000 		.4byte	0xa1
- 373 0120 04       		.uleb128 0x4
- 374 0121 30000000 		.4byte	.LASF16
- 375 0125 04       		.byte	0x4
- 376 0126 71       		.byte	0x71
- 377 0127 70000000 		.4byte	0x70
- 378 012b 0A       		.uleb128 0xa
- 379 012c 01       		.byte	0x1
- 380 012d 11000000 		.4byte	.LASF24
- 381 0131 01       		.byte	0x1
- 382 0132 12       		.byte	0x12
+ 338 00dd 08       		.uleb128 0x8
+ 339 00de 07       		.uleb128 0x7
+ 340 00df 4F445200 		.ascii	"ODR\000"
+ 341 00e3 03       		.byte	0x3
+ 342 00e4 FD03     		.2byte	0x3fd
+ 343 00e6 97000000 		.4byte	0x97
+ 344 00ea 02       		.byte	0x2
+ 345 00eb 23       		.byte	0x23
+ 346 00ec 0C       		.uleb128 0xc
+ 347 00ed 08       		.uleb128 0x8
+ 348 00ee 1D000000 		.4byte	.LASF14
+ 349 00f2 03       		.byte	0x3
+ 350 00f3 FE03     		.2byte	0x3fe
+ 351 00f5 97000000 		.4byte	0x97
+ 352 00f9 02       		.byte	0x2
+ 353 00fa 23       		.byte	0x23
+ 354 00fb 10       		.uleb128 0x10
+ 355 00fc 07       		.uleb128 0x7
+ 356 00fd 42525200 		.ascii	"BRR\000"
+ 357 0101 03       		.byte	0x3
+ 358 0102 FF03     		.2byte	0x3ff
+ 359 0104 97000000 		.4byte	0x97
+ 360 0108 02       		.byte	0x2
+ 361 0109 23       		.byte	0x23
+ 362 010a 14       		.uleb128 0x14
+ 363 010b 08       		.uleb128 0x8
+ 364 010c 00000000 		.4byte	.LASF15
+ 365 0110 03       		.byte	0x3
+ 366 0111 0004     		.2byte	0x400
+ 367 0113 97000000 		.4byte	0x97
+ 368 0117 02       		.byte	0x2
+ 369 0118 23       		.byte	0x23
+ 370 0119 18       		.uleb128 0x18
+ 371 011a 00       		.byte	0x0
+ 372 011b 09       		.uleb128 0x9
+ 373 011c 98000000 		.4byte	.LASF16
+ 374 0120 03       		.byte	0x3
+ 375 0121 0104     		.2byte	0x401
+ 376 0123 A8000000 		.4byte	0xa8
+ 377 0127 04       		.uleb128 0x4
+ 378 0128 30000000 		.4byte	.LASF17
+ 379 012c 04       		.byte	0x4
+ 380 012d 6D       		.byte	0x6d
+ 381 012e 70000000 		.4byte	0x70
+ 382 0132 0A       		.uleb128 0xa
  383 0133 01       		.byte	0x1
- 384 0134 00000000 		.4byte	.LFB56
- 385 0138 20000000 		.4byte	.LFE56
- 386 013c 02       		.byte	0x2
- 387 013d 7D       		.byte	0x7d
- 388 013e 00       		.sleb128 0
- 389 013f 0B       		.uleb128 0xb
- 390 0140 01       		.byte	0x1
- 391 0141 C8000000 		.4byte	.LASF25
- 392 0145 01       		.byte	0x1
- 393 0146 1A       		.byte	0x1a
+ 384 0134 11000000 		.4byte	.LASF25
+ 385 0138 01       		.byte	0x1
+ 386 0139 12       		.byte	0x12
+ 387 013a 01       		.byte	0x1
+ 388 013b 00000000 		.4byte	.LFB57
+ 389 013f 20000000 		.4byte	.LFE57
+ 390 0143 02       		.byte	0x2
+ 391 0144 7D       		.byte	0x7d
+ 392 0145 00       		.sleb128 0
+ 393 0146 0B       		.uleb128 0xb
  394 0147 01       		.byte	0x1
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 8
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 8
 
 
- 395 0148 00000000 		.4byte	.LFB57
- 396 014c 90000000 		.4byte	.LFE57
- 397 0150 00000000 		.4byte	.LLST0
- 398 0154 63010000 		.4byte	0x163
- 399 0158 0C       		.uleb128 0xc
- 400 0159 636800   		.ascii	"ch\000"
- 401 015c 01       		.byte	0x1
- 402 015d 1B       		.byte	0x1b
- 403 015e 29000000 		.4byte	0x29
- 404 0162 00       		.byte	0x0
- 405 0163 0D       		.uleb128 0xd
- 406 0164 70000000 		.4byte	.LASF20
- 407 0168 05       		.byte	0x5
- 408 0169 0706     		.2byte	0x607
- 409 016b 9C000000 		.4byte	0x9c
- 410 016f 01       		.byte	0x1
- 411 0170 01       		.byte	0x1
- 412 0171 0E       		.uleb128 0xe
- 413 0172 6900     		.ascii	"i\000"
- 414 0174 01       		.byte	0x1
- 415 0175 0C       		.byte	0xc
- 416 0176 3E000000 		.4byte	0x3e
- 417 017a 05       		.byte	0x5
- 418 017b 03       		.byte	0x3
- 419 017c 00000000 		.4byte	i
- 420 0180 0F       		.uleb128 0xf
- 421 0181 3E000000 		.4byte	0x3e
- 422 0185 90010000 		.4byte	0x190
- 423 0189 10       		.uleb128 0x10
- 424 018a 30000000 		.4byte	0x30
- 425 018e 05       		.byte	0x5
- 426 018f 00       		.byte	0x0
- 427 0190 11       		.uleb128 0x11
- 428 0191 F0000000 		.4byte	.LASF17
- 429 0195 01       		.byte	0x1
- 430 0196 0D       		.byte	0xd
- 431 0197 80010000 		.4byte	0x180
- 432 019b 05       		.byte	0x5
- 433 019c 03       		.byte	0x3
- 434 019d 00000000 		.4byte	dip_value
- 435 01a1 12       		.uleb128 0x12
- 436 01a2 BF000000 		.4byte	.LASF18
- 437 01a6 01       		.byte	0x1
- 438 01a7 0E       		.byte	0xe
- 439 01a8 AC010000 		.4byte	0x1ac
- 440 01ac 13       		.uleb128 0x13
- 441 01ad 80010000 		.4byte	0x180
- 442 01b1 0F       		.uleb128 0xf
- 443 01b2 29000000 		.4byte	0x29
- 444 01b6 C1010000 		.4byte	0x1c1
- 445 01ba 10       		.uleb128 0x10
- 446 01bb 30000000 		.4byte	0x30
- 447 01bf 04       		.byte	0x4
- 448 01c0 00       		.byte	0x0
- 449 01c1 11       		.uleb128 0x11
- 450 01c2 8A000000 		.4byte	.LASF19
- 451 01c6 01       		.byte	0x1
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 9
+ 395 0148 D1000000 		.4byte	.LASF26
+ 396 014c 01       		.byte	0x1
+ 397 014d 1A       		.byte	0x1a
+ 398 014e 01       		.byte	0x1
+ 399 014f 00000000 		.4byte	.LFB58
+ 400 0153 90000000 		.4byte	.LFE58
+ 401 0157 00000000 		.4byte	.LLST0
+ 402 015b 6A010000 		.4byte	0x16a
+ 403 015f 0C       		.uleb128 0xc
+ 404 0160 636800   		.ascii	"ch\000"
+ 405 0163 01       		.byte	0x1
+ 406 0164 1B       		.byte	0x1b
+ 407 0165 29000000 		.4byte	0x29
+ 408 0169 00       		.byte	0x0
+ 409 016a 0D       		.uleb128 0xd
+ 410 016b 79000000 		.4byte	.LASF21
+ 411 016f 05       		.byte	0x5
+ 412 0170 0706     		.2byte	0x607
+ 413 0172 A3000000 		.4byte	0xa3
+ 414 0176 01       		.byte	0x1
+ 415 0177 01       		.byte	0x1
+ 416 0178 0E       		.uleb128 0xe
+ 417 0179 6900     		.ascii	"i\000"
+ 418 017b 01       		.byte	0x1
+ 419 017c 0C       		.byte	0xc
+ 420 017d 3E000000 		.4byte	0x3e
+ 421 0181 05       		.byte	0x5
+ 422 0182 03       		.byte	0x3
+ 423 0183 00000000 		.4byte	i
+ 424 0187 0F       		.uleb128 0xf
+ 425 0188 3E000000 		.4byte	0x3e
+ 426 018c 97010000 		.4byte	0x197
+ 427 0190 10       		.uleb128 0x10
+ 428 0191 30000000 		.4byte	0x30
+ 429 0195 05       		.byte	0x5
+ 430 0196 00       		.byte	0x0
+ 431 0197 11       		.uleb128 0x11
+ 432 0198 2F010000 		.4byte	.LASF18
+ 433 019c 01       		.byte	0x1
+ 434 019d 0D       		.byte	0xd
+ 435 019e 87010000 		.4byte	0x187
+ 436 01a2 05       		.byte	0x5
+ 437 01a3 03       		.byte	0x3
+ 438 01a4 00000000 		.4byte	dip_value
+ 439 01a8 12       		.uleb128 0x12
+ 440 01a9 C8000000 		.4byte	.LASF19
+ 441 01ad 01       		.byte	0x1
+ 442 01ae 0E       		.byte	0xe
+ 443 01af B3010000 		.4byte	0x1b3
+ 444 01b3 13       		.uleb128 0x13
+ 445 01b4 87010000 		.4byte	0x187
+ 446 01b8 0F       		.uleb128 0xf
+ 447 01b9 29000000 		.4byte	0x29
+ 448 01bd C8010000 		.4byte	0x1c8
+ 449 01c1 10       		.uleb128 0x10
+ 450 01c2 30000000 		.4byte	0x30
+ 451 01c6 04       		.byte	0x4
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 9
 
 
- 452 01c7 0F       		.byte	0xf
- 453 01c8 D2010000 		.4byte	0x1d2
- 454 01cc 05       		.byte	0x5
- 455 01cd 03       		.byte	0x3
- 456 01ce 00000000 		.4byte	pins
- 457 01d2 13       		.uleb128 0x13
- 458 01d3 B1010000 		.4byte	0x1b1
- 459 01d7 0D       		.uleb128 0xd
- 460 01d8 70000000 		.4byte	.LASF20
- 461 01dc 05       		.byte	0x5
- 462 01dd 0706     		.2byte	0x607
- 463 01df 9C000000 		.4byte	0x9c
- 464 01e3 01       		.byte	0x1
- 465 01e4 01       		.byte	0x1
- 466 01e5 00       		.byte	0x0
- 467              		.section	.debug_abbrev
- 468 0000 01       		.uleb128 0x1
- 469 0001 11       		.uleb128 0x11
- 470 0002 01       		.byte	0x1
- 471 0003 25       		.uleb128 0x25
- 472 0004 0E       		.uleb128 0xe
- 473 0005 13       		.uleb128 0x13
- 474 0006 0B       		.uleb128 0xb
- 475 0007 03       		.uleb128 0x3
- 476 0008 0E       		.uleb128 0xe
- 477 0009 1B       		.uleb128 0x1b
- 478 000a 0E       		.uleb128 0xe
- 479 000b 11       		.uleb128 0x11
- 480 000c 01       		.uleb128 0x1
- 481 000d 52       		.uleb128 0x52
- 482 000e 01       		.uleb128 0x1
- 483 000f 55       		.uleb128 0x55
- 484 0010 06       		.uleb128 0x6
- 485 0011 10       		.uleb128 0x10
- 486 0012 06       		.uleb128 0x6
- 487 0013 00       		.byte	0x0
- 488 0014 00       		.byte	0x0
- 489 0015 02       		.uleb128 0x2
- 490 0016 24       		.uleb128 0x24
- 491 0017 00       		.byte	0x0
- 492 0018 0B       		.uleb128 0xb
- 493 0019 0B       		.uleb128 0xb
- 494 001a 3E       		.uleb128 0x3e
- 495 001b 0B       		.uleb128 0xb
- 496 001c 03       		.uleb128 0x3
- 497 001d 08       		.uleb128 0x8
- 498 001e 00       		.byte	0x0
- 499 001f 00       		.byte	0x0
- 500 0020 03       		.uleb128 0x3
- 501 0021 24       		.uleb128 0x24
- 502 0022 00       		.byte	0x0
- 503 0023 0B       		.uleb128 0xb
- 504 0024 0B       		.uleb128 0xb
- 505 0025 3E       		.uleb128 0x3e
- 506 0026 0B       		.uleb128 0xb
- 507 0027 03       		.uleb128 0x3
- 508 0028 0E       		.uleb128 0xe
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 10
+ 452 01c7 00       		.byte	0x0
+ 453 01c8 11       		.uleb128 0x11
+ 454 01c9 93000000 		.4byte	.LASF20
+ 455 01cd 01       		.byte	0x1
+ 456 01ce 0F       		.byte	0xf
+ 457 01cf D9010000 		.4byte	0x1d9
+ 458 01d3 05       		.byte	0x5
+ 459 01d4 03       		.byte	0x3
+ 460 01d5 00000000 		.4byte	pins
+ 461 01d9 13       		.uleb128 0x13
+ 462 01da B8010000 		.4byte	0x1b8
+ 463 01de 0D       		.uleb128 0xd
+ 464 01df 79000000 		.4byte	.LASF21
+ 465 01e3 05       		.byte	0x5
+ 466 01e4 0706     		.2byte	0x607
+ 467 01e6 A3000000 		.4byte	0xa3
+ 468 01ea 01       		.byte	0x1
+ 469 01eb 01       		.byte	0x1
+ 470 01ec 00       		.byte	0x0
+ 471              		.section	.debug_abbrev
+ 472 0000 01       		.uleb128 0x1
+ 473 0001 11       		.uleb128 0x11
+ 474 0002 01       		.byte	0x1
+ 475 0003 25       		.uleb128 0x25
+ 476 0004 0E       		.uleb128 0xe
+ 477 0005 13       		.uleb128 0x13
+ 478 0006 0B       		.uleb128 0xb
+ 479 0007 03       		.uleb128 0x3
+ 480 0008 0E       		.uleb128 0xe
+ 481 0009 1B       		.uleb128 0x1b
+ 482 000a 0E       		.uleb128 0xe
+ 483 000b 11       		.uleb128 0x11
+ 484 000c 01       		.uleb128 0x1
+ 485 000d 52       		.uleb128 0x52
+ 486 000e 01       		.uleb128 0x1
+ 487 000f 55       		.uleb128 0x55
+ 488 0010 06       		.uleb128 0x6
+ 489 0011 10       		.uleb128 0x10
+ 490 0012 06       		.uleb128 0x6
+ 491 0013 00       		.byte	0x0
+ 492 0014 00       		.byte	0x0
+ 493 0015 02       		.uleb128 0x2
+ 494 0016 24       		.uleb128 0x24
+ 495 0017 00       		.byte	0x0
+ 496 0018 0B       		.uleb128 0xb
+ 497 0019 0B       		.uleb128 0xb
+ 498 001a 3E       		.uleb128 0x3e
+ 499 001b 0B       		.uleb128 0xb
+ 500 001c 03       		.uleb128 0x3
+ 501 001d 08       		.uleb128 0x8
+ 502 001e 00       		.byte	0x0
+ 503 001f 00       		.byte	0x0
+ 504 0020 03       		.uleb128 0x3
+ 505 0021 24       		.uleb128 0x24
+ 506 0022 00       		.byte	0x0
+ 507 0023 0B       		.uleb128 0xb
+ 508 0024 0B       		.uleb128 0xb
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 10
 
 
- 509 0029 00       		.byte	0x0
- 510 002a 00       		.byte	0x0
- 511 002b 04       		.uleb128 0x4
- 512 002c 16       		.uleb128 0x16
- 513 002d 00       		.byte	0x0
- 514 002e 03       		.uleb128 0x3
- 515 002f 0E       		.uleb128 0xe
- 516 0030 3A       		.uleb128 0x3a
- 517 0031 0B       		.uleb128 0xb
- 518 0032 3B       		.uleb128 0x3b
- 519 0033 0B       		.uleb128 0xb
- 520 0034 49       		.uleb128 0x49
- 521 0035 13       		.uleb128 0x13
- 522 0036 00       		.byte	0x0
- 523 0037 00       		.byte	0x0
- 524 0038 05       		.uleb128 0x5
- 525 0039 35       		.uleb128 0x35
- 526 003a 00       		.byte	0x0
- 527 003b 49       		.uleb128 0x49
- 528 003c 13       		.uleb128 0x13
- 529 003d 00       		.byte	0x0
- 530 003e 00       		.byte	0x0
- 531 003f 06       		.uleb128 0x6
- 532 0040 13       		.uleb128 0x13
- 533 0041 01       		.byte	0x1
- 534 0042 0B       		.uleb128 0xb
- 535 0043 0B       		.uleb128 0xb
- 536 0044 3A       		.uleb128 0x3a
- 537 0045 0B       		.uleb128 0xb
- 538 0046 3B       		.uleb128 0x3b
- 539 0047 05       		.uleb128 0x5
- 540 0048 01       		.uleb128 0x1
- 541 0049 13       		.uleb128 0x13
- 542 004a 00       		.byte	0x0
- 543 004b 00       		.byte	0x0
- 544 004c 07       		.uleb128 0x7
- 545 004d 0D       		.uleb128 0xd
- 546 004e 00       		.byte	0x0
- 547 004f 03       		.uleb128 0x3
- 548 0050 08       		.uleb128 0x8
- 549 0051 3A       		.uleb128 0x3a
- 550 0052 0B       		.uleb128 0xb
- 551 0053 3B       		.uleb128 0x3b
- 552 0054 05       		.uleb128 0x5
- 553 0055 49       		.uleb128 0x49
- 554 0056 13       		.uleb128 0x13
- 555 0057 38       		.uleb128 0x38
- 556 0058 0A       		.uleb128 0xa
- 557 0059 00       		.byte	0x0
- 558 005a 00       		.byte	0x0
- 559 005b 08       		.uleb128 0x8
- 560 005c 0D       		.uleb128 0xd
- 561 005d 00       		.byte	0x0
- 562 005e 03       		.uleb128 0x3
- 563 005f 0E       		.uleb128 0xe
- 564 0060 3A       		.uleb128 0x3a
- 565 0061 0B       		.uleb128 0xb
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 11
+ 509 0025 3E       		.uleb128 0x3e
+ 510 0026 0B       		.uleb128 0xb
+ 511 0027 03       		.uleb128 0x3
+ 512 0028 0E       		.uleb128 0xe
+ 513 0029 00       		.byte	0x0
+ 514 002a 00       		.byte	0x0
+ 515 002b 04       		.uleb128 0x4
+ 516 002c 16       		.uleb128 0x16
+ 517 002d 00       		.byte	0x0
+ 518 002e 03       		.uleb128 0x3
+ 519 002f 0E       		.uleb128 0xe
+ 520 0030 3A       		.uleb128 0x3a
+ 521 0031 0B       		.uleb128 0xb
+ 522 0032 3B       		.uleb128 0x3b
+ 523 0033 0B       		.uleb128 0xb
+ 524 0034 49       		.uleb128 0x49
+ 525 0035 13       		.uleb128 0x13
+ 526 0036 00       		.byte	0x0
+ 527 0037 00       		.byte	0x0
+ 528 0038 05       		.uleb128 0x5
+ 529 0039 35       		.uleb128 0x35
+ 530 003a 00       		.byte	0x0
+ 531 003b 49       		.uleb128 0x49
+ 532 003c 13       		.uleb128 0x13
+ 533 003d 00       		.byte	0x0
+ 534 003e 00       		.byte	0x0
+ 535 003f 06       		.uleb128 0x6
+ 536 0040 13       		.uleb128 0x13
+ 537 0041 01       		.byte	0x1
+ 538 0042 0B       		.uleb128 0xb
+ 539 0043 0B       		.uleb128 0xb
+ 540 0044 3A       		.uleb128 0x3a
+ 541 0045 0B       		.uleb128 0xb
+ 542 0046 3B       		.uleb128 0x3b
+ 543 0047 05       		.uleb128 0x5
+ 544 0048 01       		.uleb128 0x1
+ 545 0049 13       		.uleb128 0x13
+ 546 004a 00       		.byte	0x0
+ 547 004b 00       		.byte	0x0
+ 548 004c 07       		.uleb128 0x7
+ 549 004d 0D       		.uleb128 0xd
+ 550 004e 00       		.byte	0x0
+ 551 004f 03       		.uleb128 0x3
+ 552 0050 08       		.uleb128 0x8
+ 553 0051 3A       		.uleb128 0x3a
+ 554 0052 0B       		.uleb128 0xb
+ 555 0053 3B       		.uleb128 0x3b
+ 556 0054 05       		.uleb128 0x5
+ 557 0055 49       		.uleb128 0x49
+ 558 0056 13       		.uleb128 0x13
+ 559 0057 38       		.uleb128 0x38
+ 560 0058 0A       		.uleb128 0xa
+ 561 0059 00       		.byte	0x0
+ 562 005a 00       		.byte	0x0
+ 563 005b 08       		.uleb128 0x8
+ 564 005c 0D       		.uleb128 0xd
+ 565 005d 00       		.byte	0x0
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 11
 
 
- 566 0062 3B       		.uleb128 0x3b
- 567 0063 05       		.uleb128 0x5
- 568 0064 49       		.uleb128 0x49
- 569 0065 13       		.uleb128 0x13
- 570 0066 38       		.uleb128 0x38
- 571 0067 0A       		.uleb128 0xa
- 572 0068 00       		.byte	0x0
- 573 0069 00       		.byte	0x0
- 574 006a 09       		.uleb128 0x9
- 575 006b 16       		.uleb128 0x16
- 576 006c 00       		.byte	0x0
- 577 006d 03       		.uleb128 0x3
- 578 006e 0E       		.uleb128 0xe
- 579 006f 3A       		.uleb128 0x3a
- 580 0070 0B       		.uleb128 0xb
- 581 0071 3B       		.uleb128 0x3b
- 582 0072 05       		.uleb128 0x5
- 583 0073 49       		.uleb128 0x49
- 584 0074 13       		.uleb128 0x13
- 585 0075 00       		.byte	0x0
- 586 0076 00       		.byte	0x0
- 587 0077 0A       		.uleb128 0xa
- 588 0078 2E       		.uleb128 0x2e
- 589 0079 00       		.byte	0x0
- 590 007a 3F       		.uleb128 0x3f
- 591 007b 0C       		.uleb128 0xc
- 592 007c 03       		.uleb128 0x3
- 593 007d 0E       		.uleb128 0xe
- 594 007e 3A       		.uleb128 0x3a
- 595 007f 0B       		.uleb128 0xb
- 596 0080 3B       		.uleb128 0x3b
- 597 0081 0B       		.uleb128 0xb
- 598 0082 27       		.uleb128 0x27
- 599 0083 0C       		.uleb128 0xc
- 600 0084 11       		.uleb128 0x11
- 601 0085 01       		.uleb128 0x1
- 602 0086 12       		.uleb128 0x12
- 603 0087 01       		.uleb128 0x1
- 604 0088 40       		.uleb128 0x40
- 605 0089 0A       		.uleb128 0xa
- 606 008a 00       		.byte	0x0
- 607 008b 00       		.byte	0x0
- 608 008c 0B       		.uleb128 0xb
- 609 008d 2E       		.uleb128 0x2e
- 610 008e 01       		.byte	0x1
- 611 008f 3F       		.uleb128 0x3f
- 612 0090 0C       		.uleb128 0xc
- 613 0091 03       		.uleb128 0x3
- 614 0092 0E       		.uleb128 0xe
- 615 0093 3A       		.uleb128 0x3a
- 616 0094 0B       		.uleb128 0xb
- 617 0095 3B       		.uleb128 0x3b
- 618 0096 0B       		.uleb128 0xb
- 619 0097 27       		.uleb128 0x27
- 620 0098 0C       		.uleb128 0xc
- 621 0099 11       		.uleb128 0x11
- 622 009a 01       		.uleb128 0x1
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 12
+ 566 005e 03       		.uleb128 0x3
+ 567 005f 0E       		.uleb128 0xe
+ 568 0060 3A       		.uleb128 0x3a
+ 569 0061 0B       		.uleb128 0xb
+ 570 0062 3B       		.uleb128 0x3b
+ 571 0063 05       		.uleb128 0x5
+ 572 0064 49       		.uleb128 0x49
+ 573 0065 13       		.uleb128 0x13
+ 574 0066 38       		.uleb128 0x38
+ 575 0067 0A       		.uleb128 0xa
+ 576 0068 00       		.byte	0x0
+ 577 0069 00       		.byte	0x0
+ 578 006a 09       		.uleb128 0x9
+ 579 006b 16       		.uleb128 0x16
+ 580 006c 00       		.byte	0x0
+ 581 006d 03       		.uleb128 0x3
+ 582 006e 0E       		.uleb128 0xe
+ 583 006f 3A       		.uleb128 0x3a
+ 584 0070 0B       		.uleb128 0xb
+ 585 0071 3B       		.uleb128 0x3b
+ 586 0072 05       		.uleb128 0x5
+ 587 0073 49       		.uleb128 0x49
+ 588 0074 13       		.uleb128 0x13
+ 589 0075 00       		.byte	0x0
+ 590 0076 00       		.byte	0x0
+ 591 0077 0A       		.uleb128 0xa
+ 592 0078 2E       		.uleb128 0x2e
+ 593 0079 00       		.byte	0x0
+ 594 007a 3F       		.uleb128 0x3f
+ 595 007b 0C       		.uleb128 0xc
+ 596 007c 03       		.uleb128 0x3
+ 597 007d 0E       		.uleb128 0xe
+ 598 007e 3A       		.uleb128 0x3a
+ 599 007f 0B       		.uleb128 0xb
+ 600 0080 3B       		.uleb128 0x3b
+ 601 0081 0B       		.uleb128 0xb
+ 602 0082 27       		.uleb128 0x27
+ 603 0083 0C       		.uleb128 0xc
+ 604 0084 11       		.uleb128 0x11
+ 605 0085 01       		.uleb128 0x1
+ 606 0086 12       		.uleb128 0x12
+ 607 0087 01       		.uleb128 0x1
+ 608 0088 40       		.uleb128 0x40
+ 609 0089 0A       		.uleb128 0xa
+ 610 008a 00       		.byte	0x0
+ 611 008b 00       		.byte	0x0
+ 612 008c 0B       		.uleb128 0xb
+ 613 008d 2E       		.uleb128 0x2e
+ 614 008e 01       		.byte	0x1
+ 615 008f 3F       		.uleb128 0x3f
+ 616 0090 0C       		.uleb128 0xc
+ 617 0091 03       		.uleb128 0x3
+ 618 0092 0E       		.uleb128 0xe
+ 619 0093 3A       		.uleb128 0x3a
+ 620 0094 0B       		.uleb128 0xb
+ 621 0095 3B       		.uleb128 0x3b
+ 622 0096 0B       		.uleb128 0xb
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 12
 
 
- 623 009b 12       		.uleb128 0x12
- 624 009c 01       		.uleb128 0x1
- 625 009d 40       		.uleb128 0x40
- 626 009e 06       		.uleb128 0x6
- 627 009f 01       		.uleb128 0x1
- 628 00a0 13       		.uleb128 0x13
- 629 00a1 00       		.byte	0x0
- 630 00a2 00       		.byte	0x0
- 631 00a3 0C       		.uleb128 0xc
- 632 00a4 34       		.uleb128 0x34
- 633 00a5 00       		.byte	0x0
- 634 00a6 03       		.uleb128 0x3
- 635 00a7 08       		.uleb128 0x8
- 636 00a8 3A       		.uleb128 0x3a
- 637 00a9 0B       		.uleb128 0xb
- 638 00aa 3B       		.uleb128 0x3b
- 639 00ab 0B       		.uleb128 0xb
- 640 00ac 49       		.uleb128 0x49
- 641 00ad 13       		.uleb128 0x13
- 642 00ae 00       		.byte	0x0
- 643 00af 00       		.byte	0x0
- 644 00b0 0D       		.uleb128 0xd
- 645 00b1 34       		.uleb128 0x34
- 646 00b2 00       		.byte	0x0
- 647 00b3 03       		.uleb128 0x3
- 648 00b4 0E       		.uleb128 0xe
- 649 00b5 3A       		.uleb128 0x3a
- 650 00b6 0B       		.uleb128 0xb
- 651 00b7 3B       		.uleb128 0x3b
- 652 00b8 05       		.uleb128 0x5
- 653 00b9 49       		.uleb128 0x49
- 654 00ba 13       		.uleb128 0x13
- 655 00bb 3F       		.uleb128 0x3f
- 656 00bc 0C       		.uleb128 0xc
- 657 00bd 3C       		.uleb128 0x3c
- 658 00be 0C       		.uleb128 0xc
- 659 00bf 00       		.byte	0x0
- 660 00c0 00       		.byte	0x0
- 661 00c1 0E       		.uleb128 0xe
- 662 00c2 34       		.uleb128 0x34
- 663 00c3 00       		.byte	0x0
- 664 00c4 03       		.uleb128 0x3
- 665 00c5 08       		.uleb128 0x8
- 666 00c6 3A       		.uleb128 0x3a
- 667 00c7 0B       		.uleb128 0xb
- 668 00c8 3B       		.uleb128 0x3b
- 669 00c9 0B       		.uleb128 0xb
- 670 00ca 49       		.uleb128 0x49
- 671 00cb 13       		.uleb128 0x13
- 672 00cc 02       		.uleb128 0x2
- 673 00cd 0A       		.uleb128 0xa
- 674 00ce 00       		.byte	0x0
- 675 00cf 00       		.byte	0x0
- 676 00d0 0F       		.uleb128 0xf
- 677 00d1 01       		.uleb128 0x1
- 678 00d2 01       		.byte	0x1
- 679 00d3 49       		.uleb128 0x49
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 13
+ 623 0097 27       		.uleb128 0x27
+ 624 0098 0C       		.uleb128 0xc
+ 625 0099 11       		.uleb128 0x11
+ 626 009a 01       		.uleb128 0x1
+ 627 009b 12       		.uleb128 0x12
+ 628 009c 01       		.uleb128 0x1
+ 629 009d 40       		.uleb128 0x40
+ 630 009e 06       		.uleb128 0x6
+ 631 009f 01       		.uleb128 0x1
+ 632 00a0 13       		.uleb128 0x13
+ 633 00a1 00       		.byte	0x0
+ 634 00a2 00       		.byte	0x0
+ 635 00a3 0C       		.uleb128 0xc
+ 636 00a4 34       		.uleb128 0x34
+ 637 00a5 00       		.byte	0x0
+ 638 00a6 03       		.uleb128 0x3
+ 639 00a7 08       		.uleb128 0x8
+ 640 00a8 3A       		.uleb128 0x3a
+ 641 00a9 0B       		.uleb128 0xb
+ 642 00aa 3B       		.uleb128 0x3b
+ 643 00ab 0B       		.uleb128 0xb
+ 644 00ac 49       		.uleb128 0x49
+ 645 00ad 13       		.uleb128 0x13
+ 646 00ae 00       		.byte	0x0
+ 647 00af 00       		.byte	0x0
+ 648 00b0 0D       		.uleb128 0xd
+ 649 00b1 34       		.uleb128 0x34
+ 650 00b2 00       		.byte	0x0
+ 651 00b3 03       		.uleb128 0x3
+ 652 00b4 0E       		.uleb128 0xe
+ 653 00b5 3A       		.uleb128 0x3a
+ 654 00b6 0B       		.uleb128 0xb
+ 655 00b7 3B       		.uleb128 0x3b
+ 656 00b8 05       		.uleb128 0x5
+ 657 00b9 49       		.uleb128 0x49
+ 658 00ba 13       		.uleb128 0x13
+ 659 00bb 3F       		.uleb128 0x3f
+ 660 00bc 0C       		.uleb128 0xc
+ 661 00bd 3C       		.uleb128 0x3c
+ 662 00be 0C       		.uleb128 0xc
+ 663 00bf 00       		.byte	0x0
+ 664 00c0 00       		.byte	0x0
+ 665 00c1 0E       		.uleb128 0xe
+ 666 00c2 34       		.uleb128 0x34
+ 667 00c3 00       		.byte	0x0
+ 668 00c4 03       		.uleb128 0x3
+ 669 00c5 08       		.uleb128 0x8
+ 670 00c6 3A       		.uleb128 0x3a
+ 671 00c7 0B       		.uleb128 0xb
+ 672 00c8 3B       		.uleb128 0x3b
+ 673 00c9 0B       		.uleb128 0xb
+ 674 00ca 49       		.uleb128 0x49
+ 675 00cb 13       		.uleb128 0x13
+ 676 00cc 02       		.uleb128 0x2
+ 677 00cd 0A       		.uleb128 0xa
+ 678 00ce 00       		.byte	0x0
+ 679 00cf 00       		.byte	0x0
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 13
 
 
- 680 00d4 13       		.uleb128 0x13
- 681 00d5 01       		.uleb128 0x1
- 682 00d6 13       		.uleb128 0x13
- 683 00d7 00       		.byte	0x0
- 684 00d8 00       		.byte	0x0
- 685 00d9 10       		.uleb128 0x10
- 686 00da 21       		.uleb128 0x21
- 687 00db 00       		.byte	0x0
- 688 00dc 49       		.uleb128 0x49
- 689 00dd 13       		.uleb128 0x13
- 690 00de 2F       		.uleb128 0x2f
- 691 00df 0B       		.uleb128 0xb
- 692 00e0 00       		.byte	0x0
- 693 00e1 00       		.byte	0x0
- 694 00e2 11       		.uleb128 0x11
- 695 00e3 34       		.uleb128 0x34
- 696 00e4 00       		.byte	0x0
- 697 00e5 03       		.uleb128 0x3
- 698 00e6 0E       		.uleb128 0xe
- 699 00e7 3A       		.uleb128 0x3a
- 700 00e8 0B       		.uleb128 0xb
- 701 00e9 3B       		.uleb128 0x3b
- 702 00ea 0B       		.uleb128 0xb
- 703 00eb 49       		.uleb128 0x49
- 704 00ec 13       		.uleb128 0x13
- 705 00ed 02       		.uleb128 0x2
- 706 00ee 0A       		.uleb128 0xa
- 707 00ef 00       		.byte	0x0
- 708 00f0 00       		.byte	0x0
- 709 00f1 12       		.uleb128 0x12
- 710 00f2 34       		.uleb128 0x34
- 711 00f3 00       		.byte	0x0
- 712 00f4 03       		.uleb128 0x3
- 713 00f5 0E       		.uleb128 0xe
- 714 00f6 3A       		.uleb128 0x3a
- 715 00f7 0B       		.uleb128 0xb
- 716 00f8 3B       		.uleb128 0x3b
- 717 00f9 0B       		.uleb128 0xb
- 718 00fa 49       		.uleb128 0x49
- 719 00fb 13       		.uleb128 0x13
- 720 00fc 00       		.byte	0x0
- 721 00fd 00       		.byte	0x0
- 722 00fe 13       		.uleb128 0x13
- 723 00ff 26       		.uleb128 0x26
- 724 0100 00       		.byte	0x0
- 725 0101 49       		.uleb128 0x49
- 726 0102 13       		.uleb128 0x13
- 727 0103 00       		.byte	0x0
- 728 0104 00       		.byte	0x0
- 729 0105 00       		.byte	0x0
- 730              		.section	.debug_pubnames,"",%progbits
- 731 0000 2E000000 		.4byte	0x2e
- 732 0004 0200     		.2byte	0x2
- 733 0006 00000000 		.4byte	.Ldebug_info0
- 734 000a E6010000 		.4byte	0x1e6
- 735 000e 2B010000 		.4byte	0x12b
- 736 0012 68775F74 		.ascii	"hw_testInit\000"
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 14
+ 680 00d0 0F       		.uleb128 0xf
+ 681 00d1 01       		.uleb128 0x1
+ 682 00d2 01       		.byte	0x1
+ 683 00d3 49       		.uleb128 0x49
+ 684 00d4 13       		.uleb128 0x13
+ 685 00d5 01       		.uleb128 0x1
+ 686 00d6 13       		.uleb128 0x13
+ 687 00d7 00       		.byte	0x0
+ 688 00d8 00       		.byte	0x0
+ 689 00d9 10       		.uleb128 0x10
+ 690 00da 21       		.uleb128 0x21
+ 691 00db 00       		.byte	0x0
+ 692 00dc 49       		.uleb128 0x49
+ 693 00dd 13       		.uleb128 0x13
+ 694 00de 2F       		.uleb128 0x2f
+ 695 00df 0B       		.uleb128 0xb
+ 696 00e0 00       		.byte	0x0
+ 697 00e1 00       		.byte	0x0
+ 698 00e2 11       		.uleb128 0x11
+ 699 00e3 34       		.uleb128 0x34
+ 700 00e4 00       		.byte	0x0
+ 701 00e5 03       		.uleb128 0x3
+ 702 00e6 0E       		.uleb128 0xe
+ 703 00e7 3A       		.uleb128 0x3a
+ 704 00e8 0B       		.uleb128 0xb
+ 705 00e9 3B       		.uleb128 0x3b
+ 706 00ea 0B       		.uleb128 0xb
+ 707 00eb 49       		.uleb128 0x49
+ 708 00ec 13       		.uleb128 0x13
+ 709 00ed 02       		.uleb128 0x2
+ 710 00ee 0A       		.uleb128 0xa
+ 711 00ef 00       		.byte	0x0
+ 712 00f0 00       		.byte	0x0
+ 713 00f1 12       		.uleb128 0x12
+ 714 00f2 34       		.uleb128 0x34
+ 715 00f3 00       		.byte	0x0
+ 716 00f4 03       		.uleb128 0x3
+ 717 00f5 0E       		.uleb128 0xe
+ 718 00f6 3A       		.uleb128 0x3a
+ 719 00f7 0B       		.uleb128 0xb
+ 720 00f8 3B       		.uleb128 0x3b
+ 721 00f9 0B       		.uleb128 0xb
+ 722 00fa 49       		.uleb128 0x49
+ 723 00fb 13       		.uleb128 0x13
+ 724 00fc 00       		.byte	0x0
+ 725 00fd 00       		.byte	0x0
+ 726 00fe 13       		.uleb128 0x13
+ 727 00ff 26       		.uleb128 0x26
+ 728 0100 00       		.byte	0x0
+ 729 0101 49       		.uleb128 0x49
+ 730 0102 13       		.uleb128 0x13
+ 731 0103 00       		.byte	0x0
+ 732 0104 00       		.byte	0x0
+ 733 0105 00       		.byte	0x0
+ 734              		.section	.debug_pubnames,"",%progbits
+ 735 0000 2E000000 		.4byte	0x2e
+ 736 0004 0200     		.2byte	0x2
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 14
 
 
- 736      65737449 
- 736      6E697400 
- 737 001e 3F010000 		.4byte	0x13f
- 738 0022 68775F74 		.ascii	"hw_testCalc\000"
- 738      65737443 
- 738      616C6300 
- 739 002e 00000000 		.4byte	0x0
- 740              		.section	.debug_pubtypes,"",%progbits
- 741 0000 55000000 		.4byte	0x55
- 742 0004 0200     		.2byte	0x2
- 743 0006 00000000 		.4byte	.Ldebug_info0
- 744 000a E6010000 		.4byte	0x1e6
- 745 000e 3E000000 		.4byte	0x3e
- 746 0012 75696E74 		.ascii	"uint8_t\000"
- 746      385F7400 
- 747 001a 5E000000 		.4byte	0x5e
- 748 001e 696E7433 		.ascii	"int32_t\000"
- 748      325F7400 
- 749 0026 70000000 		.4byte	0x70
- 750 002a 75696E74 		.ascii	"uint32_t\000"
- 750      33325F74 
- 750      00
- 751 0033 14010000 		.4byte	0x114
- 752 0037 4750494F 		.ascii	"GPIO_TypeDef\000"
- 752      5F547970 
- 752      65446566 
- 752      00
- 753 0044 20010000 		.4byte	0x120
- 754 0048 696F706F 		.ascii	"ioportmask_t\000"
- 754      72746D61 
- 754      736B5F74 
+ 737 0006 00000000 		.4byte	.Ldebug_info0
+ 738 000a ED010000 		.4byte	0x1ed
+ 739 000e 32010000 		.4byte	0x132
+ 740 0012 68775F74 		.ascii	"hw_testInit\000"
+ 740      65737449 
+ 740      6E697400 
+ 741 001e 46010000 		.4byte	0x146
+ 742 0022 68775F74 		.ascii	"hw_testCalc\000"
+ 742      65737443 
+ 742      616C6300 
+ 743 002e 00000000 		.4byte	0x0
+ 744              		.section	.debug_pubtypes,"",%progbits
+ 745 0000 55000000 		.4byte	0x55
+ 746 0004 0200     		.2byte	0x2
+ 747 0006 00000000 		.4byte	.Ldebug_info0
+ 748 000a ED010000 		.4byte	0x1ed
+ 749 000e 3E000000 		.4byte	0x3e
+ 750 0012 75696E74 		.ascii	"uint8_t\000"
+ 750      385F7400 
+ 751 001a 5E000000 		.4byte	0x5e
+ 752 001e 696E7433 		.ascii	"int32_t\000"
+ 752      325F7400 
+ 753 0026 70000000 		.4byte	0x70
+ 754 002a 75696E74 		.ascii	"uint32_t\000"
+ 754      33325F74 
  754      00
- 755 0055 00000000 		.4byte	0x0
- 756              		.section	.debug_aranges,"",%progbits
- 757 0000 24000000 		.4byte	0x24
- 758 0004 0200     		.2byte	0x2
- 759 0006 00000000 		.4byte	.Ldebug_info0
- 760 000a 04       		.byte	0x4
- 761 000b 00       		.byte	0x0
- 762 000c 0000     		.2byte	0x0
- 763 000e 0000     		.2byte	0x0
- 764 0010 00000000 		.4byte	.LFB56
- 765 0014 20000000 		.4byte	.LFE56-.LFB56
- 766 0018 00000000 		.4byte	.LFB57
- 767 001c 90000000 		.4byte	.LFE57-.LFB57
- 768 0020 00000000 		.4byte	0x0
- 769 0024 00000000 		.4byte	0x0
- 770              		.section	.debug_ranges,"",%progbits
- 771              	.Ldebug_ranges0:
- 772 0000 00000000 		.4byte	.LFB56
- 773 0004 20000000 		.4byte	.LFE56
- 774 0008 00000000 		.4byte	.LFB57
- 775 000c 90000000 		.4byte	.LFE57
- 776 0010 00000000 		.4byte	0x0
- 777 0014 00000000 		.4byte	0x0
- 778              		.section	.debug_str,"MS",%progbits,1
- 779              	.LASF14:
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 15
+ 755 0033 1B010000 		.4byte	0x11b
+ 756 0037 4750494F 		.ascii	"GPIO_TypeDef\000"
+ 756      5F547970 
+ 756      65446566 
+ 756      00
+ 757 0044 27010000 		.4byte	0x127
+ 758 0048 696F706F 		.ascii	"ioportmask_t\000"
+ 758      72746D61 
+ 758      736B5F74 
+ 758      00
+ 759 0055 00000000 		.4byte	0x0
+ 760              		.section	.debug_aranges,"",%progbits
+ 761 0000 24000000 		.4byte	0x24
+ 762 0004 0200     		.2byte	0x2
+ 763 0006 00000000 		.4byte	.Ldebug_info0
+ 764 000a 04       		.byte	0x4
+ 765 000b 00       		.byte	0x0
+ 766 000c 0000     		.2byte	0x0
+ 767 000e 0000     		.2byte	0x0
+ 768 0010 00000000 		.4byte	.LFB57
+ 769 0014 20000000 		.4byte	.LFE57-.LFB57
+ 770 0018 00000000 		.4byte	.LFB58
+ 771 001c 90000000 		.4byte	.LFE58-.LFB58
+ 772 0020 00000000 		.4byte	0x0
+ 773 0024 00000000 		.4byte	0x0
+ 774              		.section	.debug_ranges,"",%progbits
+ 775              	.Ldebug_ranges0:
+ 776 0000 00000000 		.4byte	.LFB57
+ 777 0004 20000000 		.4byte	.LFE57
+ 778 0008 00000000 		.4byte	.LFB58
+ 779 000c 90000000 		.4byte	.LFE58
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 15
 
 
- 780 0000 4C434B52 		.ascii	"LCKR\000"
- 780      00
- 781              	.LASF21:
- 782 0005 474E5520 		.ascii	"GNU C 4.5.2\000"
- 782      4320342E 
- 782      352E3200 
- 783              	.LASF24:
- 784 0011 68775F74 		.ascii	"hw_testInit\000"
- 784      65737449 
- 784      6E697400 
- 785              	.LASF13:
- 786 001d 42535252 		.ascii	"BSRR\000"
- 786      00
- 787              	.LASF22:
- 788 0022 7372632F 		.ascii	"src/hw_test.c\000"
- 788      68775F74 
- 788      6573742E 
- 788      6300
- 789              	.LASF16:
- 790 0030 696F706F 		.ascii	"ioportmask_t\000"
- 790      72746D61 
- 790      736B5F74 
+ 780 0010 00000000 		.4byte	0x0
+ 781 0014 00000000 		.4byte	0x0
+ 782              		.section	.debug_str,"MS",%progbits,1
+ 783              	.LASF15:
+ 784 0000 4C434B52 		.ascii	"LCKR\000"
+ 784      00
+ 785              	.LASF22:
+ 786 0005 474E5520 		.ascii	"GNU C 4.5.2\000"
+ 786      4320342E 
+ 786      352E3200 
+ 787              	.LASF25:
+ 788 0011 68775F74 		.ascii	"hw_testInit\000"
+ 788      65737449 
+ 788      6E697400 
+ 789              	.LASF14:
+ 790 001d 42535252 		.ascii	"BSRR\000"
  790      00
- 791              	.LASF2:
- 792 003d 756E7369 		.ascii	"unsigned char\000"
- 792      676E6564 
- 792      20636861 
- 792      7200
- 793              	.LASF9:
- 794 004b 6C6F6E67 		.ascii	"long unsigned int\000"
- 794      20756E73 
- 794      69676E65 
- 794      6420696E 
- 794      7400
- 795              	.LASF4:
- 796 005d 73686F72 		.ascii	"short unsigned int\000"
- 796      7420756E 
- 796      7369676E 
- 796      65642069 
- 796      6E7400
- 797              	.LASF20:
- 798 0070 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 798      52784275 
- 798      66666572 
- 798      00
- 799              	.LASF0:
- 800 007d 756E7369 		.ascii	"unsigned int\000"
- 800      676E6564 
- 800      20696E74 
- 800      00
- 801              	.LASF19:
- 802 008a 70696E73 		.ascii	"pins\000"
+ 791              	.LASF23:
+ 792 0022 7372632F 		.ascii	"src/hw_test.c\000"
+ 792      68775F74 
+ 792      6573742E 
+ 792      6300
+ 793              	.LASF17:
+ 794 0030 696F706F 		.ascii	"ioportmask_t\000"
+ 794      72746D61 
+ 794      736B5F74 
+ 794      00
+ 795              	.LASF2:
+ 796 003d 756E7369 		.ascii	"unsigned char\000"
+ 796      676E6564 
+ 796      20636861 
+ 796      7200
+ 797              	.LASF9:
+ 798 004b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 798      20756E73 
+ 798      69676E65 
+ 798      6420696E 
+ 798      7400
+ 799              	.LASF4:
+ 800 005d 73686F72 		.ascii	"short unsigned int\000"
+ 800      7420756E 
+ 800      7369676E 
+ 800      65642069 
+ 800      6E7400
+ 801              	.LASF8:
+ 802 0070 75696E74 		.ascii	"uint32_t\000"
+ 802      33325F74 
  802      00
- 803              	.LASF15:
- 804 008f 4750494F 		.ascii	"GPIO_TypeDef\000"
- 804      5F547970 
- 804      65446566 
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 16
-
-
+ 803              	.LASF21:
+ 804 0079 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 804      52784275 
+ 804      66666572 
  804      00
- 805              	.LASF12:
- 806 009c 63686172 		.ascii	"char\000"
+ 805              	.LASF0:
+ 806 0086 756E7369 		.ascii	"unsigned int\000"
+ 806      676E6564 
+ 806      20696E74 
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 16
+
+
  806      00
- 807              	.LASF5:
- 808 00a1 75696E74 		.ascii	"uint8_t\000"
- 808      385F7400 
- 809              	.LASF6:
- 810 00a9 696E7433 		.ascii	"int32_t\000"
- 810      325F7400 
- 811              	.LASF10:
- 812 00b1 6C6F6E67 		.ascii	"long long int\000"
- 812      206C6F6E 
- 812      6720696E 
- 812      7400
- 813              	.LASF18:
- 814 00bf 6469705F 		.ascii	"dip_name\000"
- 814      6E616D65 
- 814      00
- 815              	.LASF25:
- 816 00c8 68775F74 		.ascii	"hw_testCalc\000"
- 816      65737443 
- 816      616C6300 
- 817              	.LASF3:
- 818 00d4 73686F72 		.ascii	"short int\000"
- 818      7420696E 
+ 807              	.LASF20:
+ 808 0093 70696E73 		.ascii	"pins\000"
+ 808      00
+ 809              	.LASF16:
+ 810 0098 4750494F 		.ascii	"GPIO_TypeDef\000"
+ 810      5F547970 
+ 810      65446566 
+ 810      00
+ 811              	.LASF13:
+ 812 00a5 63686172 		.ascii	"char\000"
+ 812      00
+ 813              	.LASF5:
+ 814 00aa 75696E74 		.ascii	"uint8_t\000"
+ 814      385F7400 
+ 815              	.LASF6:
+ 816 00b2 696E7433 		.ascii	"int32_t\000"
+ 816      325F7400 
+ 817              	.LASF10:
+ 818 00ba 6C6F6E67 		.ascii	"long long int\000"
+ 818      206C6F6E 
+ 818      6720696E 
  818      7400
- 819              	.LASF8:
- 820 00de 75696E74 		.ascii	"uint32_t\000"
- 820      33325F74 
+ 819              	.LASF19:
+ 820 00c8 6469705F 		.ascii	"dip_name\000"
+ 820      6E616D65 
  820      00
- 821              	.LASF7:
- 822 00e7 6C6F6E67 		.ascii	"long int\000"
- 822      20696E74 
- 822      00
- 823              	.LASF17:
- 824 00f0 6469705F 		.ascii	"dip_value\000"
- 824      76616C75 
- 824      6500
- 825              	.LASF1:
- 826 00fa 7369676E 		.ascii	"signed char\000"
- 826      65642063 
- 826      68617200 
- 827              	.LASF11:
- 828 0106 6C6F6E67 		.ascii	"long long unsigned int\000"
- 828      206C6F6E 
- 828      6720756E 
- 828      7369676E 
- 828      65642069 
- 829              	.LASF23:
- 830 011d 433A5C55 		.ascii	"C:\\Users\\D\341niel\\Dropbox\\Solar Racing\\Szoftv"
- 830      73657273 
- 830      5C44E16E 
- 830      69656C5C 
- 830      44726F70 
- 831 0148 65725C4C 		.ascii	"er\\LuxControl\\LuxControl_v2\\luxcontrol\\firmware"
- 831      7578436F 
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 17
+ 821              	.LASF26:
+ 822 00d1 68775F74 		.ascii	"hw_testCalc\000"
+ 822      65737443 
+ 822      616C6300 
+ 823              	.LASF3:
+ 824 00dd 73686F72 		.ascii	"short int\000"
+ 824      7420696E 
+ 824      7400
+ 825              	.LASF24:
+ 826 00e7 433A5C44 		.ascii	"C:\\Dani\\MegaLux\\Repo\\LuxControl\\LuxControl\\lu"
+ 826      616E695C 
+ 826      4D656761 
+ 826      4C75785C 
+ 826      5265706F 
+ 827 0114 78636F6E 		.ascii	"xcontrol\\firmware\000"
+ 827      74726F6C 
+ 827      5C666972 
+ 827      6D776172 
+ 827      6500
+ 828              	.LASF7:
+ 829 0126 6C6F6E67 		.ascii	"long int\000"
+ 829      20696E74 
+ 829      00
+ 830              	.LASF18:
+ 831 012f 6469705F 		.ascii	"dip_value\000"
+ 831      76616C75 
+ 831      6500
+ 832              	.LASF1:
+ 833 0139 7369676E 		.ascii	"signed char\000"
+ 833      65642063 
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 17
 
 
- 831      6E74726F 
- 831      6C5C4C75 
- 831      78436F6E 
- 832 0177 00       		.ascii	"\000"
- 833              		.ident	"GCC: (Sourcery G++ Lite 2011.03-42) 4.5.2"
-ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s 			page 18
+ 833      68617200 
+ 834              	.LASF12:
+ 835 0145 5F426F6F 		.ascii	"_Bool\000"
+ 835      6C00
+ 836              	.LASF11:
+ 837 014b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 837      206C6F6E 
+ 837      6720756E 
+ 837      7369676E 
+ 837      65642069 
+ 838              		.ident	"GCC: (Sourcery G++ Lite 2011.03-42) 4.5.2"
+ARM GAS  C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 hw_test.c
-C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s:24     .text.hw_testInit:00000000 $t
-C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s:30     .text.hw_testInit:00000000 hw_testInit
-C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s:64     .text.hw_testInit:0000001c $d
-C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s:69     .text.hw_testCalc:00000000 $t
-C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s:75     .text.hw_testCalc:00000000 hw_testCalc
-C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s:176    .text.hw_testCalc:0000007c $d
-C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s:188    .bss.i:00000000 i
-C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s:189    .bss.i:00000000 $d
-C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s:191    .rodata.pins:00000000 $d
-C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s:195    .rodata.pins:00000000 pins
-C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s:202    .bss.dip_value:00000000 $d
-C:\Users\DNIEL~1\AppData\Local\Temp\ccYmSWzA.s:206    .bss.dip_value:00000000 dip_value
+C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s:24     .text.hw_testInit:00000000 $t
+C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s:30     .text.hw_testInit:00000000 hw_testInit
+C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s:64     .text.hw_testInit:0000001c $d
+C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s:69     .text.hw_testCalc:00000000 $t
+C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s:75     .text.hw_testCalc:00000000 hw_testCalc
+C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s:176    .text.hw_testCalc:0000007c $d
+C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s:188    .bss.i:00000000 i
+C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s:189    .bss.i:00000000 $d
+C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s:191    .rodata.pins:00000000 $d
+C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s:195    .rodata.pins:00000000 pins
+C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s:202    .bss.dip_value:00000000 $d
+C:\Users\DNIEL~1\AppData\Local\Temp\ccqeomni.s:206    .bss.dip_value:00000000 dip_value
                      .debug_frame:00000010 $d
 
 NO UNDEFINED SYMBOLS
