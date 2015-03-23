@@ -933,6 +933,12 @@ Discarded input sections
  .text          0x00000000        0x0 build/obj/spi_comm.o
  .data          0x00000000        0x0 build/obj/spi_comm.o
  .bss           0x00000000        0x0 build/obj/spi_comm.o
+ .text.SPV1020PWM
+                0x00000000       0x20 build/obj/spi_comm.o
+ .text.SPV1020STATUS
+                0x00000000       0x20 build/obj/spi_comm.o
+ .text.SPV1020VIN
+                0x00000000       0x20 build/obj/spi_comm.o
  .text          0x00000000        0x0 build/obj/meas.o
  .data          0x00000000        0x0 build/obj/meas.o
  .bss           0x00000000        0x0 build/obj/meas.o
@@ -1070,7 +1076,7 @@ destructors     0x080000ec        0x0
  *(SORT(.fini_array.*))
                 0x080000ec                PROVIDE (__fini_array_end, .)
 
-.text           0x080000f0     0x27b8
+.text           0x080000f0     0x26a8
  *(.text.startup.*)
  *(.text)
  *(.text.*)
@@ -1468,101 +1474,92 @@ destructors     0x080000ec        0x0
                 0x08002080       0x30 build/obj/main.o
  .text.main     0x080020b0       0x60 build/obj/main.o
                 0x080020b0                main
- .text.can_rx   0x08002110      0x140 build/obj/can_comm.o
+ .text.can_rx   0x08002110       0xe0 build/obj/can_comm.o
  .text.can_commInit
-                0x08002250       0xe0 build/obj/can_comm.o
-                0x08002250                can_commInit
+                0x080021f0       0xe0 build/obj/can_comm.o
+                0x080021f0                can_commInit
  .text.can_commCalc
-                0x08002330       0x10 build/obj/can_comm.o
-                0x08002330                can_commCalc
+                0x080022d0       0x10 build/obj/can_comm.o
+                0x080022d0                can_commCalc
  .text.SPIExchangeData
-                0x08002340       0x50 build/obj/spi_comm.o
-                0x08002340                SPIExchangeData
+                0x080022e0       0x50 build/obj/spi_comm.o
+                0x080022e0                SPIExchangeData
  .text.SPISendData
-                0x08002390       0x60 build/obj/spi_comm.o
-                0x08002390                SPISendData
- .text.SPV1020PWM
-                0x080023f0       0x20 build/obj/spi_comm.o
-                0x080023f0                SPV1020PWM
- .text.SPV1020STATUS
-                0x08002410       0x20 build/obj/spi_comm.o
-                0x08002410                SPV1020STATUS
- .text.SPV1020VIN
-                0x08002430       0x20 build/obj/spi_comm.o
-                0x08002430                SPV1020VIN
+                0x08002330       0x60 build/obj/spi_comm.o
+                0x08002330                SPISendData
  .text.spi_commInit
-                0x08002450       0x30 build/obj/spi_comm.o
-                0x08002450                spi_commInit
+                0x08002390       0x30 build/obj/spi_comm.o
+                0x08002390                spi_commInit
  .text.adcerrorcallback
-                0x08002480       0x10 build/obj/meas.o
+                0x080023c0       0x10 build/obj/meas.o
  .text.measInit
-                0x08002490       0x20 build/obj/meas.o
-                0x08002490                measInit
+                0x080023d0       0x20 build/obj/meas.o
+                0x080023d0                measInit
  .text.measGetValue
-                0x080024b0       0x10 build/obj/meas.o
-                0x080024b0                measGetValue
+                0x080023f0       0x10 build/obj/meas.o
+                0x080023f0                measGetValue
  .text.measInterpolateNTC
-                0x080024c0       0x90 build/obj/meas.o
-                0x080024c0                measInterpolateNTC
+                0x08002400       0x90 build/obj/meas.o
+                0x08002400                measInterpolateNTC
  .text.measCalc
-                0x08002550      0x1b0 build/obj/meas.o
-                0x08002550                measCalc
+                0x08002490      0x160 build/obj/meas.o
+                0x08002490                measCalc
  *(.rodata)
  *(.rodata.*)
  .rodata.str1.4
-                0x08002700        0x5 build/obj/chsys.o
+                0x080025f0        0x5 build/obj/chsys.o
                                   0x8 (size before relaxing)
- *fill*         0x08002705        0xb 00
+ *fill*         0x080025f5        0xb 00
  .rodata.ch_debug
-                0x08002710       0x18 build/obj/chregistry.o
-                0x08002710                ch_debug
- *fill*         0x08002728        0x8 00
+                0x08002600       0x18 build/obj/chregistry.o
+                0x08002600                ch_debug
+ *fill*         0x08002618        0x8 00
  .rodata._stm32_dma_streams
-                0x08002730       0x54 build/obj/stm32_dma.o
-                0x08002730                _stm32_dma_streams
- *fill*         0x08002784        0xc 00
+                0x08002620       0x54 build/obj/stm32_dma.o
+                0x08002620                _stm32_dma_streams
+ *fill*         0x08002674        0xc 00
  .rodata.pal_default_config
-                0x08002790       0x3c build/obj/board.o
-                0x08002790                pal_default_config
- *fill*         0x080027cc        0x4 00
+                0x08002680       0x3c build/obj/board.o
+                0x08002680                pal_default_config
+ *fill*         0x080026bc        0x4 00
  .rodata.str1.4
-                0x080027d0       0x11 build/obj/main.o
+                0x080026c0       0x11 build/obj/main.o
                                  0x14 (size before relaxing)
- *fill*         0x080027e1        0xf 00
+ *fill*         0x080026d1        0xf 00
  .rodata.str1.4
-                0x080027f0        0xc build/obj/can_comm.o
- *fill*         0x080027fc        0x4 00
+                0x080026e0        0xc build/obj/can_comm.o
+ *fill*         0x080026ec        0x4 00
  .rodata.cancfg
-                0x08002800        0x8 build/obj/can_comm.o
- *fill*         0x08002808        0x8 00
+                0x080026f0        0x8 build/obj/can_comm.o
+ *fill*         0x080026f8        0x8 00
  .rodata.ls_spicfg_cs1
-                0x08002810        0xc build/obj/spi_comm.o
- *fill*         0x0800281c        0x4 00
+                0x08002700        0xc build/obj/spi_comm.o
+ *fill*         0x0800270c        0x4 00
  .rodata.measNTCcalib
-                0x08002820       0x58 build/obj/meas.o
-                0x08002820                measNTCcalib
- *fill*         0x08002878        0x8 00
+                0x08002710       0x58 build/obj/meas.o
+                0x08002710                measNTCcalib
+ *fill*         0x08002768        0x8 00
  .rodata.adcgrpcfg
-                0x08002880       0x28 build/obj/meas.o
+                0x08002770       0x28 build/obj/meas.o
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
  *(.glue_7)
  .glue_7        0x00000000        0x0 linker stubs
  *(.gcc*)
 
-.vfp11_veneer   0x080028a8        0x0
+.vfp11_veneer   0x08002798        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x080028a8        0x0
+.v4_bx          0x08002798        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM.exidx      0x080028a8        0x0
-                0x080028a8                PROVIDE (__exidx_start, .)
+.ARM.exidx      0x08002798        0x0
+                0x08002798                PROVIDE (__exidx_start, .)
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x080028a8                PROVIDE (__exidx_end, .)
+                0x08002798                PROVIDE (__exidx_end, .)
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
@@ -1570,11 +1567,11 @@ destructors     0x080000ec        0x0
 .eh_frame
  *(.eh_frame)
 
-.textalign      0x080028a8        0x0
-                0x080028a8                . = ALIGN (0x8)
-                0x080028a8                . = ALIGN (0x4)
-                0x080028a8                _etext = .
-                0x080028a8                _textdata = _etext
+.textalign      0x08002798        0x0
+                0x08002798                . = ALIGN (0x8)
+                0x08002798                . = ALIGN (0x4)
+                0x08002798                _etext = .
+                0x08002798                _textdata = _etext
 
 .stacks         0x20000000      0x800
                 0x20000000                . = ALIGN (0x8)
@@ -1591,7 +1588,7 @@ destructors     0x080000ec        0x0
                 0x20000800                __process_stack_end__ = .
                 0x20000800                __main_thread_stack_end__ = .
 
-.data           0x20000800        0x0 load address 0x080028a8
+.data           0x20000800        0x0 load address 0x08002798
                 0x20000800                . = ALIGN (0x4)
                 0x20000800                PROVIDE (_data, .)
  *(.data)
@@ -1600,7 +1597,7 @@ destructors     0x080000ec        0x0
                 0x20000800                . = ALIGN (0x4)
                 0x20000800                PROVIDE (_edata, .)
 
-.bss            0x20000800      0x7e4 load address 0x080028a8
+.bss            0x20000800      0x7e4 load address 0x08002798
                 0x20000800                . = ALIGN (0x4)
                 0x20000800                PROVIDE (_bss_start, .)
  *(.bss)
@@ -1838,7 +1835,7 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .debug_info    0x00018ff0      0x9d5 build/obj/spi_comm.o
  .debug_info    0x000199c5      0xaaf build/obj/meas.o
 
-.debug_line     0x00000000     0xaefe
+.debug_line     0x00000000     0xaed4
  .debug_line    0x00000000      0x17d build/obj/crt0.o
  .debug_line    0x0000017d       0xf0 build/obj/vectors.o
  .debug_line    0x0000026d       0x5e build/obj/chcore.o
@@ -1918,12 +1915,12 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .debug_line    0x000099b2      0x43b build/obj/shell.o
  .debug_line    0x00009ded      0x35c build/obj/chprintf.o
  .debug_line    0x0000a149      0x1fc build/obj/main.o
- .debug_line    0x0000a345      0x33f build/obj/can_comm.o
- .debug_line    0x0000a684      0x1b7 build/obj/hw_test.o
- .debug_line    0x0000a83b      0x35f build/obj/spi_comm.o
- .debug_line    0x0000ab9a      0x364 build/obj/meas.o
+ .debug_line    0x0000a345      0x329 build/obj/can_comm.o
+ .debug_line    0x0000a66e      0x1b7 build/obj/hw_test.o
+ .debug_line    0x0000a825      0x35f build/obj/spi_comm.o
+ .debug_line    0x0000ab84      0x350 build/obj/meas.o
 
-.debug_loc      0x00000000     0x8622
+.debug_loc      0x00000000     0x85d6
  .debug_loc     0x00000000       0x72 build/obj/crt0.o
  .debug_loc     0x00000072      0x10f build/obj/chcore_v7m.o
  .debug_loc     0x00000181      0x10a build/obj/nvic.o
@@ -1976,7 +1973,7 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .debug_loc     0x00008076       0x7f build/obj/can_comm.o
  .debug_loc     0x000080f5       0x20 build/obj/hw_test.o
  .debug_loc     0x00008115      0x1c2 build/obj/spi_comm.o
- .debug_loc     0x000082d7      0x34b build/obj/meas.o
+ .debug_loc     0x000082d7      0x2ff build/obj/meas.o
 
 .debug_pubnames
                 0x00000000     0x1a79
@@ -2867,7 +2864,7 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .ARM.attributes
                 0x00001087       0x29 c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-ctype_.o)
 
-.debug_frame    0x00000000     0x2e0c
+.debug_frame    0x00000000     0x2e08
  .debug_frame   0x00000000       0x50 build/obj/crt0.o
  .debug_frame   0x00000050       0x20 build/obj/vectors.o
  .debug_frame   0x00000070       0x20 build/obj/chcore.o
@@ -2920,14 +2917,14 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .debug_frame   0x000028e4      0x184 build/obj/shell.o
  .debug_frame   0x00002a68       0x90 build/obj/chprintf.o
  .debug_frame   0x00002af8       0x64 build/obj/main.o
- .debug_frame   0x00002b5c       0x70 build/obj/can_comm.o
- .debug_frame   0x00002bcc       0x38 build/obj/hw_test.o
- .debug_frame   0x00002c04       0xd0 build/obj/spi_comm.o
- .debug_frame   0x00002cd4       0x88 build/obj/meas.o
- .debug_frame   0x00002d5c       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memset.o)
- .debug_frame   0x00002d88       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strcasecmp.o)
- .debug_frame   0x00002db4       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strpbrk.o)
- .debug_frame   0x00002de0       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strspn.o)
+ .debug_frame   0x00002b5c       0x6c build/obj/can_comm.o
+ .debug_frame   0x00002bc8       0x38 build/obj/hw_test.o
+ .debug_frame   0x00002c00       0xd0 build/obj/spi_comm.o
+ .debug_frame   0x00002cd0       0x88 build/obj/meas.o
+ .debug_frame   0x00002d58       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memset.o)
+ .debug_frame   0x00002d84       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strcasecmp.o)
+ .debug_frame   0x00002db0       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strpbrk.o)
+ .debug_frame   0x00002ddc       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strspn.o)
 
 Cross Reference Table
 
@@ -2949,11 +2946,8 @@ SPID1                                             build/obj/spi_lld.o
 SPIExchangeData                                   build/obj/spi_comm.o
 SPISendData                                       build/obj/spi_comm.o
 SPV1020PWM                                        build/obj/spi_comm.o
-                                                  build/obj/can_comm.o
 SPV1020STATUS                                     build/obj/spi_comm.o
-                                                  build/obj/can_comm.o
 SPV1020VIN                                        build/obj/spi_comm.o
-                                                  build/obj/can_comm.o
 SVCallVector                                      build/obj/chcore_v7m.o
                                                   build/obj/vectors.o
 SysTickVector                                     build/obj/chcore_v7m.o
