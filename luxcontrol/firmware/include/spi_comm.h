@@ -12,6 +12,7 @@
 uint16_t SPV1020VIN(void);
 uint16_t SPV1020STATUS(void);
 uint16_t SPV1020PWM(void);
+uint16_t SPV1020CURR_IN(void);
 
 void spi_commInit(void);
 int SPISendData(uint8_t *tx, uint16_t *rxbuf, size_t txsize);

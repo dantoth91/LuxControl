@@ -916,9 +916,8 @@ Discarded input sections
  .text          0x00000000        0x0 build/obj/can_comm.o
  .data          0x00000000        0x0 build/obj/can_comm.o
  .bss           0x00000000        0x0 build/obj/can_comm.o
- .bss.canComands
-                0x00000000        0x4 build/obj/can_comm.o
- .bss.canRxEID  0x00000000        0x4 build/obj/can_comm.o
+ .bss.canMessages
+                0x00000000        0x1 build/obj/can_comm.o
  .text          0x00000000        0x0 build/obj/hw_test.o
  .data          0x00000000        0x0 build/obj/hw_test.o
  .bss           0x00000000        0x0 build/obj/hw_test.o
@@ -1070,7 +1069,7 @@ destructors     0x080000ec        0x0
  *(SORT(.fini_array.*))
                 0x080000ec                PROVIDE (__fini_array_end, .)
 
-.text           0x080000f0     0x27b8
+.text           0x080000f0     0x2848
  *(.text.startup.*)
  *(.text)
  *(.text.*)
@@ -1463,106 +1462,107 @@ destructors     0x080000ec        0x0
  .text.boardInit
                 0x08002050       0x10 build/obj/board.o
                 0x08002050                boardInit
- .text.Thread1  0x08002060       0x20 build/obj/main.o
+ .text.Thread1  0x08002060       0x30 build/obj/main.o
  .text.task20ms
-                0x08002080       0x30 build/obj/main.o
- .text.main     0x080020b0       0x60 build/obj/main.o
-                0x080020b0                main
- .text.can_rx   0x08002110      0x140 build/obj/can_comm.o
+                0x08002090       0x30 build/obj/main.o
+ .text.main     0x080020c0       0x60 build/obj/main.o
+                0x080020c0                main
+ .text.can_tx   0x08002120       0xd0 build/obj/can_comm.o
+ .text.can_rx   0x080021f0       0xb0 build/obj/can_comm.o
  .text.can_commInit
-                0x08002250       0xe0 build/obj/can_comm.o
-                0x08002250                can_commInit
- .text.can_commCalc
-                0x08002330       0x10 build/obj/can_comm.o
-                0x08002330                can_commCalc
+                0x080022a0      0x100 build/obj/can_comm.o
+                0x080022a0                can_commInit
  .text.SPIExchangeData
-                0x08002340       0x50 build/obj/spi_comm.o
-                0x08002340                SPIExchangeData
+                0x080023a0       0x50 build/obj/spi_comm.o
+                0x080023a0                SPIExchangeData
  .text.SPISendData
-                0x08002390       0x60 build/obj/spi_comm.o
-                0x08002390                SPISendData
+                0x080023f0       0x60 build/obj/spi_comm.o
+                0x080023f0                SPISendData
+ .text.SPV1020CURR_IN
+                0x08002450       0x20 build/obj/spi_comm.o
+                0x08002450                SPV1020CURR_IN
  .text.SPV1020PWM
-                0x080023f0       0x20 build/obj/spi_comm.o
-                0x080023f0                SPV1020PWM
+                0x08002470       0x20 build/obj/spi_comm.o
+                0x08002470                SPV1020PWM
  .text.SPV1020STATUS
-                0x08002410       0x20 build/obj/spi_comm.o
-                0x08002410                SPV1020STATUS
+                0x08002490       0x20 build/obj/spi_comm.o
+                0x08002490                SPV1020STATUS
  .text.SPV1020VIN
-                0x08002430       0x20 build/obj/spi_comm.o
-                0x08002430                SPV1020VIN
+                0x080024b0       0x20 build/obj/spi_comm.o
+                0x080024b0                SPV1020VIN
  .text.spi_commInit
-                0x08002450       0x30 build/obj/spi_comm.o
-                0x08002450                spi_commInit
+                0x080024d0       0x30 build/obj/spi_comm.o
+                0x080024d0                spi_commInit
  .text.adcerrorcallback
-                0x08002480       0x10 build/obj/meas.o
+                0x08002500       0x10 build/obj/meas.o
  .text.measInit
-                0x08002490       0x20 build/obj/meas.o
-                0x08002490                measInit
+                0x08002510       0x20 build/obj/meas.o
+                0x08002510                measInit
  .text.measGetValue
-                0x080024b0       0x10 build/obj/meas.o
-                0x080024b0                measGetValue
+                0x08002530       0x10 build/obj/meas.o
+                0x08002530                measGetValue
  .text.measInterpolateNTC
-                0x080024c0       0x90 build/obj/meas.o
-                0x080024c0                measInterpolateNTC
+                0x08002540       0x90 build/obj/meas.o
+                0x08002540                measInterpolateNTC
  .text.measCalc
-                0x08002550      0x1b0 build/obj/meas.o
-                0x08002550                measCalc
+                0x080025d0      0x1b0 build/obj/meas.o
+                0x080025d0                measCalc
  *(.rodata)
  *(.rodata.*)
  .rodata.str1.4
-                0x08002700        0x5 build/obj/chsys.o
+                0x08002780        0x5 build/obj/chsys.o
                                   0x8 (size before relaxing)
- *fill*         0x08002705        0xb 00
+ *fill*         0x08002785        0xb 00
  .rodata.ch_debug
-                0x08002710       0x18 build/obj/chregistry.o
-                0x08002710                ch_debug
- *fill*         0x08002728        0x8 00
+                0x08002790       0x18 build/obj/chregistry.o
+                0x08002790                ch_debug
+ *fill*         0x080027a8        0x8 00
  .rodata._stm32_dma_streams
-                0x08002730       0x54 build/obj/stm32_dma.o
-                0x08002730                _stm32_dma_streams
- *fill*         0x08002784        0xc 00
+                0x080027b0       0x54 build/obj/stm32_dma.o
+                0x080027b0                _stm32_dma_streams
+ *fill*         0x08002804        0xc 00
  .rodata.pal_default_config
-                0x08002790       0x3c build/obj/board.o
-                0x08002790                pal_default_config
- *fill*         0x080027cc        0x4 00
+                0x08002810       0x3c build/obj/board.o
+                0x08002810                pal_default_config
+ *fill*         0x0800284c        0x4 00
  .rodata.str1.4
-                0x080027d0       0x11 build/obj/main.o
+                0x08002850       0x11 build/obj/main.o
                                  0x14 (size before relaxing)
- *fill*         0x080027e1        0xf 00
+ *fill*         0x08002861        0xf 00
  .rodata.str1.4
-                0x080027f0        0xc build/obj/can_comm.o
- *fill*         0x080027fc        0x4 00
+                0x08002870       0x18 build/obj/can_comm.o
+ *fill*         0x08002888        0x8 00
  .rodata.cancfg
-                0x08002800        0x8 build/obj/can_comm.o
- *fill*         0x08002808        0x8 00
+                0x08002890        0x8 build/obj/can_comm.o
+ *fill*         0x08002898        0x8 00
  .rodata.ls_spicfg_cs1
-                0x08002810        0xc build/obj/spi_comm.o
- *fill*         0x0800281c        0x4 00
+                0x080028a0        0xc build/obj/spi_comm.o
+ *fill*         0x080028ac        0x4 00
  .rodata.measNTCcalib
-                0x08002820       0x58 build/obj/meas.o
-                0x08002820                measNTCcalib
- *fill*         0x08002878        0x8 00
+                0x080028b0       0x58 build/obj/meas.o
+                0x080028b0                measNTCcalib
+ *fill*         0x08002908        0x8 00
  .rodata.adcgrpcfg
-                0x08002880       0x28 build/obj/meas.o
+                0x08002910       0x28 build/obj/meas.o
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
  *(.glue_7)
  .glue_7        0x00000000        0x0 linker stubs
  *(.gcc*)
 
-.vfp11_veneer   0x080028a8        0x0
+.vfp11_veneer   0x08002938        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x080028a8        0x0
+.v4_bx          0x08002938        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM.exidx      0x080028a8        0x0
-                0x080028a8                PROVIDE (__exidx_start, .)
+.ARM.exidx      0x08002938        0x0
+                0x08002938                PROVIDE (__exidx_start, .)
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x080028a8                PROVIDE (__exidx_end, .)
+                0x08002938                PROVIDE (__exidx_end, .)
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
@@ -1570,11 +1570,11 @@ destructors     0x080000ec        0x0
 .eh_frame
  *(.eh_frame)
 
-.textalign      0x080028a8        0x0
-                0x080028a8                . = ALIGN (0x8)
-                0x080028a8                . = ALIGN (0x4)
-                0x080028a8                _etext = .
-                0x080028a8                _textdata = _etext
+.textalign      0x08002938        0x0
+                0x08002938                . = ALIGN (0x8)
+                0x08002938                . = ALIGN (0x4)
+                0x08002938                _etext = .
+                0x08002938                _textdata = _etext
 
 .stacks         0x20000000      0x800
                 0x20000000                . = ALIGN (0x8)
@@ -1591,7 +1591,7 @@ destructors     0x080000ec        0x0
                 0x20000800                __process_stack_end__ = .
                 0x20000800                __main_thread_stack_end__ = .
 
-.data           0x20000800        0x0 load address 0x080028a8
+.data           0x20000800        0x0 load address 0x08002938
                 0x20000800                . = ALIGN (0x4)
                 0x20000800                PROVIDE (_data, .)
  *(.data)
@@ -1600,7 +1600,7 @@ destructors     0x080000ec        0x0
                 0x20000800                . = ALIGN (0x4)
                 0x20000800                PROVIDE (_edata, .)
 
-.bss            0x20000800      0x7e4 load address 0x080028a8
+.bss            0x20000800      0x9bc load address 0x08002938
                 0x20000800                . = ALIGN (0x4)
                 0x20000800                PROVIDE (_bss_start, .)
  *(.bss)
@@ -1639,28 +1639,36 @@ destructors     0x080000ec        0x0
                 0x20000a68      0x150 build/obj/main.o
  .bss.watask20ms
                 0x20000bb8      0x1d0 build/obj/main.o
- .bss.id        0x20000d88        0x2 build/obj/can_comm.o
- *fill*         0x20000d8a        0x2 00
- .bss.txmsg     0x20000d8c       0x10 build/obj/can_comm.o
- *fill*         0x20000d9c        0x4 00
+ .bss.can_tx_wa
+                0x20000d88      0x1d0 build/obj/can_comm.o
+ .bss.rx_id     0x20000f58        0x2 build/obj/can_comm.o
+ *fill*         0x20000f5a        0x2 00
+ .bss.txmsg     0x20000f5c       0x10 build/obj/can_comm.o
+ *fill*         0x20000f6c        0x4 00
  .bss.can_rx_wa
-                0x20000da0      0x1d0 build/obj/can_comm.o
- .bss.rxmsg     0x20000f70       0x14 build/obj/can_comm.o
+                0x20000f70      0x1d0 build/obj/can_comm.o
+ .bss.canstate  0x20001140        0x1 build/obj/can_comm.o
+                0x20001140                canstate
+ *fill*         0x20001141        0x1 00
+ .bss.messages  0x20001142        0x2 build/obj/can_comm.o
+ .bss.rxmsg     0x20001144       0x14 build/obj/can_comm.o
+ .bss.tx_id     0x20001158        0x2 build/obj/can_comm.o
+ *fill*         0x2000115a        0x2 00
  .bss.txbuf_nop
-                0x20000f84        0x4 build/obj/spi_comm.o
+                0x2000115c        0x4 build/obj/spi_comm.o
  .bss.measValue
-                0x20000f88       0x18 build/obj/meas.o
+                0x20001160       0x18 build/obj/meas.o
  .bss.measstate
-                0x20000fa0        0x1 build/obj/meas.o
-                0x20000fa0                measstate
- *fill*         0x20000fa1        0x3 00
- .bss.samples   0x20000fa4       0x40 build/obj/meas.o
+                0x20001178        0x1 build/obj/meas.o
+                0x20001178                measstate
+ *fill*         0x20001179        0x3 00
+ .bss.samples   0x2000117c       0x40 build/obj/meas.o
  *(COMMON)
-                0x20000fe4                . = ALIGN (0x4)
-                0x20000fe4                PROVIDE (_bss_end, .)
-                0x20000fe4                PROVIDE (end, .)
-                0x20000fe4                _end = .
-                0x20000fe4                __heap_base__ = _end
+                0x200011bc                . = ALIGN (0x4)
+                0x200011bc                PROVIDE (_bss_end, .)
+                0x200011bc                PROVIDE (end, .)
+                0x200011bc                _end = .
+                0x200011bc                __heap_base__ = _end
                 0x20005000                __heap_end__ = __ram_end__
 START GROUP
 LOAD c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/thumb2\libgcc.a
@@ -1668,7 +1676,7 @@ LOAD c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-no
 END GROUP
 OUTPUT(build/luxcontrol.elf elf32-littlearm)
 
-.debug_abbrev   0x00000000     0x687f
+.debug_abbrev   0x00000000     0x6884
  .debug_abbrev  0x00000000       0xe1 build/obj/crt0.o
  .debug_abbrev  0x000000e1       0xae build/obj/vectors.o
  .debug_abbrev  0x0000018f       0x41 build/obj/chcore.o
@@ -1747,13 +1755,13 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .debug_abbrev  0x000058f0      0x1b5 build/obj/syscalls.o
  .debug_abbrev  0x00005aa5      0x322 build/obj/shell.o
  .debug_abbrev  0x00005dc7      0x204 build/obj/chprintf.o
- .debug_abbrev  0x00005fcb      0x180 build/obj/main.o
- .debug_abbrev  0x0000614b      0x218 build/obj/can_comm.o
- .debug_abbrev  0x00006363      0x106 build/obj/hw_test.o
- .debug_abbrev  0x00006469      0x1c1 build/obj/spi_comm.o
- .debug_abbrev  0x0000662a      0x255 build/obj/meas.o
+ .debug_abbrev  0x00005fcb      0x198 build/obj/main.o
+ .debug_abbrev  0x00006163      0x212 build/obj/can_comm.o
+ .debug_abbrev  0x00006375      0x106 build/obj/hw_test.o
+ .debug_abbrev  0x0000647b      0x1b4 build/obj/spi_comm.o
+ .debug_abbrev  0x0000662f      0x255 build/obj/meas.o
 
-.debug_info     0x00000000    0x1a474
+.debug_info     0x00000000    0x1a5c6
  .debug_info    0x00000000      0x342 build/obj/crt0.o
  .debug_info    0x00000342      0x1f4 build/obj/vectors.o
  .debug_info    0x00000536       0x92 build/obj/chcore.o
@@ -1832,13 +1840,13 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .debug_info    0x00015c7e      0xc38 build/obj/syscalls.o
  .debug_info    0x000168b6      0xcad build/obj/shell.o
  .debug_info    0x00017563      0x510 build/obj/chprintf.o
- .debug_info    0x00017a73      0x649 build/obj/main.o
- .debug_info    0x000180bc      0xd47 build/obj/can_comm.o
- .debug_info    0x00018e03      0x1ed build/obj/hw_test.o
- .debug_info    0x00018ff0      0x9d5 build/obj/spi_comm.o
- .debug_info    0x000199c5      0xaaf build/obj/meas.o
+ .debug_info    0x00017a73      0x6d6 build/obj/main.o
+ .debug_info    0x00018149      0xdcb build/obj/can_comm.o
+ .debug_info    0x00018f14      0x1ed build/obj/hw_test.o
+ .debug_info    0x00019101      0xa16 build/obj/spi_comm.o
+ .debug_info    0x00019b17      0xaaf build/obj/meas.o
 
-.debug_line     0x00000000     0xaefe
+.debug_line     0x00000000     0xaf95
  .debug_line    0x00000000      0x17d build/obj/crt0.o
  .debug_line    0x0000017d       0xf0 build/obj/vectors.o
  .debug_line    0x0000026d       0x5e build/obj/chcore.o
@@ -1917,13 +1925,13 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .debug_line    0x000097bf      0x1f3 build/obj/syscalls.o
  .debug_line    0x000099b2      0x43b build/obj/shell.o
  .debug_line    0x00009ded      0x35c build/obj/chprintf.o
- .debug_line    0x0000a149      0x1fc build/obj/main.o
- .debug_line    0x0000a345      0x33f build/obj/can_comm.o
- .debug_line    0x0000a684      0x1b7 build/obj/hw_test.o
- .debug_line    0x0000a83b      0x35f build/obj/spi_comm.o
- .debug_line    0x0000ab9a      0x364 build/obj/meas.o
+ .debug_line    0x0000a149      0x28a build/obj/main.o
+ .debug_line    0x0000a3d3      0x32a build/obj/can_comm.o
+ .debug_line    0x0000a6fd      0x1b7 build/obj/hw_test.o
+ .debug_line    0x0000a8b4      0x372 build/obj/spi_comm.o
+ .debug_line    0x0000ac26      0x36f build/obj/meas.o
 
-.debug_loc      0x00000000     0x8622
+.debug_loc      0x00000000     0x86a1
  .debug_loc     0x00000000       0x72 build/obj/crt0.o
  .debug_loc     0x00000072      0x10f build/obj/chcore_v7m.o
  .debug_loc     0x00000181      0x10a build/obj/nvic.o
@@ -1972,14 +1980,14 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .debug_loc     0x00006e5a      0x145 build/obj/syscalls.o
  .debug_loc     0x00006f9f      0x774 build/obj/shell.o
  .debug_loc     0x00007713      0x8b3 build/obj/chprintf.o
- .debug_loc     0x00007fc6       0xb0 build/obj/main.o
- .debug_loc     0x00008076       0x7f build/obj/can_comm.o
- .debug_loc     0x000080f5       0x20 build/obj/hw_test.o
- .debug_loc     0x00008115      0x1c2 build/obj/spi_comm.o
- .debug_loc     0x000082d7      0x34b build/obj/meas.o
+ .debug_loc     0x00007fc6       0xd3 build/obj/main.o
+ .debug_loc     0x00008099       0xbd build/obj/can_comm.o
+ .debug_loc     0x00008156       0x20 build/obj/hw_test.o
+ .debug_loc     0x00008176      0x1ee build/obj/spi_comm.o
+ .debug_loc     0x00008364      0x33d build/obj/meas.o
 
 .debug_pubnames
-                0x00000000     0x1a79
+                0x00000000     0x1a7c
  .debug_pubnames
                 0x00000000       0x56 build/obj/crt0.o
  .debug_pubnames
@@ -2085,16 +2093,16 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .debug_pubnames
                 0x000018f2       0x1b build/obj/main.o
  .debug_pubnames
-                0x0000190d       0x50 build/obj/can_comm.o
+                0x0000190d       0x40 build/obj/can_comm.o
  .debug_pubnames
-                0x0000195d       0x32 build/obj/hw_test.o
+                0x0000194d       0x32 build/obj/hw_test.o
  .debug_pubnames
-                0x0000198f       0x77 build/obj/spi_comm.o
+                0x0000197f       0x8a build/obj/spi_comm.o
  .debug_pubnames
-                0x00001a06       0x73 build/obj/meas.o
+                0x00001a09       0x73 build/obj/meas.o
 
 .debug_pubtypes
-                0x00000000     0x4ab8
+                0x00000000     0x4ad7
  .debug_pubtypes
                 0x00000000       0x44 build/obj/crt0.o
  .debug_pubtypes
@@ -2252,17 +2260,17 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .debug_pubtypes
                 0x00004159       0xce build/obj/chprintf.o
  .debug_pubtypes
-                0x00004227      0x171 build/obj/main.o
+                0x00004227      0x193 build/obj/main.o
  .debug_pubtypes
-                0x00004398      0x2ae build/obj/can_comm.o
+                0x000043ba      0x2ab build/obj/can_comm.o
  .debug_pubtypes
-                0x00004646       0x59 build/obj/hw_test.o
+                0x00004665       0x59 build/obj/hw_test.o
  .debug_pubtypes
-                0x0000469f      0x1cf build/obj/spi_comm.o
+                0x000046be      0x1cf build/obj/spi_comm.o
  .debug_pubtypes
-                0x0000486e      0x24a build/obj/meas.o
+                0x0000488d      0x24a build/obj/meas.o
 
-.debug_aranges  0x00000000     0x11b8
+.debug_aranges  0x00000000     0x11c0
  .debug_aranges
                 0x00000000       0x38 build/obj/crt0.o
  .debug_aranges
@@ -2372,11 +2380,11 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .debug_aranges
                 0x00001108       0x28 build/obj/hw_test.o
  .debug_aranges
-                0x00001130       0x48 build/obj/spi_comm.o
+                0x00001130       0x50 build/obj/spi_comm.o
  .debug_aranges
-                0x00001178       0x40 build/obj/meas.o
+                0x00001180       0x40 build/obj/meas.o
 
-.debug_ranges   0x00000000     0x1248
+.debug_ranges   0x00000000     0x1268
  .debug_ranges  0x00000000       0x58 build/obj/crt0.o
  .debug_ranges  0x00000058       0x10 build/obj/vectors.o
  .debug_ranges  0x00000068       0x10 build/obj/chcore.o
@@ -2428,13 +2436,13 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .debug_ranges  0x00001030       0x40 build/obj/syscalls.o
  .debug_ranges  0x00001070       0xb8 build/obj/shell.o
  .debug_ranges  0x00001128       0x60 build/obj/chprintf.o
- .debug_ranges  0x00001188       0x20 build/obj/main.o
- .debug_ranges  0x000011a8       0x20 build/obj/can_comm.o
- .debug_ranges  0x000011c8       0x18 build/obj/hw_test.o
- .debug_ranges  0x000011e0       0x38 build/obj/spi_comm.o
- .debug_ranges  0x00001218       0x30 build/obj/meas.o
+ .debug_ranges  0x00001188       0x38 build/obj/main.o
+ .debug_ranges  0x000011c0       0x20 build/obj/can_comm.o
+ .debug_ranges  0x000011e0       0x18 build/obj/hw_test.o
+ .debug_ranges  0x000011f8       0x40 build/obj/spi_comm.o
+ .debug_ranges  0x00001238       0x30 build/obj/meas.o
 
-.debug_str      0x00000000     0x3d81
+.debug_str      0x00000000     0x3e08
  .debug_str     0x00000000      0x1e4 build/obj/crt0.o
                                 0x218 (size before relaxing)
  .debug_str     0x000001e4      0x147 build/obj/vectors.o
@@ -2592,14 +2600,14 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .debug_str     0x00003a5b       0xbe build/obj/chprintf.o
                                 0x235 (size before relaxing)
  .debug_str     0x00003b19       0x25 build/obj/main.o
-                                0x33b (size before relaxing)
- .debug_str     0x00003b3e       0xdd build/obj/can_comm.o
-                                0x5fd (size before relaxing)
- .debug_str     0x00003c1b       0x35 build/obj/hw_test.o
+                                0x35f (size before relaxing)
+ .debug_str     0x00003b3e      0x155 build/obj/can_comm.o
+                                0x668 (size before relaxing)
+ .debug_str     0x00003c93       0x35 build/obj/hw_test.o
                                 0x162 (size before relaxing)
- .debug_str     0x00003c50       0x82 build/obj/spi_comm.o
-                                0x4b7 (size before relaxing)
- .debug_str     0x00003cd2       0xaf build/obj/meas.o
+ .debug_str     0x00003cc8       0x91 build/obj/spi_comm.o
+                                0x4c6 (size before relaxing)
+ .debug_str     0x00003d59       0xaf build/obj/meas.o
                                 0x58b (size before relaxing)
 
 .comment        0x00000000       0x2a
@@ -2867,7 +2875,7 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .ARM.attributes
                 0x00001087       0x29 c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-ctype_.o)
 
-.debug_frame    0x00000000     0x2e0c
+.debug_frame    0x00000000     0x2e44
  .debug_frame   0x00000000       0x50 build/obj/crt0.o
  .debug_frame   0x00000050       0x20 build/obj/vectors.o
  .debug_frame   0x00000070       0x20 build/obj/chcore.o
@@ -2919,15 +2927,15 @@ OUTPUT(build/luxcontrol.elf elf32-littlearm)
  .debug_frame   0x0000284c       0x98 build/obj/syscalls.o
  .debug_frame   0x000028e4      0x184 build/obj/shell.o
  .debug_frame   0x00002a68       0x90 build/obj/chprintf.o
- .debug_frame   0x00002af8       0x64 build/obj/main.o
- .debug_frame   0x00002b5c       0x70 build/obj/can_comm.o
- .debug_frame   0x00002bcc       0x38 build/obj/hw_test.o
- .debug_frame   0x00002c04       0xd0 build/obj/spi_comm.o
- .debug_frame   0x00002cd4       0x88 build/obj/meas.o
- .debug_frame   0x00002d5c       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memset.o)
- .debug_frame   0x00002d88       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strcasecmp.o)
- .debug_frame   0x00002db4       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strpbrk.o)
- .debug_frame   0x00002de0       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strspn.o)
+ .debug_frame   0x00002af8       0x68 build/obj/main.o
+ .debug_frame   0x00002b60       0x88 build/obj/can_comm.o
+ .debug_frame   0x00002be8       0x38 build/obj/hw_test.o
+ .debug_frame   0x00002c20       0xec build/obj/spi_comm.o
+ .debug_frame   0x00002d0c       0x88 build/obj/meas.o
+ .debug_frame   0x00002d94       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memset.o)
+ .debug_frame   0x00002dc0       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strcasecmp.o)
+ .debug_frame   0x00002dec       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strpbrk.o)
+ .debug_frame   0x00002e18       0x2c c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strspn.o)
 
 Cross Reference Table
 
@@ -2948,6 +2956,8 @@ SPID1                                             build/obj/spi_lld.o
                                                   build/obj/spi_comm.o
 SPIExchangeData                                   build/obj/spi_comm.o
 SPISendData                                       build/obj/spi_comm.o
+SPV1020CURR_IN                                    build/obj/spi_comm.o
+                                                  build/obj/can_comm.o
 SPV1020PWM                                        build/obj/spi_comm.o
                                                   build/obj/can_comm.o
 SPV1020STATUS                                     build/obj/spi_comm.o
@@ -3193,14 +3203,13 @@ adc_lld_stop_conversion                           build/obj/adc_lld.o
                                                   build/obj/adc.o
 boardInit                                         build/obj/board.o
                                                   build/obj/hal.o
-canComands                                        build/obj/can_comm.o
 canInit                                           build/obj/can.o
                                                   build/obj/hal.o
+canMessages                                       build/obj/can_comm.o
 canObjectInit                                     build/obj/can.o
                                                   build/obj/can_lld.o
 canReceive                                        build/obj/can.o
                                                   build/obj/can_comm.o
-canRxEID                                          build/obj/can_comm.o
 canSTM32SetFilters                                build/obj/can_lld.o
 canSleep                                          build/obj/can.o
 canStart                                          build/obj/can.o
@@ -3209,8 +3218,6 @@ canStop                                           build/obj/can.o
 canTransmit                                       build/obj/can.o
                                                   build/obj/can_comm.o
 canWakeup                                         build/obj/can.o
-can_commCalc                                      build/obj/can_comm.o
-                                                  build/obj/main.o
 can_commInit                                      build/obj/can_comm.o
                                                   build/obj/main.o
 can_lld_init                                      build/obj/can_lld.o
@@ -3231,6 +3238,7 @@ can_lld_transmit                                  build/obj/can_lld.o
                                                   build/obj/can.o
 can_lld_wakeup                                    build/obj/can_lld.o
                                                   build/obj/can.o
+canstate                                          build/obj/can_comm.o
 chCondBroadcast                                   build/obj/chcond.o
                                                   build/obj/testmtx.o
 chCondBroadcastI                                  build/obj/chcond.o

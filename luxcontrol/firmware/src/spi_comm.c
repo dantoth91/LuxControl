@@ -28,7 +28,7 @@ static uint16_t rxbuf[2];
 static uint8_t txbuf_nop[2];
 
 uint16_t SPV1020VIN(void) {
-  int rx, tx;
+  uint16_t rx, tx;
 
   tx = READ_VIN_10_BIT;
 
@@ -38,7 +38,7 @@ uint16_t SPV1020VIN(void) {
 }
 
 uint16_t SPV1020STATUS(void) {
-  int rx, tx;
+  uint16_t rx, tx;
 
   tx = READ_STATUS;
   
@@ -48,9 +48,19 @@ uint16_t SPV1020STATUS(void) {
 }
 
 uint16_t SPV1020PWM(void) {
-  int rx, tx;
+  uint16_t rx, tx;
 
   tx = READ_PWM_9_BIT;
+  
+  SPISendData(&tx, &rx, 1);
+  
+  return (uint16_t)rx;
+}
+
+uint16_t SPV1020CURR_IN(void) {
+  uint16_t rx, tx;
+
+  tx = READ_CURRENT_10_BIT;
   
   SPISendData(&tx, &rx, 1);
   

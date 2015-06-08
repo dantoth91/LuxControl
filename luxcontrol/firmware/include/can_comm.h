@@ -7,8 +7,5 @@
 #define CAN_COMM_H_INCLUDED
 
 void can_commInit(void);
-void can_commCalc(void);
-
-void cmd_can_commvalues(BaseSequentialStream *chp, int argc, char *argv[]);
 
 #endif

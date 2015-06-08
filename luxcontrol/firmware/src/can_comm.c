@@ -11,15 +11,50 @@
 #include "meas.h"
 #include "spi_comm.h"
 
-#define MIN_CAN_EID         0x40
-#define MAX_CAN_EID         0x5F
+/* LuxControl ID */
+#define CAN_EID             0x40
 
+/* CAN Min-Max ID */
+#define CAN_MIN_EID         0x10
+#define CAN_MAX_EID         0x1FFFFFF
 
-enum canComands
+/* CAN Smarty messages */
+#define CAN_SM_MIN          0x10
+#define CAN_SM_MAX          0x1F
+#define CAN_SM_MESSAGES_1   0x01
+
+/* CAN Modulux messages */
+#define CAN_ML_MIN          0x20
+#define CAN_ML_MAX          0x2F
+
+/* CAN Raspberry Pi messages */
+#define CAN_RPY_MIN         0x30
+#define CAN_RPY_MAX         0x3F
+
+/* CAN LuxControl messages */
+#define CAN_LC_MIN          0x40
+#define CAN_LC_MAX          0x5F
+#define CAN_LC_MESSAGES_1   0x01
+#define CAN_LC_MESSAGES_2   0x02
+#define CAN_LC_MESSAGES_3   0x03
+
+enum canState
 {
-  CAN_TEST = 0x01234567,
-  CAN_NUM_COMM
-}canComands;
+  CAN_SM,
+  CAN_ML,
+  CAN_RPY,
+  CAN_LC,
+  CAN_WAIT,
+  CAN_NUM_CH
+}canstate;
+
+enum canMessages
+{
+  CAN_MESSAGES_1,
+  CAN_MESSAGES_2,
+  CAN_MESSAGES_3,
+  CAN_NUM_MESS
+}canMessages;
 
 static uint8_t dip_name[6] = {GPIOB_DIP_1, 
                               GPIOB_DIP_2, 
@@ -30,9 +65,6 @@ static uint8_t dip_name[6] = {GPIOB_DIP_1,
 
 static CANRxFrame rxmsg;
 static CANTxFrame txmsg;
-static uint16_t id;
-
-uint32_t canRxEID;
 
 /*--------------------------------------------------*/
 /* CAN_MCR_ABOM   ->  Automatic Bus-Off Management  */
@@ -63,6 +95,10 @@ static const CANConfig cancfg = {
   CAN_BTR_TS1(8) | CAN_BTR_BRP(5)
 };
 
+static uint16_t tx_id;
+static uint16_t rx_id;
+static uint16_t messages;
+
 /*
  * Receiver thread.
  */
@@ -79,48 +115,62 @@ static msg_t can_rx(void *p) {
       continue;
     while (canReceive(&CAND1, CAN_ANY_MAILBOX, &rxmsg, TIME_IMMEDIATE) == RDY_OK) {
 
-      switch(rxmsg.EID){
-        case CAN_TEST:
+      rx_id = rxmsg.EID >> 8;
+      messages = (uint8_t)rxmsg.EID;
 
-          /* Message 1 */
-          txmsg.EID = 0;
-          txmsg.EID = 0x01;
-          txmsg.EID += id << 8;
+      if(rx_id >= CAN_SM_MIN && rx_id <= CAN_SM_MAX){
+        canstate = CAN_SM;
+      }
+      else if(rx_id >= CAN_ML_MIN && rx_id <= CAN_ML_MAX){
+        canstate = CAN_ML;
+      }
+      else if(rx_id >= CAN_RPY_MIN && rx_id <= CAN_RPY_MAX){
+        canstate = CAN_RPY;
+      }
+      else if(rx_id >= CAN_LC_MIN && rx_id <= CAN_LC_MAX){
+        canstate = CAN_LC;
+      }
+      else{
+        canstate = CAN_WAIT;
+      }
 
-          txmsg.data8[0] = measGetValue(MEAS_NTC);
-          txmsg.data8[1] = measGetValue(MEAS_IN_CURR);
-          txmsg.data8[2] = measGetValue(MEAS_OUT_CURR);
-          txmsg.data8[3] = 0;
-          txmsg.data16[2] = (uint16_t)((SPV1020VIN() + 65383) / 1093);
-          txmsg.data16[3] = measGetValue(MEAS_V_OUT);
-          
-
-          can_tx_msg = canTransmit(&CAND1, CAN_ANY_MAILBOX, &txmsg, MS2ST(100));
-          rxmsg.EID = 0;
-
-          /* Message 2 */
-          txmsg.EID = 0;
-          txmsg.EID = 0x02;
-          txmsg.EID += id << 8;
-          txmsg.data16[0] = SPV1020STATUS();
-          txmsg.data16[1] = SPV1020PWM();
-
-          txmsg.data32[1] = 0;
-          
-
-          can_tx_msg = canTransmit(&CAND1, CAN_ANY_MAILBOX, &txmsg, MS2ST(100));
-          rxmsg.EID = 0;
-
-          palTogglePad(GPIOA, GPIOA_LED4);
-
-          chThdSleepMilliseconds(200);
+      switch(canstate){
+        
+        case CAN_SM:
+          //palClearPad(GPIOA, GPIOA_LED4);
+          if(messages == tx_id){
+            if(rxmsg.data8[0] == 0xAA){
+              /* ARM sleep */
+            }
+            if(rxmsg.data8[0] == 0xCC){
+              /* MPPT Switch off */
+            }
+          }
+          canstate = CAN_WAIT;
           break;
+
+        case CAN_ML:
+          canstate = CAN_WAIT;
+          break;
+
+        case CAN_RPY:
+          canstate = CAN_WAIT;
+          break;
+
+        case CAN_LC:
+          canstate = CAN_WAIT;
+          break;
+
+        case CAN_WAIT:
+          break;
+
         default:
           break;
       }
-    } 
-  }
+    }
+  } 
   chEvtUnregister(&CAND1.rxfull_event, &el);
+  chThdSleepMilliseconds(200);
   return 0;
 }
 
@@ -132,15 +182,57 @@ static msg_t can_tx(void * p) {
 
   (void)p;
   chRegSetThreadName("transmitter");
-  txmsg.IDE = CAN_IDE_EXT;
-  txmsg.EID = 0x01234567;
-  txmsg.RTR = CAN_RTR_DATA;
-  txmsg.DLC = 8;
-  txmsg.data32[0] = 0x55AA55AA;
-  txmsg.data32[1] = 0x00FF00FF;
+
+  int tx_status;
 
   while (!chThdShouldTerminate()) {
-    canTransmit(&CAND1, CAN_ANY_MAILBOX, &txmsg, MS2ST(100));
+    for(tx_status = 0; tx_status < CAN_NUM_MESS; tx_status ++){
+      switch(tx_status){
+        case CAN_MESSAGES_1:
+          /* Message 1 */
+          txmsg.EID = 0;
+          txmsg.EID = CAN_LC_MESSAGES_1;
+          txmsg.EID += tx_id << 8;
+
+          txmsg.data8[0] = measGetValue(MEAS_NTC);
+          txmsg.data8[1] = measGetValue(MEAS_IN_CURR);
+          txmsg.data8[2] = measGetValue(MEAS_OUT_CURR);
+          txmsg.data8[3] = 0;
+          txmsg.data16[2] = SPV1020VIN();
+          txmsg.data16[3] = measGetValue(MEAS_V_OUT);
+       
+          canTransmit(&CAND1, CAN_ANY_MAILBOX ,&txmsg, MS2ST(100));
+          break;
+
+        case CAN_MESSAGES_2:
+          /* Message 2 */
+          txmsg.EID = 0;
+          txmsg.EID = CAN_LC_MESSAGES_2;
+          txmsg.EID += tx_id << 8;
+
+          txmsg.data16[0] = SPV1020STATUS();
+          txmsg.data16[1] = SPV1020PWM();
+          txmsg.data16[2] = SPV1020CURR_IN();
+       
+          canTransmit(&CAND1, CAN_ANY_MAILBOX ,&txmsg, MS2ST(100));
+          break;
+
+        case CAN_MESSAGES_3:
+          /* Message 2 */
+          /*txmsg.EID = 0;
+          txmsg.EID = CAN_LC_MESSAGES_3;
+          txmsg.EID += tx_id << 8;
+
+          txmsg.data32[0] = measGetValue(MEAS_IN_CURR);
+          txmsg.data32[1] = measGetValue(MEAS_OUT_CURR);
+       
+          canTransmit(&CAND1, CAN_ANY_MAILBOX ,&txmsg, MS2ST(100));*/
+          break;
+
+        default:      
+          break;
+      }
+    }
     chThdSleepMilliseconds(100);
   }
   return 0;
@@ -148,28 +240,28 @@ static msg_t can_tx(void * p) {
 
 void can_commInit(void){
 
-  txmsg.EID = MIN_CAN_EID;
-  id = MIN_CAN_EID;
+  tx_id = CAN_EID;
 
-  id += (palReadPad(GPIOB, dip_name[0]) == 0) ? 0x01 : 0x00;
-  id += (palReadPad(GPIOB, dip_name[1]) == 0) ? 0x02 : 0x00;
-  id += (palReadPad(GPIOB, dip_name[2]) == 0) ? 0x04 : 0x00;
-  id += (palReadPad(GPIOB, dip_name[3]) == 0) ? 0x08 : 0x00;
-  id += (palReadPad(GPIOB, dip_name[4]) == 1) ? 0x10 : 0x00;
-  id += (palReadPad(GPIOA, dip_name[5]) == 0) ? 0x20 : 0x00;
+  tx_id += (palReadPad(GPIOB, dip_name[0]) == 0) ? 0x01 : 0x00;
+  tx_id += (palReadPad(GPIOB, dip_name[1]) == 0) ? 0x02 : 0x00;
+  tx_id += (palReadPad(GPIOB, dip_name[2]) == 0) ? 0x04 : 0x00;
+  tx_id += (palReadPad(GPIOB, dip_name[3]) == 0) ? 0x08 : 0x00;
+  tx_id += (palReadPad(GPIOB, dip_name[4]) == 1) ? 0x10 : 0x00;
+  tx_id += (palReadPad(GPIOA, dip_name[5]) == 0) ? 0x20 : 0x00;
 
-  id = id < MIN_CAN_EID ? MIN_CAN_EID : id;
-  id = id > MAX_CAN_EID ? MAX_CAN_EID : id;
+  tx_id = tx_id < CAN_LC_MIN ? CAN_LC_MIN : tx_id;
+  tx_id = tx_id > CAN_LC_MAX ? CAN_LC_MAX : tx_id;
 
   txmsg.IDE = CAN_IDE_EXT;
   txmsg.RTR = CAN_RTR_DATA;
   txmsg.DLC = 8;
 
+  rxmsg.IDE = CAN_IDE_EXT;
+  rxmsg.RTR = CAN_RTR_DATA;
+  rxmsg.DLC = 8;
+
   canStart(&CAND1, &cancfg);
 
   chThdCreateStatic(can_rx_wa, sizeof(can_rx_wa), NORMALPRIO + 7, can_rx, NULL);
-  //chThdCreateStatic(can_tx_wa, sizeof(can_tx_wa), NORMALPRIO + 7, can_tx, NULL);
-}
-
-void can_commCalc(void){
+  chThdCreateStatic(can_tx_wa, sizeof(can_tx_wa), NORMALPRIO + 7, can_tx, NULL);
 }

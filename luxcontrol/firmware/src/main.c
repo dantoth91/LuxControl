@@ -30,9 +30,12 @@ static msg_t Thread1(void *arg) {
   chRegSetThreadName("blinker");
   while (TRUE) {
     systime_t time;
-    time = 500;
+    time = 50;
+    palSetPad(GPIOA, GPIOA_LED4);
+    chThdSleepMilliseconds(time);
 
-    //palClearPad(GPIOA, GPIOA_SPI_CS1);
+    time = 450;
+    palClearPad(GPIOA, GPIOA_LED4);
     chThdSleepMilliseconds(time);
   }
   return 0; /* Never executed.*/
@@ -52,7 +55,6 @@ static msg_t task20ms(void *arg) {
 
     //hw_testCalc();
     measCalc();
-    can_commCalc();
 
     chThdSleepUntil(time);
   }

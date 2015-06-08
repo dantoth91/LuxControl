@@ -99,15 +99,15 @@ void measCalc(void){
           case MEAS_IN_CURR:
             avg = avg > 2048 ? 2048 : avg;
             avg = 2048 - avg;
-            avg *= 11;
-            avg /= 138;
+            avg *= 1475;
+            avg /= 10000;
             avg = avg > 255 ? 255 : avg;
             break;
           case MEAS_OUT_CURR:
-            avg = avg < 2048 ? 2048 : avg;
+            avg = avg < 2048 ? 2049 : avg;
             avg -= 2048;
-            avg *= 11;
-            avg /= 138;
+            avg *= 1475;
+            avg /= 10000;
             avg = avg > 255 ? 255 : avg;
             break;
           default:
