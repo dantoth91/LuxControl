@@ -1,0 +1,1 @@
+st-flash.exe write luxcontrol.bin 0x8000000

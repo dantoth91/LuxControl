@@ -14,6 +14,15 @@
 /* LuxControl ID */
 #define CAN_EID             0x40
 
+/* CAN BMS */
+#define CAN_BMS_MIN         0x00
+#define CAN_BMS_MAX         0x0F
+#define CAN_BMS_MESSAGES_1  0x01
+#define CAN_BMS_MESSAGES_2  0x02
+#define CAN_BMS_MESSAGES_3  0x03
+#define CAN_BMS_MESSAGES_4  0x04
+#define CAN_BMS_MESSAGES_5  0x05
+
 /* CAN Min-Max ID */
 #define CAN_MIN_EID         0x10
 #define CAN_MAX_EID         0x1FFFFFF
@@ -40,6 +49,7 @@
 
 enum canState
 {
+  CAN_BMS,
   CAN_SM,
   CAN_ML,
   CAN_RPY,
@@ -98,6 +108,7 @@ static const CANConfig cancfg = {
 static uint16_t tx_id;
 static uint16_t rx_id;
 static uint16_t messages;
+static bool_t switch_on;
 
 /*
  * Receiver thread.
@@ -115,37 +126,60 @@ static msg_t can_rx(void *p) {
       continue;
     while (canReceive(&CAND1, CAN_ANY_MAILBOX, &rxmsg, TIME_IMMEDIATE) == RDY_OK) {
 
+      rx_id = 0;
       rx_id = rxmsg.EID >> 8;
       messages = (uint8_t)rxmsg.EID;
 
-      if(rx_id >= CAN_SM_MIN && rx_id <= CAN_SM_MAX){
+      if(rx_id >= CAN_BMS_MIN && rx_id <= CAN_BMS_MAX){
+        canstate = CAN_BMS;
+        rxmsg.EID = 0;
+      }
+      else if(rx_id >= CAN_SM_MIN && rx_id <= CAN_SM_MAX){
         canstate = CAN_SM;
+        rxmsg.EID = 0;
       }
       else if(rx_id >= CAN_ML_MIN && rx_id <= CAN_ML_MAX){
         canstate = CAN_ML;
+        rxmsg.EID = 0;
       }
       else if(rx_id >= CAN_RPY_MIN && rx_id <= CAN_RPY_MAX){
         canstate = CAN_RPY;
+        rxmsg.EID = 0;
       }
       else if(rx_id >= CAN_LC_MIN && rx_id <= CAN_LC_MAX){
         canstate = CAN_LC;
+        rxmsg.EID = 0;
       }
       else{
         canstate = CAN_WAIT;
+        rxmsg.EID = 0;
       }
 
       switch(canstate){
-        
-        case CAN_SM:
-          //palClearPad(GPIOA, GPIOA_LED4);
-          if(messages == tx_id){
-            if(rxmsg.data8[0] == 0xAA){
-              /* ARM sleep */
+
+        case CAN_BMS:
+          if(messages == CAN_BMS_MESSAGES_2){
+            if((rxmsg.data8[0] >> 1) & 0x01)
+            {
+              if (switch_on = FALSE)
+              {
+                SPV1020TURN_ON();
+                switch_on = TRUE;
+              }
             }
-            if(rxmsg.data8[0] == 0xCC){
-              /* MPPT Switch off */
+            else
+            {
+              if(switch_on)
+              {
+                SPV1020SHUT_DOWN();
+                switch_on = FALSE;
+              } 
             }
           }
+          canstate = CAN_WAIT;
+          break;
+        
+        case CAN_SM:
           canstate = CAN_WAIT;
           break;
 
@@ -190,6 +224,7 @@ static msg_t can_tx(void * p) {
       switch(tx_status){
         case CAN_MESSAGES_1:
           /* Message 1 */
+          chSysLock();
           txmsg.EID = 0;
           txmsg.EID = CAN_LC_MESSAGES_1;
           txmsg.EID += tx_id << 8;
@@ -200,6 +235,7 @@ static msg_t can_tx(void * p) {
           txmsg.data8[3] = 0;
           txmsg.data16[2] = SPV1020VIN();
           txmsg.data16[3] = measGetValue(MEAS_V_OUT);
+          chSysUnlock();
        
           canTransmit(&CAND1, CAN_ANY_MAILBOX ,&txmsg, MS2ST(100));
           break;
@@ -213,7 +249,7 @@ static msg_t can_tx(void * p) {
           txmsg.data16[0] = SPV1020STATUS();
           txmsg.data16[1] = SPV1020PWM();
           txmsg.data16[2] = SPV1020CURR_IN();
-       
+
           canTransmit(&CAND1, CAN_ANY_MAILBOX ,&txmsg, MS2ST(100));
           break;
 
@@ -232,6 +268,7 @@ static msg_t can_tx(void * p) {
         default:      
           break;
       }
+      chThdSleepMilliseconds(20);
     }
     chThdSleepMilliseconds(100);
   }
@@ -260,6 +297,8 @@ void can_commInit(void){
   rxmsg.RTR = CAN_RTR_DATA;
   rxmsg.DLC = 8;
 
+  switch_on = TRUE;
+  
   canStart(&CAND1, &cancfg);
 
   chThdCreateStatic(can_rx_wa, sizeof(can_rx_wa), NORMALPRIO + 7, can_rx, NULL);

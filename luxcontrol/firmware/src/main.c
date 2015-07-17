@@ -81,6 +81,11 @@ int main(void) {
   //hw_testInit();
 
   /*
+   * SPV1020 Turn on.
+   */
+  SPV1020TURN_ON();
+
+  /*
    * Measurement initialization.
    */
   measInit();

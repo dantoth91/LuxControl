@@ -27,6 +27,26 @@ static uint8_t txbuf;
 static uint16_t rxbuf[2];
 static uint8_t txbuf_nop[2];
 
+uint16_t SPV1020SHUT_DOWN(void) {
+  uint16_t rx, tx;
+
+  tx = SHUT_DOWN;
+
+  SPISendData(&tx, &rx, 1);
+  
+  return (uint16_t)rx;
+}
+
+uint16_t SPV1020TURN_ON(void) {
+  uint16_t rx, tx;
+
+  tx = TURN_ON;
+
+  SPISendData(&tx, &rx, 1);
+  
+  return (uint16_t)rx;
+}
+
 uint16_t SPV1020VIN(void) {
   uint16_t rx, tx;
 
@@ -74,27 +94,11 @@ int SPISendData(uint8_t *tx, uint16_t *rxbuf, size_t txsize) {
   spiSelect(&SPID1);
 
   spiSend(&SPID1, txsize, tx);
+  spiExchange(&SPID1, 2, txbuf_nop, rxbuf);
 
   spiUnselect(&SPID1);
   spiStop(&SPID1);
   spiReleaseBus(&SPID1);
-
-  SPIExchangeData(&SPID1, txbuf_nop, rxbuf, 2);
-  
-  return 0;
-}
-
-int SPIExchangeData(SPIDriver *spip, uint8_t *tx, uint16_t *rx, size_t rxsize) {
-
-  spiAcquireBus(spip);
-  spiStart(spip, &ls_spicfg_cs1);
-  spiSelect(spip);
-
-  spiExchange(spip, rxsize, tx, rx);
-
-  spiUnselect(spip);
-  spiStop(spip);
-  spiReleaseBus(spip);
   
   return 0;
 }
