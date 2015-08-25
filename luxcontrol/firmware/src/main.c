@@ -31,11 +31,11 @@ static msg_t Thread1(void *arg) {
   while (TRUE) {
     systime_t time;
     time = 50;
-    palSetPad(GPIOA, GPIOA_LED4);
+    //palSetPad(GPIOA, GPIOA_LED4);
     chThdSleepMilliseconds(time);
 
     time = 450;
-    palClearPad(GPIOA, GPIOA_LED4);
+    //palClearPad(GPIOA, GPIOA_LED4);
     chThdSleepMilliseconds(time);
   }
   return 0; /* Never executed.*/
@@ -81,9 +81,10 @@ int main(void) {
   //hw_testInit();
 
   /*
-   * SPV1020 Turn on.
+   * SPV1020 Turn off.
    */
-  SPV1020TURN_ON();
+  SPV1020SHUT_DOWN();
+  palClearPad(GPIOA, GPIOA_LED4);
 
   /*
    * Measurement initialization.

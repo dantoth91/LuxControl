@@ -62,7 +62,6 @@ enum canMessages
 {
   CAN_MESSAGES_1,
   CAN_MESSAGES_2,
-  CAN_MESSAGES_3,
   CAN_NUM_MESS
 }canMessages;
 
@@ -87,28 +86,32 @@ static CANTxFrame txmsg;
 /* CAN_BTR_TS2()  ->  Time Segment 2                */
 /* CAN_BTR_TS1()  ->  Time Segment 1                */
 /* CAN_BTR_BRP()  ->  Baud Rate Prescaler           */
+/* CAN_IER_SLAKI  ->  Sleep acknowledge interrupt   */
 /* _____________________________________________________________________*/
-/*                  				CAN_BTR_BRP Baud   					                */
-/*	tPCLK = (1/fPCLK)													                          */
-/*	tq = (BRP[9:0]+1) x tPCLK											                      */
-/*																		                                  */
+/*                  				CAN_BTR_BRP Baud 500kHz			                */
+/*                                                                      */
 /*		 		    F1XX		    |		F2XX        |      F4XX        		        */
 /*  fPCLK   	36 MHz		  |		30 MHz      |      42 MHz			            */
 /*  tPCLK		  0,027777777	|		0,033333333 |      0,023809524		        */
 /*  BRP[X]  	5			      |		4           |      6        		          */
 /*  tq =		  0,166666662	|		0,166666667 |      0,166666667            */
 /*----------------------------------------------------------------------*/
+/*
+*/
 
 static const CANConfig cancfg = {
-  CAN_MCR_ABOM,
+  CAN_MCR_ABOM | CAN_MCR_AWUM | CAN_MCR_TXFP,
   CAN_BTR_SJW(0) | CAN_BTR_TS2(1) |
-  CAN_BTR_TS1(8) | CAN_BTR_BRP(5)
+  CAN_BTR_TS1(8) | CAN_BTR_BRP(11)
 };
 
 static uint16_t tx_id;
 static uint16_t rx_id;
 static uint16_t messages;
 static bool_t switch_on;
+static bool_t switch_off;
+
+static uint32_t period; 
 
 /*
  * Receiver thread.
@@ -116,7 +119,6 @@ static bool_t switch_on;
 static WORKING_AREA(can_rx_wa, 256);
 static msg_t can_rx(void *p) {
   EventListener el;
-  msg_t can_tx_msg=0;
 
   (void)p;
   chRegSetThreadName("receiver");
@@ -125,10 +127,11 @@ static msg_t can_rx(void *p) {
     if (chEvtWaitAnyTimeout(ALL_EVENTS, MS2ST(100)) == 0)
       continue;
     while (canReceive(&CAND1, CAN_ANY_MAILBOX, &rxmsg, TIME_IMMEDIATE) == RDY_OK) {
-
+      chSysLock();
       rx_id = 0;
       rx_id = rxmsg.EID >> 8;
       messages = (uint8_t)rxmsg.EID;
+      period = 0;
 
       if(rx_id >= CAN_BMS_MIN && rx_id <= CAN_BMS_MAX){
         canstate = CAN_BMS;
@@ -161,18 +164,22 @@ static msg_t can_rx(void *p) {
           if(messages == CAN_BMS_MESSAGES_2){
             if((rxmsg.data8[0] >> 1) & 0x01)
             {
-              if (switch_on = FALSE)
+              if (switch_on)
               {
                 SPV1020TURN_ON();
-                switch_on = TRUE;
+                palSetPad(GPIOA, GPIOA_LED4);
+                switch_on = FALSE;
+                switch_off = TRUE;
               }
             }
             else
             {
-              if(switch_on)
+              if(switch_off)
               {
                 SPV1020SHUT_DOWN();
-                switch_on = FALSE;
+                palClearPad(GPIOA, GPIOA_LED4);
+                switch_off = FALSE;
+                switch_on = TRUE;
               } 
             }
           }
@@ -201,10 +208,10 @@ static msg_t can_rx(void *p) {
         default:
           break;
       }
+      chSysUnlock();
     }
   } 
   chEvtUnregister(&CAND1.rxfull_event, &el);
-  chThdSleepMilliseconds(200);
   return 0;
 }
 
@@ -235,13 +242,14 @@ static msg_t can_tx(void * p) {
           txmsg.data8[3] = 0;
           txmsg.data16[2] = SPV1020VIN();
           txmsg.data16[3] = measGetValue(MEAS_V_OUT);
-          chSysUnlock();
-       
+
           canTransmit(&CAND1, CAN_ANY_MAILBOX ,&txmsg, MS2ST(100));
+          chSysUnlock();
           break;
 
         case CAN_MESSAGES_2:
           /* Message 2 */
+          chSysLock();
           txmsg.EID = 0;
           txmsg.EID = CAN_LC_MESSAGES_2;
           txmsg.EID += tx_id << 8;
@@ -251,28 +259,43 @@ static msg_t can_tx(void * p) {
           txmsg.data16[2] = SPV1020CURR_IN();
 
           canTransmit(&CAND1, CAN_ANY_MAILBOX ,&txmsg, MS2ST(100));
-          break;
-
-        case CAN_MESSAGES_3:
-          /* Message 2 */
-          /*txmsg.EID = 0;
-          txmsg.EID = CAN_LC_MESSAGES_3;
-          txmsg.EID += tx_id << 8;
-
-          txmsg.data32[0] = measGetValue(MEAS_IN_CURR);
-          txmsg.data32[1] = measGetValue(MEAS_OUT_CURR);
-       
-          canTransmit(&CAND1, CAN_ANY_MAILBOX ,&txmsg, MS2ST(100));*/
+          chSysUnlock();
           break;
 
         default:      
           break;
       }
-      chThdSleepMilliseconds(20);
+      chThdSleepMilliseconds(250);
     }
-    chThdSleepMilliseconds(100);
+
+    chThdSleepMilliseconds(1000);
   }
   return 0;
+}
+
+/*
+ * CAN safety thread.
+ */
+static WORKING_AREA(safety_wa, 256);
+static msg_t safety(void * p) {
+
+  (void)p;
+  chRegSetThreadName("safety");
+  while (TRUE) {
+    period ++;
+    if ((period > 50) && switch_off)
+    {
+      /*
+       * SPV1020 Turn off.
+       */
+      SPV1020SHUT_DOWN();
+      palClearPad(GPIOA, GPIOA_LED4);
+      switch_off = FALSE;
+      switch_on = TRUE;
+    }
+    chThdSleepMilliseconds(20);
+  }
+  return 0; /* Never executed.*/
 }
 
 void can_commInit(void){
@@ -288,6 +311,12 @@ void can_commInit(void){
 
   tx_id = tx_id < CAN_LC_MIN ? CAN_LC_MIN : tx_id;
   tx_id = tx_id > CAN_LC_MAX ? CAN_LC_MAX : tx_id;
+  
+  canStart(&CAND1, &cancfg);
+
+  chThdCreateStatic(can_rx_wa, sizeof(can_rx_wa), NORMALPRIO + 7, can_rx, NULL);
+  chThdCreateStatic(can_tx_wa, sizeof(can_tx_wa), NORMALPRIO + 7, can_tx, NULL);
+  chThdCreateStatic(safety_wa, sizeof(safety_wa), NORMALPRIO + 7, safety, NULL);
 
   txmsg.IDE = CAN_IDE_EXT;
   txmsg.RTR = CAN_RTR_DATA;
@@ -298,9 +327,7 @@ void can_commInit(void){
   rxmsg.DLC = 8;
 
   switch_on = TRUE;
-  
-  canStart(&CAND1, &cancfg);
+  switch_off = TRUE;
 
-  chThdCreateStatic(can_rx_wa, sizeof(can_rx_wa), NORMALPRIO + 7, can_rx, NULL);
-  chThdCreateStatic(can_tx_wa, sizeof(can_tx_wa), NORMALPRIO + 7, can_tx, NULL);
+  period = 0;
 }
